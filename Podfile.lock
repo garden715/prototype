@@ -1,0 +1,19 @@
+PODS:
+  - Alamofire (3.4.0)
+  - AlamofireImage (2.4.0):
+    - Alamofire (~> 3.3)
+  - HanekeSwift (0.10.1)
+
+DEPENDENCIES:
+  - Alamofire
+  - AlamofireImage
+  - HanekeSwift
+
+SPEC CHECKSUMS:
+  Alamofire: c19a627cefd6a95f840401c49ab1f124e07f54ee
+  AlamofireImage: 87408b652e0f5ae5fe364035f15aea8b9b24c77e
+  HanekeSwift: 08e47d3d0f2899ec58e5d257beba0de619aca9e8
+
+PODFILE CHECKSUM: 8def8f93bb24cd0d801a674fae6a17d3c03dff2f
+
+COCOAPODS: 1.0.0
