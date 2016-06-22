@@ -13,15 +13,25 @@ class PageDetailViewController: UIViewController {
     
     var urlSource = String()
     
+    var baseUrl = String()
+    var productPATH = String()
+    var productTYPE = String()
+    var selectedItem = GlacierScenic(name: "", price: "", photoURLString: "", product_id: 0)
+    var databasePath = NSString()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        urlSource = "http://\(baseUrl)\(productPATH)?\(productTYPE)=\(selectedItem.product_id)"
+
         print(urlSource)
+        
         loadWebPage()
         print("the end")
         // Do any additional setup after loading the view.
     }
     
-    override func didReceiveMemoryWarning() {
+        override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }

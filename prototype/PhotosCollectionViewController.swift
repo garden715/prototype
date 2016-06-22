@@ -55,7 +55,7 @@ class PhotosCollectionViewController: UICollectionViewController {
         print("serialization start")
         
         let siteurl = "http://52.38.132.199:3000/title/\(baseUrl)" //리뷰를 불러오는 명령
-        
+        print(siteurl)
         let nsurl = NSURL(string: siteurl)
         let data = NSData(contentsOfURL: nsurl!)
         
@@ -143,7 +143,12 @@ class PhotosCollectionViewController: UICollectionViewController {
         
         uvc.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
         
-        uvc.urlSource = "http://\(baseUrl)\(productPATH)?\(productTYPE)=\(PhotosDataManager.sharedManager.allPhotos(baseUrl)[indexPath.row].product_id)"
+        //uvc.urlSource = "http://\(baseUrl)\(productPATH)?\(productTYPE)=\(PhotosDataManager.sharedManager.allPhotos(baseUrl)[indexPath.row].product_id)"
+        uvc.baseUrl = baseUrl
+        uvc.productTYPE = productTYPE
+        uvc.productPATH = productPATH
+        
+        uvc.selectedItem = PhotosDataManager.sharedManager.allPhotos(baseUrl)[indexPath.row]
         print(uvc.urlSource)
         
         self.presentViewController(uvc, animated: true, completion: {})

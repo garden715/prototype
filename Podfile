@@ -8,6 +8,7 @@ use_frameworks!
 pod 'HanekeSwift'
 pod 'Alamofire'
 pod 'AlamofireImage'
+pod 'FMDB', '~> 2.6'
 end
 
 target 'prototypeTests' do

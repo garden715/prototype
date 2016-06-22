@@ -9,12 +9,14 @@
 import UIKit
 import Alamofire
 import AlamofireImage
+import FMDB
 
 class PhotosDataManager {
     
     //static let sharedManager = PhotosDataManager()
     static var sharedManager = PhotosDataManager()
     private var photos = [GlacierScenic]()
+    private var favoriteItems = [GlacierScenic]()
 
     let photoCache = AutoPurgingImageCache(
         memoryCapacity: 100 * 1024 * 1024,
@@ -26,7 +28,13 @@ class PhotosDataManager {
         if !photos.isEmpty { return photos }
         print(str)
         
+        // 로컬 디비를 가져올 스트링일 경우 로컬의 데이터를 불러와 그 포토를 넘김
+        if str=="favoriteItems" {
+            return favoriteItems
+        }
+        
         guard let data = NSData(contentsOfURL: NSURL(string:"http://52.38.132.199:3000/imgurl/\(str)")!) else { return photos }
+        
         do {
             
             let object = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments)
@@ -45,7 +53,8 @@ class PhotosDataManager {
         
         return photos
     }
-
+    
+    
     
     func dataPath() -> String {
         return NSBundle.mainBundle().pathForResource("GlacierScenics", ofType: "plist")!
