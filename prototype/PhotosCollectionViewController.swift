@@ -10,8 +10,6 @@ import UIKit
 
 private let PhotoCollectionViewCellIdentifier = "PhotoCell"
 
-
-
 class PhotosCollectionViewController: UICollectionViewController {
     
     //MARK: - View Controller Lifecycle

@@ -65,4 +65,7 @@ class PageDetailViewController: UIViewController {
     }
 
 
+    @IBAction func favoriteButton(sender: AnyObject) {
+        DatabaseManager.saveData(baseUrl, type: productTYPE, path: productPATH, product: selectedItem)
+    }
 }
