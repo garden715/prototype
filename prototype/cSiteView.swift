@@ -16,7 +16,7 @@ class cSiteView: UICollectionViewController {
     }
     
     var siteurl = ""
-    var productList = [product]()
+    var productList = [Product]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +33,7 @@ class cSiteView: UICollectionViewController {
             if let jsonDatalist = json as? [[String: AnyObject]] { //파싱을 시작한다.
                 for jsonData in jsonDatalist {
                     //작성자 이름을 가져와서 배열에 추가
-                    let site = product()
+                    let site = Product()
                     if let url = jsonData["img_thumb"] as? String {
                         
                         

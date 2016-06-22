@@ -17,7 +17,7 @@ class SecondViewController: UICollectionViewController {
     var baseUrl = ""
     var productTYPE = ""
     var productPATH = ""
-    var productList = [product]()
+    var productList = [Product]()
     
     override func viewDidLoad() {
         super.viewDidLoad()

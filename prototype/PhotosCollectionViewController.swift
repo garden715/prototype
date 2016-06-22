@@ -10,11 +10,7 @@ import UIKit
 
 private let PhotoCollectionViewCellIdentifier = "PhotoCell"
 
-class product {
-    var productName = ""
-    var price = ""
-    var imageUrl = ""
-}
+
 
 class PhotosCollectionViewController: UICollectionViewController {
     
@@ -22,7 +18,7 @@ class PhotosCollectionViewController: UICollectionViewController {
     var baseUrl = ""
     var productTYPE = ""
     var productPATH = ""
-     var productList = [product]()
+     var productList = [Product]()
     
     override func viewDidLoad() {
         super.viewDidLoad()

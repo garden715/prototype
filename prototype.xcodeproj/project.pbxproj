@@ -24,6 +24,7 @@
 		A7A2D0571CEF092E0055B7C0 /* prototypeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A2D0561CEF092E0055B7C0 /* prototypeUITests.swift */; };
 		A7A2D0651CEF0A020055B7C0 /* ShoppingMallCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A2D0641CEF0A020055B7C0 /* ShoppingMallCell.swift */; };
 		EB2745AA1D19920D00D7B14B /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2745A91D19920D00D7B14B /* DatabaseManager.swift */; };
+		EB37FECA1D1AB67200B95CAB /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB37FEC91D1AB67200B95CAB /* Product.swift */; };
 		EB3EA27F1CF33EA100C55203 /* PhotosCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3EA27E1CF33EA100C55203 /* PhotosCollectionViewController.swift */; };
 		EB3EA2841CF33EAA00C55203 /* GlacierScenic.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3EA2811CF33EAA00C55203 /* GlacierScenic.swift */; };
 		EB3EA2861CF33EAA00C55203 /* PhotosDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3EA2831CF33EAA00C55203 /* PhotosDataManager.swift */; };
@@ -347,6 +348,7 @@
 		D2CE24DF3118099852B820D7 /* Pods-prototypeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-prototypeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-prototypeTests/Pods-prototypeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DEB604468B89D666F7CE5295 /* Pods-prototypeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-prototypeUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-prototypeUITests/Pods-prototypeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		EB2745A91D19920D00D7B14B /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		EB37FEC91D1AB67200B95CAB /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		EB3EA25F1CF33E1000C55203 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Pods/../build/Debug-iphoneos/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
 		EB3EA2641CF33E2600C55203 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = "../Alamofire-master/Alamofire.xcodeproj"; sourceTree = "<group>"; };
 		EB3EA27E1CF33EA100C55203 /* PhotosCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewController.swift; sourceTree = "<group>"; };
@@ -564,6 +566,7 @@
 				EB3EA2811CF33EAA00C55203 /* GlacierScenic.swift */,
 				EB3EA2831CF33EAA00C55203 /* PhotosDataManager.swift */,
 				EB2745A91D19920D00D7B14B /* DatabaseManager.swift */,
+				EB37FEC91D1AB67200B95CAB /* Product.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -1150,6 +1153,7 @@
 				A7A2D0651CEF0A020055B7C0 /* ShoppingMallCell.swift in Sources */,
 				EB3EA28A1CF33EB500C55203 /* PhotoCollectionViewCell.swift in Sources */,
 				EB3EA27F1CF33EA100C55203 /* PhotosCollectionViewController.swift in Sources */,
+				EB37FECA1D1AB67200B95CAB /* Product.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
