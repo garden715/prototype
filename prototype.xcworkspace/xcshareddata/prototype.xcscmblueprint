@@ -1,14 +1,17 @@
 {
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "2C8580E16E2300AAD9CB916845D834B2A964555C",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
     "0DBA9C444A378B95C9F459D19E80CDE85E68FA7A" : 0,
+    "2C8580E16E2300AAD9CB916845D834B2A964555C" : 0,
     "C861FC00CEE0F6A6BE81FCFF6785FAA78C58EBB3" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "B52E1201-2BED-4287-A13F-445773D8F092",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
     "0DBA9C444A378B95C9F459D19E80CDE85E68FA7A" : "..\/Documents\/XCode\/ParallaxTableViewHeader",
+    "2C8580E16E2300AAD9CB916845D834B2A964555C" : "prototype\/",
     "C861FC00CEE0F6A6BE81FCFF6785FAA78C58EBB3" : "..\/Documents\/XCode\/SwiftyJSON"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "prototype",
@@ -19,6 +22,11 @@
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Vinodh-G\/ParallaxTableViewHeader.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "0DBA9C444A378B95C9F459D19E80CDE85E68FA7A"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/hanmarco\/prototype.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "2C8580E16E2300AAD9CB916845D834B2A964555C"
     },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/SwiftyJSON\/SwiftyJSON.git",
