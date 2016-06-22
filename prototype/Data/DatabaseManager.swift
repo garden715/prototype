@@ -10,7 +10,7 @@ import Foundation
 import FMDB
 
 class DatabaseManager {
-    
+    /*
     static func saveData(sender: AnyObject) {
         /*
          연락처 정보 저장
@@ -98,5 +98,5 @@ class DatabaseManager {
         }
         
     }
-    
+    */
 }
