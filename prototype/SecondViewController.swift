@@ -22,33 +22,11 @@ class SecondViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let myFirstButton = UIButton()
-        let myFirstButton_width:CGFloat  = 60
-        let myFirstButton_height:CGFloat  = 60
-        
-        let margin:CGFloat  = 30
-        
-        let navbarheight:CGFloat  = 64
-        
-        myFirstButton.setTitle("홈", forState: UIControlState.Normal)
-        myFirstButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
-        myFirstButton.backgroundColor = UIColor.yellowColor()
-        
-        myFirstButton.layer.shadowColor = UIColor.grayColor().CGColor
-        myFirstButton.layer.shadowOffset = CGSizeMake(2, 3.0);
-        myFirstButton.layer.shadowOpacity = 0.5;
-        myFirstButton.layer.shadowRadius = 1.0;
-        
-        myFirstButton.frame = CGRectMake(view.bounds.size.width-myFirstButton_width-margin, view.bounds.size.height-myFirstButton_height-navbarheight-margin, myFirstButton_width,myFirstButton_height )
-        myFirstButton.addTarget(self, action: #selector(self.pressed(_:)), forControlEvents: .TouchUpInside)
-        
-        //half of the width
-        myFirstButton.layer.cornerRadius = myFirstButton_width/2
-        
-        self.view.addSubview(myFirstButton)
         let favoriteButton = UIButton()
         let favoriteButton_width:CGFloat  = 60
         let favoriteButton_height:CGFloat  = 60
+        let navbarheight:CGFloat  = 64
+        let margin:CGFloat  = 30
         
         favoriteButton.setTitle("홈", forState: UIControlState.Normal)
         favoriteButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
@@ -67,9 +45,6 @@ class SecondViewController: UICollectionViewController {
         
         self.view.addSubview(favoriteButton)
 
-        
-        
-        
         
         registerCollectionViewCells()
     }
