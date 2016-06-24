@@ -35,6 +35,7 @@
 		EB3F90211D198578008A7430 /* FMDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB3F901D1D198578008A7430 /* FMDB.framework */; };
 		EB3F90221D198578008A7430 /* Haneke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB3F901E1D198578008A7430 /* Haneke.framework */; };
 		EB818E6D1D1D553700E3F0C8 /* ShoppingMallHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB818E6C1D1D553700E3F0C8 /* ShoppingMallHomeViewController.swift */; };
+		EB818E711D1D613800E3F0C8 /* HomePageInform.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB818E701D1D613800E3F0C8 /* HomePageInform.swift */; };
 		EBF840C51CF5833200C1DA78 /* PageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF840C41CF5833200C1DA78 /* PageDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -364,6 +365,7 @@
 		EB3F901D1D198578008A7430 /* FMDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FMDB.framework; path = "../../../Library/Developer/Xcode/DerivedData/prototype-djdcvazdpdoxfefahaugftzfwkfp/Build/Products/Debug-iphoneos/FMDB/FMDB.framework"; sourceTree = "<group>"; };
 		EB3F901E1D198578008A7430 /* Haneke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Haneke.framework; path = "../../../Library/Developer/Xcode/DerivedData/prototype-djdcvazdpdoxfefahaugftzfwkfp/Build/Products/Debug-iphoneos/HanekeSwift/Haneke.framework"; sourceTree = "<group>"; };
 		EB818E6C1D1D553700E3F0C8 /* ShoppingMallHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingMallHomeViewController.swift; sourceTree = "<group>"; };
+		EB818E701D1D613800E3F0C8 /* HomePageInform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageInform.swift; sourceTree = "<group>"; };
 		EBF840C41CF5833200C1DA78 /* PageDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageDetailViewController.swift; sourceTree = "<group>"; };
 		EBFF91B31D111E23005E1E2A /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = "../../../Downloads/SQLite.swift-master/SQLite.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -570,6 +572,7 @@
 				EB3EA2831CF33EAA00C55203 /* PhotosDataManager.swift */,
 				EB2745A91D19920D00D7B14B /* DatabaseManager.swift */,
 				EB37FEC91D1AB67200B95CAB /* Product.swift */,
+				EB818E701D1D613800E3F0C8 /* HomePageInform.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -1143,6 +1146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB818E711D1D613800E3F0C8 /* HomePageInform.swift in Sources */,
 				EBF840C51CF5833200C1DA78 /* PageDetailViewController.swift in Sources */,
 				A7A2D0391CEF092E0055B7C0 /* SecondViewController.swift in Sources */,
 				EB2745AA1D19920D00D7B14B /* DatabaseManager.swift in Sources */,

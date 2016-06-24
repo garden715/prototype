@@ -56,16 +56,15 @@ class DatabaseManager {
             // 검색 SQL을 작성할때도 textfield의 text를 바로 입력하게 되면 "Optional('')"와 같은 문자열이 text문자열을 감싸게 되므로 뒤에 !을 붙여 옵셔널이 되지 않도록 한다.
             let querySQL = "SELECT * FROM FAVORITE"
             
-            print("[Find from DB] SQL to find => \(querySQL)")
             let results:FMResultSet? = contactDB.executeQuery(querySQL, withArgumentsInArray: nil)
             
             while results?.next() == true {
-                let baseURL = results?.stringForColumn("BASEURL")
                 let name = results?.stringForColumn("NAME")
                 let price = results?.stringForColumn("PRICE")
                 let urlString = results?.stringForColumn("IMAGEURL")
                 let product_id = Int((results?.intForColumn("ID"))!)
                 let glacierScenic = GlacierScenic(name: name!, price: price!, photoURLString: urlString!, product_id: product_id)
+                
                 favoriteItems.append(glacierScenic)
             }
             contactDB.close()
@@ -73,6 +72,34 @@ class DatabaseManager {
             print("[6] Error : \(contactDB.lastErrorMessage())")
         }
         return favoriteItems
+    }
+    
+    static func findbaseUrl(g : GlacierScenic) -> HomepageInform  {
+        var homepageInform : HomepageInform?
+        /*
+         Name textfield로부터 입력받은 이름 문자열 기준으로 DB로부터 해당 데이터 존재하는지 탐색
+         */
+        let contactDB = FMDatabase(path: databasePath as String)
+        if contactDB.open() {
+            // 검색 SQL을 작성할때도 textfield의 text를 바로 입력하게 되면 "Optional('')"와 같은 문자열이 text문자열을 감싸게 되므로 뒤에 !을 붙여 옵셔널이 되지 않도록 한다.
+            let querySQL = "SELECT BASEURL, PRODUCTTYPE, PRODUCTPATH FROM FAVORITE WHERE ID = \(g.product_id)"
+            
+            let results:FMResultSet? = contactDB.executeQuery(querySQL, withArgumentsInArray: nil)
+            
+            if results?.next() == true {
+                let baseURL = results?.stringForColumn("BASEURL")
+                let proType = results?.stringForColumn("PRODUCTTYPE")
+                let proPath = results?.stringForColumn("PRODUCTPATH")
+
+                homepageInform = HomepageInform(baseUrl:baseURL!, proType:proType!, proPath:proPath!)
+            } else {
+                homepageInform = HomepageInform(baseUrl: "AA", proType: "AA", proPath: "AA")
+            }
+            contactDB.close()
+        }else{
+            print("[6] Error : \(contactDB.lastErrorMessage())")
+        }
+        return homepageInform!
     }
     
     static var databasePath = NSString()

@@ -137,13 +137,11 @@ class PhotosCollectionViewController: UICollectionViewController {
         
         uvc.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
         
-        //uvc.urlSource = "http://\(baseUrl)\(productPATH)?\(productTYPE)=\(PhotosDataManager.sharedManager.allPhotos(baseUrl)[indexPath.row].product_id)"
         uvc.baseUrl = baseUrl
         uvc.productTYPE = productTYPE
         uvc.productPATH = productPATH
         
         uvc.selectedItem = PhotosDataManager.sharedManager.allPhotos(baseUrl)[indexPath.row]
-        print(uvc.urlSource)
         
         self.presentViewController(uvc, animated: true, completion: {})
 

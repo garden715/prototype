@@ -44,7 +44,6 @@ class SecondViewController: UICollectionViewController {
         favoriteButton.layer.cornerRadius = favoriteButton_width/2
         
         self.view.addSubview(favoriteButton)
-
         
         registerCollectionViewCells()
     }
@@ -75,7 +74,6 @@ class SecondViewController: UICollectionViewController {
         } catch {
             print("error serializing JSON: \(error)")
         }
-        
         
         print("serialization complete")
 
@@ -145,8 +143,14 @@ class SecondViewController: UICollectionViewController {
         
         uvc.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
         
-        uvc.urlSource = "http://\(baseUrl)\(productPATH)?\(productTYPE)=\(PhotosDataManager.sharedManager.allPhotos(baseUrl)[indexPath.row].product_id)"
-        print(uvc.urlSource)
+        let photo = PhotosDataManager.sharedManager.allPhotos("favoriteItems")[indexPath.row]
+        let pageInform = DatabaseManager.findbaseUrl(photo)
+        
+        uvc.baseUrl = pageInform.baseUrl
+        uvc.productTYPE = pageInform.proType
+        uvc.productPATH = pageInform.proPath
+        
+        uvc.selectedItem = photo
         
         self.presentViewController(uvc, animated: true, completion: {})
         

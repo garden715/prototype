@@ -213,7 +213,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EQr-cT-mmk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2497.5" y="-735.5"/>
+            <point key="canvasLocation" x="2497.5" y="-721.5"/>
         </scene>
         <!--찜상품-->
         <scene sceneID="gp6-26-TaP">
@@ -300,7 +300,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="65B-71-Thh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2497.5" y="10.5"/>
+            <point key="canvasLocation" x="2497.5" y="58.5"/>
         </scene>
     </scenes>
     <resources>
