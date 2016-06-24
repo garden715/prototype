@@ -78,7 +78,7 @@ class PhotosCollectionViewController: UICollectionViewController {
     }
     
     func pressed(sender: UIButton!) {
-        let uvc = self.storyboard!.instantiateViewControllerWithIdentifier("PageDetail") as! PageDetailViewController
+        let uvc = self.storyboard!.instantiateViewControllerWithIdentifier("ShoppingMallDetail") as! ShoppingMallHomeViewController
         
         uvc.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
         

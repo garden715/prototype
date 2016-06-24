@@ -68,6 +68,9 @@ class SecondViewController: UICollectionViewController {
         self.view.addSubview(favoriteButton)
 
         
+        
+        
+        
         registerCollectionViewCells()
     }
     

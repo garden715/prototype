@@ -34,6 +34,7 @@
 		EB3F90201D198578008A7430 /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB3F901C1D198578008A7430 /* AlamofireImage.framework */; };
 		EB3F90211D198578008A7430 /* FMDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB3F901D1D198578008A7430 /* FMDB.framework */; };
 		EB3F90221D198578008A7430 /* Haneke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB3F901E1D198578008A7430 /* Haneke.framework */; };
+		EB818E6D1D1D553700E3F0C8 /* ShoppingMallHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB818E6C1D1D553700E3F0C8 /* ShoppingMallHomeViewController.swift */; };
 		EBF840C51CF5833200C1DA78 /* PageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF840C41CF5833200C1DA78 /* PageDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -362,6 +363,7 @@
 		EB3F901C1D198578008A7430 /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = "../../../Library/Developer/Xcode/DerivedData/prototype-djdcvazdpdoxfefahaugftzfwkfp/Build/Products/Debug-iphoneos/AlamofireImage/AlamofireImage.framework"; sourceTree = "<group>"; };
 		EB3F901D1D198578008A7430 /* FMDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FMDB.framework; path = "../../../Library/Developer/Xcode/DerivedData/prototype-djdcvazdpdoxfefahaugftzfwkfp/Build/Products/Debug-iphoneos/FMDB/FMDB.framework"; sourceTree = "<group>"; };
 		EB3F901E1D198578008A7430 /* Haneke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Haneke.framework; path = "../../../Library/Developer/Xcode/DerivedData/prototype-djdcvazdpdoxfefahaugftzfwkfp/Build/Products/Debug-iphoneos/HanekeSwift/Haneke.framework"; sourceTree = "<group>"; };
+		EB818E6C1D1D553700E3F0C8 /* ShoppingMallHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingMallHomeViewController.swift; sourceTree = "<group>"; };
 		EBF840C41CF5833200C1DA78 /* PageDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageDetailViewController.swift; sourceTree = "<group>"; };
 		EBFF91B31D111E23005E1E2A /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = "../../../Downloads/SQLite.swift-master/SQLite.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -463,6 +465,7 @@
 				A7A2D0361CEF092E0055B7C0 /* FirstViewController.swift */,
 				A784D56F1CEF49810045C401 /* cSiteView.swift */,
 				EBF840C41CF5833200C1DA78 /* PageDetailViewController.swift */,
+				EB818E6C1D1D553700E3F0C8 /* ShoppingMallHomeViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -1152,6 +1155,7 @@
 				EB3EA2841CF33EAA00C55203 /* GlacierScenic.swift in Sources */,
 				A7A2D0651CEF0A020055B7C0 /* ShoppingMallCell.swift in Sources */,
 				EB3EA28A1CF33EB500C55203 /* PhotoCollectionViewCell.swift in Sources */,
+				EB818E6D1D1D553700E3F0C8 /* ShoppingMallHomeViewController.swift in Sources */,
 				EB3EA27F1CF33EA100C55203 /* PhotosCollectionViewController.swift in Sources */,
 				EB37FECA1D1AB67200B95CAB /* Product.swift in Sources */,
 			);
