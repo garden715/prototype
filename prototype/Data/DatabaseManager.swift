@@ -10,7 +10,7 @@ import UIKit
 import Foundation
 import FMDB
 
-class DatabaseManager:UIViewController {
+class DatabaseManager {
     
     static func saveData(url: String, type : String, path: String, product: GlacierScenic) -> Int{
         var returnData = 0
