@@ -43,11 +43,14 @@ class SecondViewController: UICollectionViewController {
         //half of the width
         favoriteButton.layer.cornerRadius = favoriteButton_width/2
         
-        self.view.addSubview(favoriteButton)
+       // self.view.addSubview(favoriteButton)
         
         registerCollectionViewCells()
     }
     
+    override func reloadInputViews() {
+        reloadInputViews()
+    }
     func searchFromBaseurl(baseUrl : String) {
         print("serialization start")
         
@@ -77,6 +80,11 @@ class SecondViewController: UICollectionViewController {
         
         print("serialization complete")
 
+    }
+    
+    // 찜상품 삭제 후 두번째 탭을 보았을 때 collection view 데이터를 reload
+    override func viewWillAppear(animated: Bool) {
+        self.collectionView?.reloadData()
     }
     
     func store(sender: UIButton!) {
@@ -144,6 +152,7 @@ class SecondViewController: UICollectionViewController {
         uvc.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
         
         let photo = PhotosDataManager.sharedManager.allPhotos("favoriteItems")[indexPath.row]
+        print("세컨뷰:\(photo.baseUrl)")
         let pageInform = DatabaseManager.findbaseUrl(photo)
         
         uvc.baseUrl = pageInform.baseUrl
@@ -153,7 +162,6 @@ class SecondViewController: UICollectionViewController {
         uvc.selectedItem = photo
         
         self.presentViewController(uvc, animated: true, completion: {})
-        
     }
     
     

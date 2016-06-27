@@ -7,9 +7,6 @@
 //
 
 import UIKit
-import Haneke
-
-
 
 class Site : NSObject {
     var url : String = ""

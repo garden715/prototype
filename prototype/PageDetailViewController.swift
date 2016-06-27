@@ -16,14 +16,15 @@ class PageDetailViewController: UIViewController {
     var baseUrl = String()
     var productPATH = String()
     var productTYPE = String()
-    var selectedItem = GlacierScenic(name: "", price: "", photoURLString: "", product_id: 0)
+    var selectedItem = GlacierScenic(name: "", price: "", photoURLString: "", product_id: 0, baseUrl: "")
     var databasePath = NSString()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         urlSource = "http://\(baseUrl)\(productPATH)?\(productTYPE)=\(selectedItem.product_id)"
-
+        
         print(urlSource)
         
         loadWebPage()
@@ -31,7 +32,7 @@ class PageDetailViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-        override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
@@ -63,9 +64,25 @@ class PageDetailViewController: UIViewController {
     @IBAction func dismiss(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
-
-
+    
+    
     @IBAction func favoriteButton(sender: AnyObject) {
-        DatabaseManager.saveData(baseUrl, type: productTYPE, path: productPATH, product: selectedItem)
+        let alert = DatabaseManager.saveData(baseUrl, type: productTYPE, path: productPATH, product: selectedItem)
+        
+        let addController = UIAlertController(title: "알림", message: "추가되었습니다", preferredStyle: .Alert)
+        let removeController = UIAlertController(title: "알림", message: "삭제되었습니다.", preferredStyle: .Alert)
+        
+        if alert == 1 {
+            let addAction = UIAlertAction(title: "상품 추가", style: .Default) { (action) -> Void in
+                print("추가되었습니다.")}
+            addController.addAction(addAction)
+            self.presentViewController(addController, animated: true, completion: nil)
+        } else if alert == 2 {
+            let removeAction = UIAlertAction(title: "상품 삭제", style: .Default) { (action) -> Void in
+                print("삭제되었습니다.")}
+            removeController.addAction(removeAction)
+            DatabaseManager.findContact()
+            self.presentViewController(removeController, animated: true, completion: nil)
+        }
     }
 }

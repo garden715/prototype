@@ -14,4 +14,5 @@ struct GlacierScenic {
     let price: String
     let photoURLString: String
     let product_id: Int
+    let baseUrl : String
 }
