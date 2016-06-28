@@ -13,9 +13,11 @@ class ShoppingMallCell: UITableViewCell {
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var tags: UILabel!
     @IBOutlet weak var photo: UIImageView!
-
+    @IBOutlet weak var num: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         // Initialization code
     }
 
@@ -23,6 +25,14 @@ class ShoppingMallCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func rounded(){
+        photo.layer.borderWidth = 1.0
+        photo.layer.masksToBounds = false
+        photo.layer.borderColor = UIColor.whiteColor().CGColor
+        photo.layer.cornerRadius = photo.frame.size.width/2
+        photo.clipsToBounds = true
     }
 
 }

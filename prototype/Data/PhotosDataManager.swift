@@ -26,7 +26,7 @@ class PhotosDataManager {
     //MARK: - Read Data
     func allPhotos(str: String) -> [GlacierScenic] {
         if !photos.isEmpty { return photos }
-        print(str)
+//        print(str)
         
         // 로컬 디비를 가져올 스트링일 경우 로컬의 데이터를 불러와 그 포토를 넘김
         if str=="favoriteItems" {
@@ -47,12 +47,13 @@ class PhotosDataManager {
                 let product_id = photoInfo["site_product_id"] as! Int
                 let glacierScenic = GlacierScenic(name: name, price: price, photoURLString: urlString, product_id: product_id, baseUrl: baseurl)
                 photos.append(glacierScenic)
+                
+
             }
         }catch {
             print("에러 ")
         }
-        
-        return photos
+                return photos
     }
     
     

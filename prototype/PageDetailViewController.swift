@@ -11,6 +11,8 @@ import UIKit
 class PageDetailViewController: UIViewController {
     @IBOutlet weak var webView: UIWebView!
     
+    @IBOutlet weak var navTitle: UINavigationItem!
+    
     var urlSource = String()
     
     var baseUrl = String()
@@ -25,10 +27,23 @@ class PageDetailViewController: UIViewController {
         
         urlSource = "http://\(baseUrl)\(productPATH)?\(productTYPE)=\(selectedItem.product_id)"
         
-        print(urlSource)
+        //print(urlSource)
         
-        loadWebPage()
-        print("the end")
+        navTitle.title =  selectedItem.name
+        
+        
+        
+        
+            dispatch_async(dispatch_get_main_queue()) { // 2
+                
+                self.loadWebPage()
+
+            }
+    
+        
+        
+        
+//        print("the end")
         // Do any additional setup after loading the view.
     }
     
