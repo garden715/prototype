@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Haneke
 
 class ShoppingMallCell: UITableViewCell {
     @IBOutlet weak var name: UILabel!

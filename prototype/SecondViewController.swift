@@ -18,32 +18,48 @@ class SecondViewController: UICollectionViewController {
     var productTYPE = ""
     var productPATH = ""
     var productList = [Product]()
+    let emptyImage = UIImageView()
+    let emptyText = UITextView()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let favoriteButton = UIButton()
-        let favoriteButton_width:CGFloat  = 60
-        let favoriteButton_height:CGFloat  = 60
-        let navbarheight:CGFloat  = 64
-        let margin:CGFloat = 30
+        emptyImage.image = UIImage(named: "emptyBox")
+        emptyImage.translatesAutoresizingMaskIntoConstraints = false
+        emptyText.text = "찜상품이 없습니다.\n하트 버튼을 눌러 추가해 주세요."
+        emptyText.font = UIFont.systemFontOfSize(17,weight: UIFontWeightLight)
+        emptyText.editable = false
+        emptyText.textAlignment = NSTextAlignment.Center
+        emptyText.textColor = UIColor.darkGrayColor()
+        emptyText.translatesAutoresizingMaskIntoConstraints = false
         
-        favoriteButton.setTitle("홈", forState: UIControlState.Normal)
-        favoriteButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
-        favoriteButton.backgroundColor = UIColor.yellowColor()
+        view.addSubview(emptyImage)
+        view.addSubview(emptyText)
         
-        favoriteButton.layer.shadowColor = UIColor.grayColor().CGColor
-        favoriteButton.layer.shadowOffset = CGSizeMake(2, 3.0);
-        favoriteButton.layer.shadowOpacity = 0.5;
-        favoriteButton.layer.shadowRadius = 1.0;
+        let horizontalConstraint = NSLayoutConstraint(item: emptyImage, attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.CenterX, multiplier: 1, constant: 0)
+        view.addConstraint(horizontalConstraint)
         
-        favoriteButton.frame = CGRectMake(favoriteButton_width-margin, view.bounds.size.height-favoriteButton_height-navbarheight-margin, favoriteButton_width,favoriteButton_height )
-        favoriteButton.addTarget(self, action: #selector(self.store(_:)), forControlEvents: .TouchUpInside)
+        let horizontalConstraint2 = NSLayoutConstraint(item:emptyText, attribute:NSLayoutAttribute.CenterX, relatedBy:NSLayoutRelation.Equal, toItem:view, attribute:NSLayoutAttribute.CenterX, multiplier:1, constant:0)
+        view.addConstraint(horizontalConstraint2)
         
-        //half of the width
-        favoriteButton.layer.cornerRadius = favoriteButton_width/2
+        let verticalConstraint = NSLayoutConstraint(item: emptyImage, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.CenterY, multiplier: 1, constant: 0)
+        view.addConstraint(verticalConstraint)
         
-       // self.view.addSubview(favoriteButton)
+        let verticalConstraint2 = NSLayoutConstraint(item: emptyText, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.CenterY, multiplier: 1, constant: 20)
+        view.addConstraint(verticalConstraint2)
+        
+        let widthConstraint = NSLayoutConstraint(item: emptyImage, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: 100)
+        view.addConstraint(widthConstraint)
+        
+        let widthConstraint2 = NSLayoutConstraint(item: emptyText, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.Width, multiplier: 1, constant: 0)
+        view.addConstraint(widthConstraint2)
+        
+        let heightConstraint = NSLayoutConstraint(item: emptyImage, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: 100)
+        view.addConstraint(heightConstraint)
+        
+        let heightConstraint2 = NSLayoutConstraint(item: emptyText, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.Width, multiplier: 1, constant: 0)
+        view.addConstraint(heightConstraint2)
         
         registerCollectionViewCells()
     }
@@ -79,28 +95,21 @@ class SecondViewController: UICollectionViewController {
         }
         
         print("serialization complete")
-
+        
     }
     
     // 찜상품 삭제 후 두번째 탭을 보았을 때 collection view 데이터를 reload
     override func viewWillAppear(animated: Bool) {
         self.collectionView?.reloadData()
+        if whetherFavoriteIsEmpty() {
+            emptyImage.hidden = false
+            emptyText.hidden = false
+        } else {
+            emptyText.hidden = true
+            emptyImage.hidden = true
+        }
     }
     
-    func store(sender: UIButton!) {
-        
-    }
-    
-    func pressed(sender: UIButton!) {
-        let uvc = self.storyboard!.instantiateViewControllerWithIdentifier("PageDetail") as! PageDetailViewController
-        
-        uvc.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
-        
-        uvc.urlSource = "http://\(baseUrl)"
-        print(uvc.urlSource)
-        
-        self.presentViewController(uvc, animated: true, completion: {})
-    }
     
     override func viewDidDisappear(animated: Bool) {
         PhotosDataManager.sharedManager.destroycache()
@@ -164,6 +173,12 @@ class SecondViewController: UICollectionViewController {
         self.presentViewController(uvc, animated: true, completion: {})
     }
     
+    func whetherFavoriteIsEmpty() -> Bool{
+        if PhotosDataManager.sharedManager.allPhotos("favoriteItems").count == 0 {
+            return true
+        }
+        return false
+    }
     
 }
 //MARK: - CollectionView Flow Layout

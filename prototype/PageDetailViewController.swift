@@ -30,6 +30,8 @@ class PageDetailViewController: UIViewController {
         
         setNavigationItem()
         
+        navTitle.title =  selectedItem.name
+        
         dispatch_async(dispatch_get_main_queue()) { // 2
             
             self.loadWebPage()
@@ -54,17 +56,16 @@ class PageDetailViewController: UIViewController {
         let button: UIButton = UIButton.init(type: UIButtonType.Custom)
         //set image for button
         button.setImage(favoriteBackgroundImage, forState: UIControlState.Normal)
+        
         //add function for button
         button.addTarget(self, action:#selector(self.favoriteButton(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         //set frame
         button.frame = CGRectMake(0, 0, 22, 22)
         
         let barButton = UIBarButtonItem(customView: button)
-        
         //assign button to navigationbar
         navTitle.rightBarButtonItem = barButton
-        
-        navTitle.title =  selectedItem.name
+
 
     }
     

@@ -18,15 +18,11 @@ class ShoppingMallHomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        print(urlSource)
-        
-        dispatch_async(dispatch_get_main_queue()) { // 2
-            
+        dispatch_async(dispatch_get_main_queue()) {
             self.loadWebPage()
             
         }
         self.navTitle.title = name
-//        print("the end")
         
         // Do any additional setup after loading the view.
     }
@@ -62,4 +58,5 @@ class ShoppingMallHomeViewController: UIViewController {
     @IBAction func dismiss(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+
 }
