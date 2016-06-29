@@ -26,7 +26,7 @@ class SecondViewController: UICollectionViewController {
         let favoriteButton_width:CGFloat  = 60
         let favoriteButton_height:CGFloat  = 60
         let navbarheight:CGFloat  = 64
-        let margin:CGFloat  = 30
+        let margin:CGFloat = 30
         
         favoriteButton.setTitle("홈", forState: UIControlState.Normal)
         favoriteButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)

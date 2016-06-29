@@ -12,6 +12,7 @@ class PageDetailViewController: UIViewController {
     @IBOutlet weak var webView: UIWebView!
     
     @IBOutlet weak var navTitle: UINavigationItem!
+
     
     var urlSource = String()
     
@@ -20,31 +21,51 @@ class PageDetailViewController: UIViewController {
     var productTYPE = String()
     var selectedItem = GlacierScenic(name: "", price: "", photoURLString: "", product_id: 0, baseUrl: "")
     var databasePath = NSString()
-    
+    var isStored :Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         urlSource = "http://\(baseUrl)\(productPATH)?\(productTYPE)=\(selectedItem.product_id)"
         
-        //print(urlSource)
+        setNavigationItem()
+        
+        dispatch_async(dispatch_get_main_queue()) { // 2
+            
+            self.loadWebPage()
+        }
+        
+        //        print("the end")
+        // Do any additional setup after loading the view.
+    }
+    
+    func setNavigationItem() {
+        var favoriteBackgroundImage: UIImage
+        
+        isStored = DatabaseManager.isStored(baseUrl, product: selectedItem)
+        
+        // 없는 경우
+        if isStored == 1 {
+            favoriteBackgroundImage = UIImage(named: "heart-outline")!
+        } else {
+            favoriteBackgroundImage = UIImage(named: "heart")!
+        }
+        
+        let button: UIButton = UIButton.init(type: UIButtonType.Custom)
+        //set image for button
+        button.setImage(favoriteBackgroundImage, forState: UIControlState.Normal)
+        //add function for button
+        button.addTarget(self, action:#selector(self.favoriteButton(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+        //set frame
+        button.frame = CGRectMake(0, 0, 22, 22)
+        
+        let barButton = UIBarButtonItem(customView: button)
+        
+        //assign button to navigationbar
+        navTitle.rightBarButtonItem = barButton
         
         navTitle.title =  selectedItem.name
-        
-        
-        
-        
-            dispatch_async(dispatch_get_main_queue()) { // 2
-                
-                self.loadWebPage()
 
-            }
-    
-        
-        
-        
-//        print("the end")
-        // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {
@@ -81,7 +102,9 @@ class PageDetailViewController: UIViewController {
     }
     
     
-    @IBAction func favoriteButton(sender: AnyObject) {
+    func favoriteButton(sender: AnyObject) {
+        
+        
         let alert = DatabaseManager.saveData(baseUrl, type: productTYPE, path: productPATH, product: selectedItem)
         
         let addController = UIAlertController(title: "알림", message: "추가되었습니다", preferredStyle: .Alert)
@@ -99,5 +122,7 @@ class PageDetailViewController: UIViewController {
             DatabaseManager.findContact()
             self.presentViewController(removeController, animated: true, completion: nil)
         }
+        
+        setNavigationItem()
     }
 }

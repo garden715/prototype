@@ -26,7 +26,6 @@ class PhotosDataManager {
     //MARK: - Read Data
     func allPhotos(str: String) -> [GlacierScenic] {
         if !photos.isEmpty { return photos }
-//        print(str)
         
         // 로컬 디비를 가져올 스트링일 경우 로컬의 데이터를 불러와 그 포토를 넘김
         if str=="favoriteItems" {
@@ -36,16 +35,15 @@ class PhotosDataManager {
         guard let data = NSData(contentsOfURL: NSURL(string:"http://52.38.132.199:3000/imgurl/\(str)")!) else { return photos }
         
         do {
-            
             let object = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments)
             
             for photoInfo in (object as? [[String: AnyObject]])! {
                 let name = photoInfo["name"] as! String
-                let price = photoInfo["price"] as! String
+                let price = photoInfo["price"] as! Int
                 let urlString = photoInfo["img_thumb"] as! String
                 let baseurl = photoInfo["baseUrl"] as! String
                 let product_id = photoInfo["site_product_id"] as! Int
-                let glacierScenic = GlacierScenic(name: name, price: price, photoURLString: urlString, product_id: product_id, baseUrl: baseurl)
+                let glacierScenic = GlacierScenic(name: name, price: String(price), photoURLString: urlString, product_id: product_id, baseUrl: baseurl)
                 photos.append(glacierScenic)
                 
 

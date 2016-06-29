@@ -11,7 +11,7 @@ import UIKit
 private let PhotoCollectionViewCellIdentifier = "PhotoCell"
 
 class PhotosCollectionViewController: UICollectionViewController {
-    
+
     //MARK: - View Controller Lifecycle
     var baseUrl = ""
     var name = ""
@@ -20,6 +20,7 @@ class PhotosCollectionViewController: UICollectionViewController {
     var productList = [Product]()
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         let myFirstButton = UIButton()
         let myFirstButton_width:CGFloat  = 60
@@ -44,7 +45,6 @@ class PhotosCollectionViewController: UICollectionViewController {
         //half of the width
         myFirstButton.layer.cornerRadius = myFirstButton_width/2
         
-        self.view.addSubview(myFirstButton)
         registerCollectionViewCells()
         
     }
@@ -117,7 +117,6 @@ class PhotosCollectionViewController: UICollectionViewController {
 
     }
     
-
 }
 
 //MARK: - CollectionView Flow Layout

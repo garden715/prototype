@@ -9,7 +9,7 @@
         <!--스타일폭스-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModule="prototype" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="9pv-A4-QxB" customClass="FirstViewController" customModule="prototype" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="77" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="66y-LQ-vST" userLabel="tableView">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="77" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="66y-LQ-vST" userLabel="tableView">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -26,7 +26,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="77"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5bV-VQ-Gkh" id="zvm-ec-UeY">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="76.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="77"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Hq-Dx-3jI">
@@ -41,7 +41,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="num" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SRA-CF-XNT">
-                                                    <rect key="frame" x="12" y="27.5" width="35" height="20"/>
+                                                    <rect key="frame" x="12" y="28" width="35" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="35" id="R0D-52-ezU"/>
                                                         <constraint firstAttribute="height" constant="20" id="x2t-Nl-Awc"/>
@@ -95,6 +95,18 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="66y-LQ-vST" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" id="2JE-MU-9kc"/>
+                            <constraint firstItem="66y-LQ-vST" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="-20" id="PSl-3u-N6x"/>
+                            <constraint firstItem="66y-LQ-vST" firstAttribute="width" secondItem="tsR-hK-woN" secondAttribute="width" id="key-i3-iOt"/>
+                            <constraint firstItem="66y-LQ-vST" firstAttribute="bottom" secondItem="4ug-Mw-9AY" secondAttribute="top" id="qU3-Qp-g6m"/>
+                            <constraint firstItem="66y-LQ-vST" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="wik-ej-MUe"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="PSl-3u-N6x"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="스타일폭스" id="R3F-KB-wAp"/>
                     <connections>
@@ -108,7 +120,7 @@
         <!--Photos Collection View Controller-->
         <scene sceneID="wLi-Kx-lw2">
             <objects>
-                <collectionViewController modalPresentationStyle="currentContext" hidesBottomBarWhenPushed="YES" id="ZIZ-Pu-pex" customClass="PhotosCollectionViewController" customModule="prototype" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="currentContext" id="ZIZ-Pu-pex" customClass="PhotosCollectionViewController" customModule="prototype" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Jpz-s6-vqC">
                         <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -189,12 +201,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MBw-hl-wui">
-                                <rect key="frame" x="-4" y="64" width="383" height="603"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
-                            </webView>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mVN-pf-ylY">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mVN-pf-ylY">
+                                <rect key="frame" x="-4" y="20" width="383" height="44"/>
                                 <color key="tintColor" red="1" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <textAttributes key="titleTextAttributes">
                                     <color key="textColor" red="1" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -206,20 +214,23 @@
                                                 <action selector="dismiss:" destination="HCw-rw-17A" id="xzh-D9-bSC"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" tag="-1" image="heart" id="c4i-R6-kQN">
-                                            <connections>
-                                                <action selector="favoriteButton:" destination="HCw-rw-17A" id="IGN-nL-piT"/>
-                                            </connections>
-                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MBw-hl-wui">
+                                <rect key="frame" x="-4" y="64" width="383" height="603"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="fgR-o5-Rig" firstAttribute="top" secondItem="MBw-hl-wui" secondAttribute="bottom" id="4zA-nn-7Hx"/>
+                            <constraint firstItem="mVN-pf-ylY" firstAttribute="leading" secondItem="6Ih-Cq-ppl" secondAttribute="leadingMargin" constant="-20" id="9oO-Q4-7yu"/>
                             <constraint firstItem="MBw-hl-wui" firstAttribute="top" secondItem="Y0x-5x-UFg" secondAttribute="bottom" constant="44" id="F8P-Tg-h6C"/>
+                            <constraint firstItem="mVN-pf-ylY" firstAttribute="centerX" secondItem="6Ih-Cq-ppl" secondAttribute="centerX" id="QZ2-Nw-mLv"/>
                             <constraint firstAttribute="trailingMargin" secondItem="MBw-hl-wui" secondAttribute="trailing" constant="-20" id="Xsl-AO-tih"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mVN-pf-ylY" secondAttribute="trailing" constant="-20" id="fD0-46-JvY"/>
+                            <constraint firstItem="mVN-pf-ylY" firstAttribute="top" secondItem="Y0x-5x-UFg" secondAttribute="bottom" id="nTM-lT-y2i"/>
                             <constraint firstItem="MBw-hl-wui" firstAttribute="leading" secondItem="6Ih-Cq-ppl" secondAttribute="leadingMargin" constant="-20" id="ySK-wz-iY9"/>
                         </constraints>
                     </view>
@@ -329,7 +340,6 @@
     </scenes>
     <resources>
         <image name="first" width="30" height="30"/>
-        <image name="heart" width="22" height="22"/>
         <image name="second" width="30" height="30"/>
     </resources>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

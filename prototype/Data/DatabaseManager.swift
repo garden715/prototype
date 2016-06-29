@@ -11,6 +11,23 @@ import Foundation
 import FMDB
 
 class DatabaseManager {
+
+    static func isStored(url: String, product: GlacierScenic) -> Int {
+        let contactDB = FMDatabase(path: databasePath as String)
+        if contactDB.open() {
+            
+            let querySQL = "SELECT BASEURL, PRODUCTTYPE, PRODUCTPATH FROM FAVORITE WHERE BASEURL = '\(url)' and ID = \(product.product_id)"
+            
+            let results = contactDB.executeQuery(querySQL, withArgumentsInArray: nil)
+            
+            if results.next() == false {
+                return 1
+            } else {
+                return 2
+            }
+        }
+        return 0
+    }
     
     static func saveData(url: String, type : String, path: String, product: GlacierScenic) -> Int{
         var returnData = 0
@@ -50,8 +67,6 @@ class DatabaseManager {
                     print("[4] Success")
                     returnData = 1
                 }
-                
-                
             }
             // 찜상품에서 삭제
             else {

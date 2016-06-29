@@ -694,7 +694,7 @@
 				TargetAttributes = {
 					A7A2D0301CEF092E0055B7C0 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 9VCV3C8R3A;
+						DevelopmentTeam = S9GHSK5M7V;
 					};
 					A7A2D0461CEF092E0055B7C0 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -1332,7 +1332,7 @@
 				);
 				INFOPLIST_FILE = prototype/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ZagZig2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ZagZig;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -1351,7 +1351,7 @@
 				);
 				INFOPLIST_FILE = prototype/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ZagZig2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ZagZig;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

@@ -14,11 +14,11 @@ class Site : NSObject {
     var imgurl :String = "https://www.dropbox.com/s/5guvmulrpzyefbu/9466_shop1_145706.gif?dl=1"
     var productTYPE : String = ""
     var productPATH : String = ""
-
+    
 }
 
 class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
-
+    
     @IBOutlet weak var ShoppingMallsTableView: UITableView!
     
     // MARK : Properties
@@ -39,7 +39,7 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         
         let nsurl = NSURL(string: loadurl)
         let data = NSData(contentsOfURL: nsurl!)
-
+        
         do {
             let json = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments)
             
@@ -66,21 +66,20 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         } catch {
             print("error serializing JSON: \(error)")
         }
-//        print("serialization complete")
+        //        print("serialization complete")
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return shoppinMalls.count
     }
     
-    
-       func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cellIdentifier = "ShoppingMallCell"
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! ShoppingMallCell
         
@@ -98,10 +97,9 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
         if(segue.identifier=="siteView")
         {
-            
-            
             let cell = sender as! UITableViewCell
             
             let path = self.ShoppingMallsTableView.indexPathForCell(cell)
@@ -114,10 +112,8 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
             (segue.destinationViewController as? PhotosCollectionViewController)?.productTYPE = param.productTYPE
             (segue.destinationViewController as? PhotosCollectionViewController)?.title = param.name
             (segue.destinationViewController as? PhotosCollectionViewController)?.name = param.name
-            
-        
-//            (segue.destinationViewController as? PhotosCollectionViewController)?.siteurl = "09women.com"
+            //            (segue.destinationViewController as? PhotosCollectionViewController)?.siteurl = "09women.com"
         }
     }
-
+    
 }

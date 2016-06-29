@@ -13,15 +13,12 @@ class ShoppingMallHomeViewController: UIViewController {
     
     @IBOutlet weak var navTitle: UINavigationItem!
     
-    
     var urlSource = String()
     var name = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         
 //        print(urlSource)
-        
-        
         
         dispatch_async(dispatch_get_main_queue()) { // 2
             
