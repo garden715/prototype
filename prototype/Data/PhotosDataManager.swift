@@ -25,12 +25,12 @@ class PhotosDataManager {
 
     //MARK: - Read Data
     func allPhotos(str: String) -> [GlacierScenic] {
-        if !photos.isEmpty { return photos }
-        
         // 로컬 디비를 가져올 스트링일 경우 로컬의 데이터를 불러와 그 포토를 넘김
         if str=="favoriteItems" {
             return DatabaseManager.findContact()
         }
+        
+        if !photos.isEmpty { return photos }
         
         guard let data = NSData(contentsOfURL: NSURL(string:"http://52.38.132.199:3000/imgurl/\(str)")!) else { return photos }
         
