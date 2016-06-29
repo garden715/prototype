@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8150" systemVersion="15A204g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8122"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -13,15 +15,53 @@
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fox" translatesAutoresizingMaskIntoConstraints="NO" id="qxc-iv-Xa4">
+                                <rect key="frame" x="132" y="241" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" id="5dK-sb-luQ"/>
+                                    <constraint firstAttribute="width" constant="150" id="Xrb-AB-aXe"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="j5t-DB-lyD"/>
+                                    <constraint firstAttribute="width" secondItem="qxc-iv-Xa4" secondAttribute="height" multiplier="1:1" id="kkJ-nc-iIW"/>
+                                    <constraint firstAttribute="height" constant="150" id="xeA-Gt-vlI"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="스타일폭스" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qMO-rD-TrA">
+                                <rect key="frame" x="98" y="409" width="219" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Copyright(c)2016 All rights reserved by ProBrain" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Peh-ny-jD1">
+                                <rect key="frame" x="22" y="695" width="370" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.99215686274509807" green="0.51372549019607838" blue="0.031372549019607843" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qxc-iv-Xa4" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-52" id="4Ej-eV-9mA"/>
+                            <constraint firstItem="qMO-rD-TrA" firstAttribute="centerX" secondItem="qxc-iv-Xa4" secondAttribute="centerX" id="8Od-s2-Apw"/>
+                            <constraint firstItem="Peh-ny-jD1" firstAttribute="centerX" secondItem="qMO-rD-TrA" secondAttribute="centerX" id="9Ot-vS-hpU"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="Peh-ny-jD1" secondAttribute="bottom" constant="20" id="Cx4-DQ-0Nm"/>
+                            <constraint firstItem="qMO-rD-TrA" firstAttribute="top" secondItem="qxc-iv-Xa4" secondAttribute="bottom" constant="18" id="I76-q6-g7g"/>
+                            <constraint firstItem="qxc-iv-Xa4" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Twb-fu-7VI"/>
+                            <constraint firstItem="qMO-rD-TrA" firstAttribute="trailing" secondItem="qxc-iv-Xa4" secondAttribute="trailing" id="XcD-Dg-fKg"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="Peh-ny-jD1" secondAttribute="bottom" constant="30" id="ezJ-n6-Ecf"/>
+                            <constraint firstItem="qxc-iv-Xa4" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="132" id="oGb-iE-t9G"/>
+                        </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="-22" y="321"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="fox" width="300" height="300"/>
+    </resources>
 </document>

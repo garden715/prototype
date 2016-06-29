@@ -11,15 +11,25 @@ import UIKit
 class ShoppingMallHomeViewController: UIViewController {
     @IBOutlet weak var mallWebView: UIWebView!
     
-    var urlSource = String()
+    @IBOutlet weak var navTitle: UINavigationItem!
     
+    
+    var urlSource = String()
+    var name = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(urlSource)
+//        print(urlSource)
         
-        loadWebPage()
-        print("the end")
+        
+        
+        dispatch_async(dispatch_get_main_queue()) { // 2
+            
+            self.loadWebPage()
+            
+        }
+        self.navTitle.title = name
+//        print("the end")
         
         // Do any additional setup after loading the view.
     }
