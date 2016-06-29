@@ -9,6 +9,7 @@
 import UIKit
 
 @UIApplicationMain
+
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
@@ -16,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         DatabaseManager.loadDatabase()
-        
+        UITabBar.appearance().tintColor = UIColor(red: 1, green: 0.3, blue: 0, alpha: 1)
         return true
         
     }
