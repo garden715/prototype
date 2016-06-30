@@ -9,7 +9,6 @@
 import UIKit
 
 struct GlacierScenic {
-
     let name: String
     let price: String
     let photoURLString: String
