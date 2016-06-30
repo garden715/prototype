@@ -26,7 +26,7 @@ class PhotoCollectionViewCell: UICollectionViewCell {
     }
 
     func reset() {
-        imageView.image = nil
+        imageView.image = UIImage(named: "placeholderImage")
         request?.cancel()
         captionLabel.hidden = true
         priceLabel.hidden = true
