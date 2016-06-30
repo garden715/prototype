@@ -46,12 +46,11 @@ class PhotosDataManager {
                 let glacierScenic = GlacierScenic(name: name, price: String(price), photoURLString: urlString, product_id: product_id, baseUrl: baseurl)
                 photos.append(glacierScenic)
                 
-
             }
         }catch {
             print("에러 ")
         }
-                return photos
+        return photos
     }
     
     
@@ -79,6 +78,7 @@ class PhotosDataManager {
     func cachedImage(urlString: String) -> Image? {
         return photoCache.imageWithIdentifier(urlString)
     }
+    
     func destroycache(){
         photos = [GlacierScenic]()
     }

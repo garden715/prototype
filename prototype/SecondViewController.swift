@@ -20,47 +20,12 @@ class SecondViewController: UICollectionViewController {
     var productList = [Product]()
     let emptyImage = UIImageView()
     let emptyText = UITextView()
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        emptyImage.image = UIImage(named: "emptyBox")
-        emptyImage.translatesAutoresizingMaskIntoConstraints = false
-        emptyText.text = "찜상품이 없습니다.\n하트 버튼을 눌러 추가해 주세요."
-        emptyText.font = UIFont.systemFontOfSize(17,weight: UIFontWeightLight)
-        emptyText.editable = false
-        emptyText.textAlignment = NSTextAlignment.Center
-        emptyText.textColor = UIColor.darkGrayColor()
-        emptyText.translatesAutoresizingMaskIntoConstraints = false
-        
-        view.addSubview(emptyImage)
-        view.addSubview(emptyText)
-        
-        let horizontalConstraint = NSLayoutConstraint(item: emptyImage, attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.CenterX, multiplier: 1, constant: 0)
-        view.addConstraint(horizontalConstraint)
-        
-        let horizontalConstraint2 = NSLayoutConstraint(item:emptyText, attribute:NSLayoutAttribute.CenterX, relatedBy:NSLayoutRelation.Equal, toItem:view, attribute:NSLayoutAttribute.CenterX, multiplier:1, constant:0)
-        view.addConstraint(horizontalConstraint2)
-        
-        let verticalConstraint = NSLayoutConstraint(item: emptyImage, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.CenterY, multiplier: 1, constant: 0)
-        view.addConstraint(verticalConstraint)
-        
-        let verticalConstraint2 = NSLayoutConstraint(item: emptyText, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.CenterY, multiplier: 1, constant: 20)
-        view.addConstraint(verticalConstraint2)
-        
-        let widthConstraint = NSLayoutConstraint(item: emptyImage, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: 100)
-        view.addConstraint(widthConstraint)
-        
-        let widthConstraint2 = NSLayoutConstraint(item: emptyText, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.Width, multiplier: 1, constant: 0)
-        view.addConstraint(widthConstraint2)
-        
-        let heightConstraint = NSLayoutConstraint(item: emptyImage, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: 100)
-        view.addConstraint(heightConstraint)
-        
-        let heightConstraint2 = NSLayoutConstraint(item: emptyText, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.Width, multiplier: 1, constant: 0)
-        view.addConstraint(heightConstraint2)
-        
+        addImageAndTextView()
         registerCollectionViewCells()
     }
     
@@ -145,6 +110,7 @@ class SecondViewController: UICollectionViewController {
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(PhotoCollectionViewCellIdentifier, forIndexPath: indexPath) as! PhotoCollectionViewCell
         cell.configure(glacierScenicAtIndex(indexPath))
+        cell.layer.cornerRadius = 10
         return cell
     }
     
@@ -180,6 +146,45 @@ class SecondViewController: UICollectionViewController {
         return false
     }
     
+    func addImageAndTextView(){
+        emptyImage.image = UIImage(named: "emptyBox")
+        emptyImage.translatesAutoresizingMaskIntoConstraints = false
+        emptyText.text = "찜상품이 없습니다.\n하트 버튼을 눌러 추가해 주세요."
+        emptyText.font = UIFont.systemFontOfSize(17,weight: UIFontWeightLight)
+        emptyText.editable = false
+        emptyText.textAlignment = NSTextAlignment.Center
+        emptyText.textColor = UIColor.darkGrayColor()
+        emptyText.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(emptyImage)
+        view.addSubview(emptyText)
+        
+        let horizontalConstraint = NSLayoutConstraint(item: emptyImage, attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.CenterX, multiplier: 1, constant: 0)
+        view.addConstraint(horizontalConstraint)
+        
+        let horizontalConstraint2 = NSLayoutConstraint(item:emptyText, attribute:NSLayoutAttribute.CenterX, relatedBy:NSLayoutRelation.Equal, toItem:view, attribute:NSLayoutAttribute.CenterX, multiplier:1, constant:0)
+        view.addConstraint(horizontalConstraint2)
+        
+        let verticalConstraint = NSLayoutConstraint(item: emptyImage, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.CenterY, multiplier: 1, constant: 0)
+        view.addConstraint(verticalConstraint)
+        
+        let verticalConstraint2 = NSLayoutConstraint(item: emptyText, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.CenterY, multiplier: 1, constant: 20)
+        view.addConstraint(verticalConstraint2)
+        
+        let widthConstraint = NSLayoutConstraint(item: emptyImage, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: 100)
+        view.addConstraint(widthConstraint)
+        
+        let widthConstraint2 = NSLayoutConstraint(item: emptyText, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.Width, multiplier: 1, constant: 0)
+        view.addConstraint(widthConstraint2)
+        
+        let heightConstraint = NSLayoutConstraint(item: emptyImage, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: 100)
+        view.addConstraint(heightConstraint)
+        
+        let heightConstraint2 = NSLayoutConstraint(item: emptyText, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.Width, multiplier: 1, constant: 0)
+        view.addConstraint(heightConstraint2)
+        
+    }
+    
 }
 //MARK: - CollectionView Flow Layout
 
@@ -188,7 +193,7 @@ extension SecondViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         let spacing: CGFloat = 0
         let itemWidth = (view.bounds.size.width / 3.2) - (spacing / 2)
-        let itemHeight = (view.bounds.size.width / 2) - (spacing / 2)
+        let itemHeight = (view.bounds.size.width / 2.2) - (spacing / 2)
         return CGSize(width: itemWidth, height: itemHeight)
     }
     

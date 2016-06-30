@@ -18,35 +18,54 @@ class PhotosCollectionViewController: UICollectionViewController {
     var productTYPE = ""
     var productPATH = ""
     var productList = [Product]()
+    let emptyImage = UIImageView()
+    let emptyText = UITextView()
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         let myFirstButton = UIButton()
-        let myFirstButton_width:CGFloat  = 60
-        let myFirstButton_height:CGFloat  = 60
+        let myFirstButton_width:CGFloat  = 50
+        let myFirstButton_height:CGFloat  = 50
         
-        let margin:CGFloat  = 30
+        let margin:CGFloat = 15
         
         let navbarheight:CGFloat  = 64
         
         myFirstButton.setTitle("홈", forState: UIControlState.Normal)
-        myFirstButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
-        myFirstButton.backgroundColor = UIColor.yellowColor()
-        
+        myFirstButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        myFirstButton.backgroundColor = UIColor.init(red: 1, green: 0.3, blue: 0, alpha: 0.8)
         myFirstButton.layer.shadowColor = UIColor.grayColor().CGColor
         myFirstButton.layer.shadowOffset = CGSizeMake(2, 3.0);
         myFirstButton.layer.shadowOpacity = 0.5;
         myFirstButton.layer.shadowRadius = 1.0;
         
-        myFirstButton.frame = CGRectMake(view.bounds.size.width-myFirstButton_width-margin, view.bounds.size.height-myFirstButton_height-navbarheight-margin, myFirstButton_width,myFirstButton_height )
+        myFirstButton.frame = CGRectMake(view.bounds.size.width-myFirstButton_width-margin, view.bounds.size.height-myFirstButton_height-navbarheight-margin-(self.tabBarController?.tabBar.frame.height)!, myFirstButton_width,myFirstButton_height )
         myFirstButton.addTarget(self, action: #selector(self.pressed(_:)), forControlEvents: .TouchUpInside)
         
         //half of the width
         myFirstButton.layer.cornerRadius = myFirstButton_width/2
         
+        view.addSubview(myFirstButton)
+        
+        addImageAndTextView()
         registerCollectionViewCells()
         
+    }
+    func whetherFavoriteIsEmpty() -> Bool{
+        if PhotosDataManager.sharedManager.allPhotos(baseUrl).count == 0 {
+            return true
+        }
+        return false
+    }
+    override func viewWillAppear(animated: Bool) {
+        if whetherFavoriteIsEmpty() {
+            emptyImage.hidden = false
+            emptyText.hidden = false
+        } else {
+            emptyText.hidden = true
+            emptyImage.hidden = true
+        }
     }
     
     func pressed(sender: UIButton!) {
@@ -94,6 +113,7 @@ class PhotosCollectionViewController: UICollectionViewController {
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(PhotoCollectionViewCellIdentifier, forIndexPath: indexPath) as! PhotoCollectionViewCell
         cell.configure(glacierScenicAtIndex(indexPath))
+        cell.layer.cornerRadius = 10
         return cell
     }
 
@@ -117,6 +137,47 @@ class PhotosCollectionViewController: UICollectionViewController {
 
     }
     
+    
+    func addImageAndTextView(){
+        emptyImage.image = UIImage(named: "emptyBox")
+        emptyImage.translatesAutoresizingMaskIntoConstraints = false
+        emptyText.text = "등록된 상품이 없습니다.\n조금만 기다려 주세요."
+        emptyText.font = UIFont.systemFontOfSize(17,weight: UIFontWeightLight)
+        emptyText.editable = false
+        emptyText.textAlignment = NSTextAlignment.Center
+        emptyText.textColor = UIColor.darkGrayColor()
+        emptyText.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(emptyImage)
+        view.addSubview(emptyText)
+        
+        let horizontalConstraint = NSLayoutConstraint(item: emptyImage, attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.CenterX, multiplier: 1, constant: 0)
+        view.addConstraint(horizontalConstraint)
+        
+        let horizontalConstraint2 = NSLayoutConstraint(item:emptyText, attribute:NSLayoutAttribute.CenterX, relatedBy:NSLayoutRelation.Equal, toItem:view, attribute:NSLayoutAttribute.CenterX, multiplier:1, constant:0)
+        view.addConstraint(horizontalConstraint2)
+        
+        let verticalConstraint = NSLayoutConstraint(item: emptyImage, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.CenterY, multiplier: 1, constant: 0)
+        view.addConstraint(verticalConstraint)
+        
+        let verticalConstraint2 = NSLayoutConstraint(item: emptyText, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.CenterY, multiplier: 1, constant: 20)
+        view.addConstraint(verticalConstraint2)
+        
+        let widthConstraint = NSLayoutConstraint(item: emptyImage, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: 100)
+        view.addConstraint(widthConstraint)
+        
+        let widthConstraint2 = NSLayoutConstraint(item: emptyText, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.Width, multiplier: 1, constant: 0)
+        view.addConstraint(widthConstraint2)
+        
+        let heightConstraint = NSLayoutConstraint(item: emptyImage, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: 100)
+        view.addConstraint(heightConstraint)
+        
+        let heightConstraint2 = NSLayoutConstraint(item: emptyText, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.Width, multiplier: 1, constant: 0)
+        view.addConstraint(heightConstraint2)
+        
+    }
+
+    
 }
 
 //MARK: - CollectionView Flow Layout
@@ -126,7 +187,7 @@ extension PhotosCollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         let spacing: CGFloat = 0
         let itemWidth = (view.bounds.size.width / 3.2) - (spacing / 2)
-        let itemHeight = (view.bounds.size.width / 2) - (spacing / 2)
+        let itemHeight = (view.bounds.size.width / 2.2) - (spacing / 2)
         return CGSize(width: itemWidth, height: itemHeight)
     }
     
