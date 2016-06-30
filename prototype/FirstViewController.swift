@@ -31,7 +31,6 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         loadsiteList(sitelistCallUrl)
         
     }
@@ -67,13 +66,16 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         } catch {
             print("error serializing JSON: \(error)")
         }
-        //        print("serialization complete")
         
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        PhotosDataManager.sharedManager.destroycache()
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

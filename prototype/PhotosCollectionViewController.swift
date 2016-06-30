@@ -20,6 +20,7 @@ class PhotosCollectionViewController: UICollectionViewController {
     var productList = [Product]()
     let emptyImage = UIImageView()
     let emptyText = UITextView()
+    var pageNumber = 1
     
     override func viewDidLoad() {
         
@@ -53,7 +54,7 @@ class PhotosCollectionViewController: UICollectionViewController {
         
     }
     func whetherFavoriteIsEmpty() -> Bool{
-        if PhotosDataManager.sharedManager.allPhotos(baseUrl).count == 0 {
+        if PhotosDataManager.sharedManager.allPhotos(baseUrl, pageNumber: pageNumber).count == 0 {
             return true
         }
         return false
@@ -76,10 +77,6 @@ class PhotosCollectionViewController: UICollectionViewController {
         uvc.urlSource = "http://\(self.baseUrl)"
         uvc.name = self.name
         self.presentViewController(uvc, animated: true, completion: {})
-    }
-    
-    override func viewDidDisappear(animated: Bool) {
-        PhotosDataManager.sharedManager.destroycache()
     }
     
     override func prefersStatusBarHidden() -> Bool {
@@ -107,7 +104,7 @@ class PhotosCollectionViewController: UICollectionViewController {
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return PhotosDataManager.sharedManager.allPhotos(baseUrl).count
+        return PhotosDataManager.sharedManager.allPhotos(baseUrl, pageNumber: pageNumber).count
     }
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -119,7 +116,7 @@ class PhotosCollectionViewController: UICollectionViewController {
 
     func glacierScenicAtIndex(indexPath: NSIndexPath) -> GlacierScenic {
         
-        let photos = PhotosDataManager.sharedManager.allPhotos(baseUrl)
+        let photos = PhotosDataManager.sharedManager.allPhotos(baseUrl, pageNumber: pageNumber)
         return photos[indexPath.row]
     }
     
@@ -129,7 +126,7 @@ class PhotosCollectionViewController: UICollectionViewController {
         
         uvc.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
         
-        uvc.selectedItem = PhotosDataManager.sharedManager.allPhotos(baseUrl)[indexPath.row]
+        uvc.selectedItem = PhotosDataManager.sharedManager.allPhotos(baseUrl, pageNumber: pageNumber)[indexPath.row]
         uvc.baseUrl = baseUrl
         uvc.productTYPE = productTYPE
         uvc.productPATH = productPATH
@@ -176,7 +173,21 @@ class PhotosCollectionViewController: UICollectionViewController {
         view.addConstraint(heightConstraint2)
         
     }
-
+    
+    override func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+        if (indexPath.row == PhotosDataManager.sharedManager.allPhotos(baseUrl, pageNumber: pageNumber).count-1) {
+            pageNumber+=1
+            print("\t\(pageNumber)")
+            
+            PhotosDataManager.sharedManager.allPhotos(baseUrl, pageNumber: pageNumber)
+            
+            dispatch_async(dispatch_get_main_queue()) {
+                
+                collectionView.reloadData()
+            }
+        }
+        //print(indexPath.row)
+    }
     
 }
 

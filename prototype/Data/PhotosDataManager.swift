@@ -17,6 +17,7 @@ class PhotosDataManager {
     static var sharedManager = PhotosDataManager()
     private var photos = [GlacierScenic]()
     private var favoriteItems = [GlacierScenic]()
+    private var pageNum = 0
 
     let photoCache = AutoPurgingImageCache(
         memoryCapacity: 100 * 1024 * 1024,
@@ -24,15 +25,17 @@ class PhotosDataManager {
     )
 
     //MARK: - Read Data
-    func allPhotos(str: String) -> [GlacierScenic] {
+    func allPhotos(str: String, pageNumber: Int) -> [GlacierScenic] {
         // 로컬 디비를 가져올 스트링일 경우 로컬의 데이터를 불러와 그 포토를 넘김
         if str=="favoriteItems" {
             return DatabaseManager.findContact()
         }
+        print(photos.count)
+        if (!photos.isEmpty && pageNum == pageNumber){ return photos }
         
-        if !photos.isEmpty { return photos }
+        pageNum = pageNumber;
         
-        guard let data = NSData(contentsOfURL: NSURL(string:"http://52.38.132.199:3000/imgurl/\(str)")!) else { return photos }
+        guard let data = NSData(contentsOfURL: NSURL(string:"http://52.38.132.199:3000/imgurl/\(str)/\(pageNumber)")!) else { return photos }
         
         do {
             let object = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments)
@@ -81,6 +84,7 @@ class PhotosDataManager {
     
     func destroycache(){
         photos = [GlacierScenic]()
+        pageNum = 0;
     }
     
     
