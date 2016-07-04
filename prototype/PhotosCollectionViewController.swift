@@ -29,9 +29,13 @@ class PhotosCollectionViewController: UICollectionViewController {
         let myFirstButton_width:CGFloat  = 50
         let myFirstButton_height:CGFloat  = 50
         
-        let margin:CGFloat = 15
         
+        
+        let margin:CGFloat = 15
         let navbarheight:CGFloat  = 64
+        self.automaticallyAdjustsScrollViewInsets = false
+        
+        self.collectionView?.contentInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         
         myFirstButton.setTitle("홈", forState: UIControlState.Normal)
         myFirstButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
@@ -191,15 +195,21 @@ class PhotosCollectionViewController: UICollectionViewController {
     
 }
 
-//MARK: - CollectionView Flow Layout
-
+////MARK: - CollectionView Flow Layout
+//
 extension PhotosCollectionViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        let spacing: CGFloat = 0
-        let itemWidth = (view.bounds.size.width / 3.2) - (spacing / 2)
-        let itemHeight = (view.bounds.size.width / 2.2) - (spacing / 2)
+        let spacing: CGFloat = 5
+        let itemWidth = (collectionView.frame.size.width / 3) - (spacing * 2)
+        let itemHeight = (collectionView.frame.size.width / 2.2)
         return CGSize(width: itemWidth, height: itemHeight)
+        
     }
+//    CollectionView - minimumInteritemSpacingForSectionAtIndexSwift
+    
+    
+ 
+    
     
 }
