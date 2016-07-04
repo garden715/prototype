@@ -271,7 +271,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8bc-yr-I3Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1161.5" y="404.5"/>
+            <point key="canvasLocation" x="1231.5" y="419.5"/>
         </scene>
         <!--더보기-->
         <scene sceneID="mBl-F7-v9m">
@@ -285,12 +285,19 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="55" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="0yD-zG-rBH">
-                                <rect key="frame" x="0.0" y="75" width="375" height="479"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="55" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="0yD-zG-rBH">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <imageView key="tableHeaderView" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="8PF-qL-hh0">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="75" id="GNg-Hn-KDB"/>
+                                    </constraints>
+                                </imageView>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="sectionCell" id="SDj-fx-EvZ">
-                                        <rect key="frame" x="0.0" y="49.5" width="375" height="55"/>
+                                        <rect key="frame" x="0.0" y="124.5" width="375" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SDj-fx-EvZ" id="vi3-3f-BzU">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="54.5"/>
@@ -304,26 +311,12 @@
                                     <outlet property="delegate" destination="wx6-G3-pVh" id="h5E-5Q-Y11"/>
                                 </connections>
                             </tableView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8PF-qL-hh0">
-                                <rect key="frame" x="-4" y="0.0" width="383" height="75"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="75" id="GNg-Hn-KDB"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="8PF-qL-hh0" secondAttribute="trailing" constant="-20" id="HcX-J2-nHn"/>
-                            <constraint firstItem="0yD-zG-rBH" firstAttribute="centerX" secondItem="HRh-qz-0iv" secondAttribute="centerX" id="QwY-c0-LhB"/>
-                            <constraint firstItem="McA-8a-BBq" firstAttribute="top" secondItem="0yD-zG-rBH" secondAttribute="bottom" id="TUW-kT-uQW"/>
-                            <constraint firstItem="0yD-zG-rBH" firstAttribute="width" secondItem="HRh-qz-0iv" secondAttribute="width" id="We7-Xi-UKM"/>
-                            <constraint firstItem="8PF-qL-hh0" firstAttribute="top" secondItem="ha9-Kp-Mry" secondAttribute="bottom" id="csf-Jv-DuL"/>
-                            <constraint firstItem="0yD-zG-rBH" firstAttribute="top" secondItem="8PF-qL-hh0" secondAttribute="bottom" id="m20-T4-697"/>
-                            <constraint firstItem="8PF-qL-hh0" firstAttribute="leading" secondItem="HRh-qz-0iv" secondAttribute="leadingMargin" constant="-20" id="yCt-Ke-Ncc"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="더보기" id="wb9-fv-DcK"/>
                     <connections>
+                        <outlet property="imageView" destination="8PF-qL-hh0" id="8o5-Kv-yWD"/>
                         <outlet property="tableView" destination="0yD-zG-rBH" id="xvV-46-RND"/>
                     </connections>
                 </viewController>
@@ -363,7 +356,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yjz-rs-GS9">
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yjz-rs-GS9">
                                 <rect key="frame" x="-4" y="64" width="383" height="603"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                             </webView>
@@ -386,11 +379,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="aoo-RB-Lvn" firstAttribute="width" secondItem="W3R-60-Vxj" secondAttribute="width" id="Qn2-8T-rZk"/>
-                            <constraint firstItem="aoo-RB-Lvn" firstAttribute="centerX" secondItem="yjz-rs-GS9" secondAttribute="centerX" id="as3-Rg-uhk"/>
-                            <constraint firstItem="aoo-RB-Lvn" firstAttribute="bottom" secondItem="yjz-rs-GS9" secondAttribute="top" id="iuQ-bB-0if"/>
-                            <constraint firstItem="aoo-RB-Lvn" firstAttribute="top" secondItem="7B7-GL-5Fl" secondAttribute="bottom" id="kxh-FM-fwM"/>
-                            <constraint firstItem="aoo-RB-Lvn" firstAttribute="leading" secondItem="W3R-60-Vxj" secondAttribute="leading" id="sT0-kj-eqj"/>
+                            <constraint firstItem="yjz-rs-GS9" firstAttribute="leading" secondItem="W3R-60-Vxj" secondAttribute="leadingMargin" constant="-20" id="3oV-5P-z8S"/>
+                            <constraint firstItem="aoo-RB-Lvn" firstAttribute="centerX" secondItem="yjz-rs-GS9" secondAttribute="centerX" id="8wl-qK-fo5"/>
+                            <constraint firstItem="aoo-RB-Lvn" firstAttribute="width" secondItem="W3R-60-Vxj" secondAttribute="width" id="Nct-bC-Wtg"/>
+                            <constraint firstItem="aoo-RB-Lvn" firstAttribute="centerX" secondItem="W3R-60-Vxj" secondAttribute="centerX" id="Pep-A7-igZ"/>
+                            <constraint firstItem="aoo-RB-Lvn" firstAttribute="bottom" secondItem="yjz-rs-GS9" secondAttribute="top" id="Udr-dM-S1A"/>
+                            <constraint firstItem="aoo-RB-Lvn" firstAttribute="top" secondItem="7B7-GL-5Fl" secondAttribute="bottom" id="uEl-fn-Bwg"/>
+                            <constraint firstItem="yjz-rs-GS9" firstAttribute="bottom" secondItem="b52-YS-Dtb" secondAttribute="top" id="zq9-TS-qFc"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
