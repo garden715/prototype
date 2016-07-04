@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -125,7 +125,6 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.92549019610000005" green="0.92549019610000005" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
-
                         <gestureRecognizers/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yhN-J6-Ok8">
                             <size key="itemSize" width="50" height="50"/>
@@ -172,7 +171,7 @@
         <scene sceneID="CFX-3A-uDc">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="36h-qY-We2" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="쇼핑몰" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="쇼핑몰" image="foxtab" id="acW-dT-cKf"/>
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
@@ -203,7 +202,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mVN-pf-ylY">
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MBw-hl-wui">
+                                <rect key="frame" x="-4" y="64" width="383" height="603"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
+                            <navigationBar multipleTouchEnabled="YES" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mVN-pf-ylY">
                                 <rect key="frame" x="-4" y="20" width="383" height="44"/>
                                 <color key="tintColor" red="1" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <textAttributes key="titleTextAttributes">
@@ -220,27 +223,20 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MBw-hl-wui">
-                                <rect key="frame" x="-4" y="64" width="383" height="603"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
-                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="mVN-pf-ylY" firstAttribute="width" secondItem="6Ih-Cq-ppl" secondAttribute="width" id="12L-1e-XCs"/>
                             <constraint firstItem="fgR-o5-Rig" firstAttribute="top" secondItem="MBw-hl-wui" secondAttribute="bottom" id="4zA-nn-7Hx"/>
-                            <constraint firstItem="mVN-pf-ylY" firstAttribute="leading" secondItem="6Ih-Cq-ppl" secondAttribute="leadingMargin" constant="-20" id="9oO-Q4-7yu"/>
+                            <constraint firstItem="mVN-pf-ylY" firstAttribute="top" secondItem="Y0x-5x-UFg" secondAttribute="bottom" id="DIR-cc-F4A"/>
                             <constraint firstItem="MBw-hl-wui" firstAttribute="top" secondItem="Y0x-5x-UFg" secondAttribute="bottom" constant="44" id="F8P-Tg-h6C"/>
-                            <constraint firstItem="mVN-pf-ylY" firstAttribute="centerX" secondItem="6Ih-Cq-ppl" secondAttribute="centerX" id="QZ2-Nw-mLv"/>
                             <constraint firstAttribute="trailingMargin" secondItem="MBw-hl-wui" secondAttribute="trailing" constant="-20" id="Xsl-AO-tih"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="mVN-pf-ylY" secondAttribute="trailing" constant="-20" id="fD0-46-JvY"/>
-                            <constraint firstItem="mVN-pf-ylY" firstAttribute="top" secondItem="Y0x-5x-UFg" secondAttribute="bottom" id="nTM-lT-y2i"/>
+                            <constraint firstItem="mVN-pf-ylY" firstAttribute="width" secondItem="6Ih-Cq-ppl" secondAttribute="width" constant="8" id="atb-hT-ZBj"/>
+                            <constraint firstItem="mVN-pf-ylY" firstAttribute="leading" secondItem="MBw-hl-wui" secondAttribute="leading" id="kC2-Ae-nmQ"/>
                             <constraint firstItem="MBw-hl-wui" firstAttribute="leading" secondItem="6Ih-Cq-ppl" secondAttribute="leadingMargin" constant="-20" id="ySK-wz-iY9"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="navBar" destination="mVN-pf-ylY" id="UCi-Im-0xc"/>
                         <outlet property="navTitle" destination="O2f-KX-nrz" id="nWb-If-w8A"/>
                         <outlet property="webView" destination="MBw-hl-wui" id="HsW-aa-0SF"/>
                     </connections>
@@ -257,7 +253,6 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.93000000000000005" alpha="1" colorSpace="calibratedWhite"/>
-
                         <gestureRecognizers/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ZCq-nW-kGd">
                             <size key="itemSize" width="50" height="50"/>
@@ -281,7 +276,6 @@
         <!--더보기-->
         <scene sceneID="mBl-F7-v9m">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GzZ-xd-Eje" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="wx6-G3-pVh" customClass="MoreViewController" customModule="prototype" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ha9-Kp-Mry"/>
@@ -333,6 +327,7 @@
                         <outlet property="tableView" destination="0yD-zG-rBH" id="xvV-46-RND"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GzZ-xd-Eje" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1283.5" y="1202.5"/>
         </scene>
@@ -340,7 +335,7 @@
         <scene sceneID="jAV-Au-RSg">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8Ar-d4-08D" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="찜상품" image="second" id="NyV-uv-tq3"/>
+                    <tabBarItem key="tabBarItem" title="찜상품" image="heart" id="NyV-uv-tq3"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="BNB-sz-I6L">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -408,11 +403,11 @@
             </objects>
             <point key="canvasLocation" x="2643.5" y="-406.5"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="TQA-JZ-CkH">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NRb-o9-3KA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="N5Q-bT-rka"/>
+                    <tabBarItem key="tabBarItem" systemItem="more" id="N5Q-bT-rka"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="BoY-ZX-A2H">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -430,8 +425,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
-        <image name="second" width="30" height="30"/>
+        <image name="foxtab" width="22" height="22"/>
+        <image name="heart" width="22" height="22"/>
     </resources>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>
