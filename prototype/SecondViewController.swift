@@ -77,11 +77,6 @@ class SecondViewController: UICollectionViewController {
         }
     }
     
-    
-    override func viewDidDisappear(animated: Bool) {
-        PhotosDataManager.sharedManager.destroycache()
-    }
-    
     override func prefersStatusBarHidden() -> Bool {
         return false
     }

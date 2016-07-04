@@ -29,8 +29,6 @@ class PhotosCollectionViewController: UICollectionViewController {
         let myFirstButton_width:CGFloat  = 50
         let myFirstButton_height:CGFloat  = 50
         
-        
-        
         let margin:CGFloat = 15
         let navbarheight:CGFloat  = 64
         self.automaticallyAdjustsScrollViewInsets = false
