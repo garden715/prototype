@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -28,30 +29,38 @@
                                     <constraint firstAttribute="height" constant="150" id="xeA-Gt-vlI"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="스타일폭스" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qMO-rD-TrA">
-                                <rect key="frame" x="98" y="409" width="219" height="21"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Copyright(c)2016 All rights reserved by ProBrain" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Peh-ny-jD1">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright(c)2016 All rights reserved by ProBrain" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Peh-ny-jD1">
                                 <rect key="frame" x="22" y="695" width="370" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="rHq-IL-fXc"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.99215686274509807" green="0.51372549019607838" blue="0.031372549019607843" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label autoresizesSubviews="NO" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" layoutMarginsFollowReadableWidth="YES" text="스타일폭스" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qMO-rD-TrA">
+                                <rect key="frame" x="50" y="394" width="315" height="63"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="63" id="ZJb-Bx-45J"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="qxc-iv-Xa4" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-52" id="4Ej-eV-9mA"/>
-                            <constraint firstItem="qMO-rD-TrA" firstAttribute="centerX" secondItem="qxc-iv-Xa4" secondAttribute="centerX" id="8Od-s2-Apw"/>
-                            <constraint firstItem="Peh-ny-jD1" firstAttribute="centerX" secondItem="qMO-rD-TrA" secondAttribute="centerX" id="9Ot-vS-hpU"/>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="Peh-ny-jD1" secondAttribute="bottom" constant="20" id="Cx4-DQ-0Nm"/>
-                            <constraint firstItem="qMO-rD-TrA" firstAttribute="top" secondItem="qxc-iv-Xa4" secondAttribute="bottom" constant="18" id="I76-q6-g7g"/>
+                            <constraint firstItem="qMO-rD-TrA" firstAttribute="top" secondItem="qxc-iv-Xa4" secondAttribute="bottom" constant="3" id="RXx-Ld-rvz"/>
                             <constraint firstItem="qxc-iv-Xa4" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Twb-fu-7VI"/>
-                            <constraint firstItem="qMO-rD-TrA" firstAttribute="trailing" secondItem="qxc-iv-Xa4" secondAttribute="trailing" id="XcD-Dg-fKg"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="Peh-ny-jD1" secondAttribute="bottom" constant="30" id="ezJ-n6-Ecf"/>
+                            <constraint firstItem="Peh-ny-jD1" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="2" id="b0K-lD-uRU"/>
+                            <constraint firstItem="qMO-rD-TrA" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" constant="-99" id="bYE-D1-sqT"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="Peh-ny-jD1" secondAttribute="bottom" constant="20" id="ezJ-n6-Ecf"/>
+                            <constraint firstItem="qMO-rD-TrA" firstAttribute="centerX" secondItem="qxc-iv-Xa4" secondAttribute="centerX" id="kSS-PA-Zhu"/>
+                            <constraint firstItem="qMO-rD-TrA" firstAttribute="leading" secondItem="qxc-iv-Xa4" secondAttribute="leading" constant="-82" id="mNm-px-3Lw"/>
                             <constraint firstItem="qxc-iv-Xa4" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="132" id="oGb-iE-t9G"/>
+                            <constraint firstItem="qMO-rD-TrA" firstAttribute="centerX" secondItem="Peh-ny-jD1" secondAttribute="centerX" id="r49-7a-JjS"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>

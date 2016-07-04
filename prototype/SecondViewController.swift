@@ -24,6 +24,9 @@ class SecondViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.collectionView?.contentInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+
         addImageAndTextView()
         registerCollectionViewCells()
     }
@@ -188,12 +191,11 @@ class SecondViewController: UICollectionViewController {
 //MARK: - CollectionView Flow Layout
 
 extension SecondViewController: UICollectionViewDelegateFlowLayout {
-    
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        let spacing: CGFloat = 0
-        let itemWidth = (view.bounds.size.width / 3.2) - (spacing / 2)
-        let itemHeight = (view.bounds.size.width / 2.2) - (spacing / 2)
+        let spacing: CGFloat = 5
+        let itemWidth = (collectionView.frame.size.width / 3) - (spacing * 2)
+        let itemHeight = (collectionView.frame.size.width / 2.2)
         return CGSize(width: itemWidth, height: itemHeight)
+        
     }
-    
 }

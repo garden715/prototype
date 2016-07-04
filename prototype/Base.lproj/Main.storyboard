@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -124,7 +124,11 @@
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Jpz-s6-vqC">
                         <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+<<<<<<< HEAD
                         <color key="backgroundColor" red="0.92549019610000005" green="0.92549019610000005" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
+=======
+                        <color key="backgroundColor" red="0.92549019607843142" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="calibratedRGB"/>
+>>>>>>> 5a350c43183ce1d66cebe6c4856f1b2bf85c45e9
                         <gestureRecognizers/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yhN-J6-Ok8">
                             <size key="itemSize" width="50" height="50"/>
@@ -202,11 +206,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mVN-pf-ylY">
+                            <navigationBar multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mVN-pf-ylY">
                                 <rect key="frame" x="-4" y="20" width="383" height="44"/>
                                 <color key="tintColor" red="1" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <textAttributes key="titleTextAttributes">
                                     <color key="textColor" red="1" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <offsetWrapper key="textShadowOffset" horizontal="0.0" vertical="0.0"/>
                                 </textAttributes>
                                 <items>
                                     <navigationItem title="상품이름" id="O2f-KX-nrz">
@@ -225,6 +230,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="mVN-pf-ylY" firstAttribute="width" secondItem="6Ih-Cq-ppl" secondAttribute="width" id="12L-1e-XCs"/>
                             <constraint firstItem="fgR-o5-Rig" firstAttribute="top" secondItem="MBw-hl-wui" secondAttribute="bottom" id="4zA-nn-7Hx"/>
                             <constraint firstItem="mVN-pf-ylY" firstAttribute="leading" secondItem="6Ih-Cq-ppl" secondAttribute="leadingMargin" constant="-20" id="9oO-Q4-7yu"/>
                             <constraint firstItem="MBw-hl-wui" firstAttribute="top" secondItem="Y0x-5x-UFg" secondAttribute="bottom" constant="44" id="F8P-Tg-h6C"/>
@@ -237,6 +243,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="navBar" destination="mVN-pf-ylY" id="UCi-Im-0xc"/>
                         <outlet property="navTitle" destination="O2f-KX-nrz" id="nWb-If-w8A"/>
                         <outlet property="webView" destination="MBw-hl-wui" id="HsW-aa-0SF"/>
                     </connections>
@@ -252,7 +259,11 @@
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="2MS-jX-952">
                         <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+<<<<<<< HEAD
                         <color key="backgroundColor" white="0.93000000000000005" alpha="1" colorSpace="calibratedWhite"/>
+=======
+                        <color key="backgroundColor" red="0.92549019610000005" green="0.92549019610000005" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
+>>>>>>> 5a350c43183ce1d66cebe6c4856f1b2bf85c45e9
                         <gestureRecognizers/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ZCq-nW-kGd">
                             <size key="itemSize" width="50" height="50"/>
@@ -363,11 +374,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yjz-rs-GS9">
+                            <webView contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yjz-rs-GS9">
                                 <rect key="frame" x="-4" y="64" width="383" height="603"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                             </webView>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aoo-RB-Lvn">
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aoo-RB-Lvn">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <color key="tintColor" red="1" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <textAttributes key="titleTextAttributes">
@@ -385,6 +396,13 @@
                             </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="aoo-RB-Lvn" firstAttribute="width" secondItem="W3R-60-Vxj" secondAttribute="width" id="Qn2-8T-rZk"/>
+                            <constraint firstItem="aoo-RB-Lvn" firstAttribute="centerX" secondItem="yjz-rs-GS9" secondAttribute="centerX" id="as3-Rg-uhk"/>
+                            <constraint firstItem="aoo-RB-Lvn" firstAttribute="bottom" secondItem="yjz-rs-GS9" secondAttribute="top" id="iuQ-bB-0if"/>
+                            <constraint firstItem="aoo-RB-Lvn" firstAttribute="top" secondItem="7B7-GL-5Fl" secondAttribute="bottom" id="kxh-FM-fwM"/>
+                            <constraint firstItem="aoo-RB-Lvn" firstAttribute="leading" secondItem="W3R-60-Vxj" secondAttribute="leading" id="sT0-kj-eqj"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
