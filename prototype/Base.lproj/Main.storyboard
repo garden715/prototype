@@ -26,7 +26,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="77"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5bV-VQ-Gkh" id="zvm-ec-UeY">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="77"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="76.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Hq-Dx-3jI">
@@ -124,7 +124,7 @@
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Jpz-s6-vqC">
                         <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.92549019610000005" green="0.92549019610000005" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yhN-J6-Ok8">
                             <size key="itemSize" width="50" height="50"/>
@@ -143,7 +143,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DtI-E4-25U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1776.5" y="-421.5"/>
+            <point key="canvasLocation" x="1764.5" y="-406.5"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -160,6 +160,7 @@
                     <connections>
                         <segue destination="36h-qY-We2" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="8Ar-d4-08D" kind="relationship" relationship="viewControllers" id="uKx-la-nw3"/>
+                        <segue destination="NRb-o9-3KA" kind="relationship" relationship="viewControllers" id="zfD-dc-FC1"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -242,7 +243,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EQr-cT-mmk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2239.5" y="-466.5"/>
+            <point key="canvasLocation" x="2213.5" y="-406.5"/>
         </scene>
         <!--찜상품-->
         <scene sceneID="gp6-26-TaP">
@@ -251,7 +252,7 @@
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="2MS-jX-952">
                         <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.93000000000000005" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ZCq-nW-kGd">
                             <size key="itemSize" width="50" height="50"/>
@@ -270,7 +271,65 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8bc-yr-I3Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1265.5" y="390.5"/>
+            <point key="canvasLocation" x="1161.5" y="404.5"/>
+        </scene>
+        <!--더보기-->
+        <scene sceneID="mBl-F7-v9m">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GzZ-xd-Eje" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="wx6-G3-pVh" customClass="MoreViewController" customModule="prototype" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ha9-Kp-Mry"/>
+                        <viewControllerLayoutGuide type="bottom" id="McA-8a-BBq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HRh-qz-0iv">
+                        <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="55" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="0yD-zG-rBH">
+                                <rect key="frame" x="0.0" y="75" width="375" height="479"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="sectionCell" id="SDj-fx-EvZ">
+                                        <rect key="frame" x="0.0" y="49.5" width="375" height="55"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SDj-fx-EvZ" id="vi3-3f-BzU">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="54.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="wx6-G3-pVh" id="lCr-xH-bEL"/>
+                                    <outlet property="delegate" destination="wx6-G3-pVh" id="h5E-5Q-Y11"/>
+                                </connections>
+                            </tableView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8PF-qL-hh0">
+                                <rect key="frame" x="-4" y="0.0" width="383" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="GNg-Hn-KDB"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="8PF-qL-hh0" secondAttribute="trailing" constant="-20" id="HcX-J2-nHn"/>
+                            <constraint firstItem="0yD-zG-rBH" firstAttribute="centerX" secondItem="HRh-qz-0iv" secondAttribute="centerX" id="QwY-c0-LhB"/>
+                            <constraint firstItem="McA-8a-BBq" firstAttribute="top" secondItem="0yD-zG-rBH" secondAttribute="bottom" id="TUW-kT-uQW"/>
+                            <constraint firstItem="0yD-zG-rBH" firstAttribute="width" secondItem="HRh-qz-0iv" secondAttribute="width" id="We7-Xi-UKM"/>
+                            <constraint firstItem="8PF-qL-hh0" firstAttribute="top" secondItem="ha9-Kp-Mry" secondAttribute="bottom" id="csf-Jv-DuL"/>
+                            <constraint firstItem="0yD-zG-rBH" firstAttribute="top" secondItem="8PF-qL-hh0" secondAttribute="bottom" id="m20-T4-697"/>
+                            <constraint firstItem="8PF-qL-hh0" firstAttribute="leading" secondItem="HRh-qz-0iv" secondAttribute="leadingMargin" constant="-20" id="yCt-Ke-Ncc"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="더보기" id="wb9-fv-DcK"/>
+                    <connections>
+                        <outlet property="tableView" destination="0yD-zG-rBH" id="xvV-46-RND"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1283.5" y="1202.5"/>
         </scene>
         <!--찜상품-->
         <scene sceneID="jAV-Au-RSg">
@@ -290,7 +349,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jSU-Ry-k0r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="707.5" y="397.5"/>
+            <point key="canvasLocation" x="696.5" y="419.5"/>
         </scene>
         <!--Shopping Mall Home View Controller-->
         <scene sceneID="ikF-T6-i3A">
@@ -335,7 +394,27 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="65B-71-Thh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2255.5" y="239.5"/>
+            <point key="canvasLocation" x="2643.5" y="-406.5"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="TQA-JZ-CkH">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NRb-o9-3KA" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="N5Q-bT-rka"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="BoY-ZX-A2H">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="1" green="0.20000000000000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="wx6-G3-pVh" kind="relationship" relationship="rootViewController" id="amU-q7-Xe6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZYz-J1-rL1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="696.5" y="1202.5"/>
         </scene>
     </scenes>
     <resources>

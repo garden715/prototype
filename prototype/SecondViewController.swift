@@ -19,12 +19,11 @@ class SecondViewController: UICollectionViewController {
     var productPATH = ""
     var productList = [Product]()
     let emptyImage = UIImageView()
-    let emptyText = UITextView()
+    let emptyText = UILabel()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         addImageAndTextView()
         registerCollectionViewCells()
     }
@@ -151,10 +150,10 @@ class SecondViewController: UICollectionViewController {
         emptyImage.translatesAutoresizingMaskIntoConstraints = false
         emptyText.text = "찜상품이 없습니다.\n하트 버튼을 눌러 추가해 주세요."
         emptyText.font = UIFont.systemFontOfSize(17,weight: UIFontWeightLight)
-        emptyText.editable = false
         emptyText.textAlignment = NSTextAlignment.Center
         emptyText.textColor = UIColor.darkGrayColor()
         emptyText.translatesAutoresizingMaskIntoConstraints = false
+        emptyText.numberOfLines = 2
         
         view.addSubview(emptyImage)
         view.addSubview(emptyText)
@@ -180,7 +179,7 @@ class SecondViewController: UICollectionViewController {
         let heightConstraint = NSLayoutConstraint(item: emptyImage, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: 100)
         view.addConstraint(heightConstraint)
         
-        let heightConstraint2 = NSLayoutConstraint(item: emptyText, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.Width, multiplier: 1, constant: 0)
+        let heightConstraint2 = NSLayoutConstraint(item: emptyText, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: emptyText, attribute: NSLayoutAttribute.Height, multiplier: 1, constant: 0)
         view.addConstraint(heightConstraint2)
         
     }

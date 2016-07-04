@@ -19,7 +19,7 @@ class PhotosCollectionViewController: UICollectionViewController {
     var productPATH = ""
     var productList = [Product]()
     let emptyImage = UIImageView()
-    let emptyText = UITextView()
+    let emptyText = UILabel()
     var pageNumber = 1
     
     override func viewDidLoad() {
@@ -140,10 +140,11 @@ class PhotosCollectionViewController: UICollectionViewController {
         emptyImage.translatesAutoresizingMaskIntoConstraints = false
         emptyText.text = "등록된 상품이 없습니다.\n조금만 기다려 주세요."
         emptyText.font = UIFont.systemFontOfSize(17,weight: UIFontWeightLight)
-        emptyText.editable = false
         emptyText.textAlignment = NSTextAlignment.Center
         emptyText.textColor = UIColor.darkGrayColor()
         emptyText.translatesAutoresizingMaskIntoConstraints = false
+        emptyText.numberOfLines = 2 
+
         
         view.addSubview(emptyImage)
         view.addSubview(emptyText)
@@ -169,7 +170,7 @@ class PhotosCollectionViewController: UICollectionViewController {
         let heightConstraint = NSLayoutConstraint(item: emptyImage, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: 100)
         view.addConstraint(heightConstraint)
         
-        let heightConstraint2 = NSLayoutConstraint(item: emptyText, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.Width, multiplier: 1, constant: 0)
+        let heightConstraint2 = NSLayoutConstraint(item: emptyText, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: emptyText, attribute: NSLayoutAttribute.Height, multiplier: 1, constant: 0)
         view.addConstraint(heightConstraint2)
         
     }
