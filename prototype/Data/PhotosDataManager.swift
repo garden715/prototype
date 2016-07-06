@@ -30,7 +30,7 @@ class PhotosDataManager {
         if str=="favoriteItems" {
             return DatabaseManager.findContact()
         }
-        print(photos.count)
+    
         if (!photos.isEmpty && pageNum == pageNumber){ return photos }
         
         pageNum = pageNumber;
