@@ -34,36 +34,6 @@ class SecondViewController: UICollectionViewController {
     override func reloadInputViews() {
         reloadInputViews()
     }
-    func searchFromBaseurl(baseUrl : String) {
-        print("serialization start")
-        
-        let siteurl = "http://52.38.132.199:3000/title/\(baseUrl)" //리뷰를 불러오는 명령
-        
-        let nsurl = NSURL(string: siteurl)
-        let data = NSData(contentsOfURL: nsurl!)
-        
-        do {
-            let json = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments)
-            
-            if let jsonDatalist = json as? [[String: AnyObject]] { //파싱을 시작한다.
-                for jsonData in jsonDatalist {
-                    //작성자 이름을 가져와서 배열에 추가
-                    if let productTYPE = jsonData["productTYPE"] as? String {
-                        self.productTYPE = productTYPE
-                    }
-                    if let productPATH = jsonData["productPATH"] as? String {
-                        self.productPATH = productPATH
-                    }
-                }
-                
-            }
-        } catch {
-            print("error serializing JSON: \(error)")
-        }
-        
-        print("serialization complete")
-        
-    }
     
     // 찜상품 삭제 후 두번째 탭을 보았을 때 collection view 데이터를 reload
     override func viewWillAppear(animated: Bool) {

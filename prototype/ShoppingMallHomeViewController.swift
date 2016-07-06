@@ -24,7 +24,7 @@ class ShoppingMallHomeViewController: UIViewController {
         }
         self.navTitle.title = name
         
-        // Do any additional setup after loading the view.
+        // Do any additㄷiㄷnal setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {

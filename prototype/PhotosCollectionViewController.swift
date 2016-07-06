@@ -13,7 +13,7 @@ private let PhotoCollectionViewCellIdentifier = "PhotoCell"
 class PhotosCollectionViewController: UICollectionViewController {
 
     //MARK: - View Controller Lifecycle
-    var baseUrl = ""
+    var baseUrl = "http://09women.com"
     var name = ""
     var productTYPE = ""
     var productPATH = ""

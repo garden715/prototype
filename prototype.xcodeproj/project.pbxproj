@@ -40,6 +40,8 @@
 		EB818E6D1D1D553700E3F0C8 /* ShoppingMallHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB818E6C1D1D553700E3F0C8 /* ShoppingMallHomeViewController.swift */; };
 		EB818E711D1D613800E3F0C8 /* HomePageInform.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB818E701D1D613800E3F0C8 /* HomePageInform.swift */; };
 		EB945E501D2418AB00163168 /* Haneke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB945E4F1D2418AB00163168 /* Haneke.framework */; };
+		EBDB46991D2D21E800C24DF3 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDB46981D2D21E800C24DF3 /* SearchViewController.swift */; };
+		EBDB469B1D2D3BCA00C24DF3 /* SearchContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDB469A1D2D3BCA00C24DF3 /* SearchContainerViewController.swift */; };
 		EBF840C51CF5833200C1DA78 /* PageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF840C41CF5833200C1DA78 /* PageDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -287,6 +289,8 @@
 		EB818E6C1D1D553700E3F0C8 /* ShoppingMallHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingMallHomeViewController.swift; sourceTree = "<group>"; };
 		EB818E701D1D613800E3F0C8 /* HomePageInform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageInform.swift; sourceTree = "<group>"; };
 		EB945E4F1D2418AB00163168 /* Haneke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Haneke.framework; path = "../../../Library/Developer/Xcode/DerivedData/prototype-djdcvazdpdoxfefahaugftzfwkfp/Build/Products/Debug-iphoneos/HanekeSwift/Haneke.framework"; sourceTree = "<group>"; };
+		EBDB46981D2D21E800C24DF3 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		EBDB469A1D2D3BCA00C24DF3 /* SearchContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchContainerViewController.swift; sourceTree = "<group>"; };
 		EBF840C41CF5833200C1DA78 /* PageDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageDetailViewController.swift; sourceTree = "<group>"; };
 		EBFF91B31D111E23005E1E2A /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = "../../../Downloads/SQLite.swift-master/SQLite.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -375,6 +379,8 @@
 				EBF840C41CF5833200C1DA78 /* PageDetailViewController.swift */,
 				EB818E6C1D1D553700E3F0C8 /* ShoppingMallHomeViewController.swift */,
 				EB322EC21D2A7C8B0006349D /* MoreViewController.swift */,
+				EBDB46981D2D21E800C24DF3 /* SearchViewController.swift */,
+				EBDB469A1D2D3BCA00C24DF3 /* SearchContainerViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -967,7 +973,9 @@
 				EB322EC51D2A82970006349D /* Selection.swift in Sources */,
 				EB322EC31D2A7C8B0006349D /* MoreViewController.swift in Sources */,
 				A71E57E11CF31A8F00D7FF0D /* CollectionViewCell.swift in Sources */,
+				EBDB469B1D2D3BCA00C24DF3 /* SearchContainerViewController.swift in Sources */,
 				A7A2D0351CEF092E0055B7C0 /* AppDelegate.swift in Sources */,
+				EBDB46991D2D21E800C24DF3 /* SearchViewController.swift in Sources */,
 				A7A2D0371CEF092E0055B7C0 /* FirstViewController.swift in Sources */,
 				EB322EC71D2A82BE0006349D /* SelectionsData.swift in Sources */,
 				EB3EA2861CF33EAA00C55203 /* PhotosDataManager.swift in Sources */,
