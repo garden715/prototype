@@ -160,6 +160,7 @@
                     <connections>
                         <segue destination="36h-qY-We2" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="8Ar-d4-08D" kind="relationship" relationship="viewControllers" id="uKx-la-nw3"/>
+                        <segue destination="5Z2-sc-ORm" kind="relationship" relationship="viewControllers" id="aQn-Nj-9px"/>
                         <segue destination="NRb-o9-3KA" kind="relationship" relationship="viewControllers" id="zfD-dc-FC1"/>
                     </connections>
                 </tabBarController>
@@ -272,6 +273,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8bc-yr-I3Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1231.5" y="419.5"/>
+        </scene>
+        <!--검색-->
+        <scene sceneID="hQt-XY-sLe">
+            <objects>
+                <viewController id="5Z2-sc-ORm" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Dt9-dG-XQ6"/>
+                        <viewControllerLayoutGuide type="bottom" id="jW4-du-287"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pyP-OV-AqR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="검색" image="search" id="lZH-br-s1J"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T78-iY-gDP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="696.5" y="1992.5"/>
         </scene>
         <!--더보기-->
         <scene sceneID="mBl-F7-v9m">
@@ -398,11 +418,11 @@
             </objects>
             <point key="canvasLocation" x="2643.5" y="-406.5"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--더보기-->
         <scene sceneID="TQA-JZ-CkH">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NRb-o9-3KA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="more" id="N5Q-bT-rka"/>
+                    <tabBarItem key="tabBarItem" title="더보기" image="more" id="N5Q-bT-rka"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="BoY-ZX-A2H">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -422,6 +442,8 @@
     <resources>
         <image name="foxtab" width="22" height="22"/>
         <image name="heart" width="22" height="22"/>
+        <image name="more" width="24" height="24"/>
+        <image name="search" width="24" height="24"/>
     </resources>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>
