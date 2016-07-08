@@ -24,6 +24,7 @@
 		A7A2D04C1CEF092E0055B7C0 /* prototypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A2D04B1CEF092E0055B7C0 /* prototypeTests.swift */; };
 		A7A2D0571CEF092E0055B7C0 /* prototypeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A2D0561CEF092E0055B7C0 /* prototypeUITests.swift */; };
 		A7A2D0651CEF0A020055B7C0 /* ShoppingMallCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A2D0641CEF0A020055B7C0 /* ShoppingMallCell.swift */; };
+		EB0A83531D2F745D00969AFD /* JLToast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB0A83521D2F745D00969AFD /* JLToast.framework */; };
 		EB2745AA1D19920D00D7B14B /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2745A91D19920D00D7B14B /* DatabaseManager.swift */; };
 		EB322EC31D2A7C8B0006349D /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB322EC21D2A7C8B0006349D /* MoreViewController.swift */; };
 		EB322EC51D2A82970006349D /* Selection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB322EC41D2A82970006349D /* Selection.swift */; };
@@ -269,6 +270,7 @@
 		CFAD985BFE2CA28E53831548 /* Pods-prototype.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-prototype.debug.xcconfig"; path = "Pods/Target Support Files/Pods-prototype/Pods-prototype.debug.xcconfig"; sourceTree = "<group>"; };
 		D2CE24DF3118099852B820D7 /* Pods-prototypeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-prototypeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-prototypeTests/Pods-prototypeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DEB604468B89D666F7CE5295 /* Pods-prototypeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-prototypeUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-prototypeUITests/Pods-prototypeUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		EB0A83521D2F745D00969AFD /* JLToast.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JLToast.framework; path = "../../../Library/Developer/Xcode/DerivedData/prototype-djdcvazdpdoxfefahaugftzfwkfp/Build/Products/Debug-iphonesimulator/JLToast/JLToast.framework"; sourceTree = "<group>"; };
 		EB2745A91D19920D00D7B14B /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		EB322EC21D2A7C8B0006349D /* MoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		EB322EC41D2A82970006349D /* Selection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Selection.swift; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB0A83531D2F745D00969AFD /* JLToast.framework in Frameworks */,
 				EB945E501D2418AB00163168 /* Haneke.framework in Frameworks */,
 				EB3F901F1D198578008A7430 /* Alamofire.framework in Frameworks */,
 				EB3F90201D198578008A7430 /* AlamofireImage.framework in Frameworks */,
@@ -330,6 +333,7 @@
 		2DC687954009F90DEF7864F8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EB0A83521D2F745D00969AFD /* JLToast.framework */,
 				EB945E4F1D2418AB00163168 /* Haneke.framework */,
 				EB3F901B1D198578008A7430 /* Alamofire.framework */,
 				EB3F901C1D198578008A7430 /* AlamofireImage.framework */,

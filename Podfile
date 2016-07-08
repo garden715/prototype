@@ -9,6 +9,7 @@ pod 'HanekeSwift'
 pod 'Alamofire'
 pod 'AlamofireImage'
 pod 'FMDB', '~> 2.6'
+pod 'JLToast', '~> 1.4'
 end
 
 target 'prototypeTests' do

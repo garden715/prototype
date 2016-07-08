@@ -24,6 +24,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>JLToast.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-prototype.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -67,12 +72,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>892FE5BFDD0FD8B38E22D76135459FE4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>8DF1B460C27FACF8301911854EFA2E04</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>95230C3C45EACA5242BF7EF9CB8F943D</key>
+		<key>DC004E348C4354EAF4441E21527E05E4</key>
 		<dict>
 			<key>primary</key>
 			<true/>

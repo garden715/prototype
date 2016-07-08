@@ -6,19 +6,22 @@ PODS:
     - FMDB/standard (= 2.6.2)
   - FMDB/standard (2.6.2)
   - HanekeSwift (0.10.1)
+  - JLToast (1.4.0)
 
 DEPENDENCIES:
   - Alamofire
   - AlamofireImage
   - FMDB (~> 2.6)
   - HanekeSwift
+  - JLToast (~> 1.4)
 
 SPEC CHECKSUMS:
   Alamofire: c19a627cefd6a95f840401c49ab1f124e07f54ee
   AlamofireImage: 87408b652e0f5ae5fe364035f15aea8b9b24c77e
   FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
   HanekeSwift: 08e47d3d0f2899ec58e5d257beba0de619aca9e8
+  JLToast: 1599854ade65dddce01dca5bbe61d6119479ff7e
 
-PODFILE CHECKSUM: 26a7c96b9219495be1595c481fa7039e2cecc3e7
+PODFILE CHECKSUM: 51669277bbdd5d73c50535daf130429ffa1f1e3b
 
 COCOAPODS: 1.0.0
