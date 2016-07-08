@@ -115,8 +115,13 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
             (segue.destinationViewController as? PhotosCollectionViewController)?.productTYPE = param.productTYPE
             (segue.destinationViewController as? PhotosCollectionViewController)?.title = param.name
             (segue.destinationViewController as? PhotosCollectionViewController)?.name = param.name
-            //            (segue.destinationViewController as? PhotosCollectionViewController)?.siteurl = "09women.com"
         }
     }
     
+    @IBAction func siteSearchButtonClicked(sender: AnyObject) {
+        let uvc = self.storyboard!.instantiateViewControllerWithIdentifier("SearchSite") as! SiteSearchViewController
+        
+        uvc.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
+        self.presentViewController(uvc, animated: true, completion: {})
+    }
 }
