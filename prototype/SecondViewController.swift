@@ -71,7 +71,7 @@ class SecondViewController: UICollectionViewController {
     
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return PhotosDataManager.sharedManager.allPhotos("favoriteItems", pageNumber: 0).count
+        return PhotosDataManager.sharedManager.allPhotos(3, str: "favoriteItems", pageNumber: 0).count
     }
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -83,7 +83,7 @@ class SecondViewController: UICollectionViewController {
     
     func glacierScenicAtIndex(indexPath: NSIndexPath) -> GlacierScenic {
         
-        let photos = PhotosDataManager.sharedManager.allPhotos("favoriteItems", pageNumber: 0)
+        let photos = PhotosDataManager.sharedManager.allPhotos(3, str: "favoriteItems", pageNumber: 0)
         return photos[indexPath.row]
     }
     
@@ -93,7 +93,7 @@ class SecondViewController: UICollectionViewController {
         
         uvc.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
         
-        let photo = PhotosDataManager.sharedManager.allPhotos("favoriteItems", pageNumber: 0)[indexPath.row]
+        let photo = PhotosDataManager.sharedManager.allPhotos(3, str: "favoriteItems", pageNumber: 0)[indexPath.row]
         print("세컨뷰:\(photo.baseUrl)")
         let pageInform = DatabaseManager.findbaseUrl(photo)
         
@@ -107,7 +107,7 @@ class SecondViewController: UICollectionViewController {
     }
     
     func whetherFavoriteIsEmpty() -> Bool{
-        if PhotosDataManager.sharedManager.allPhotos("favoriteItems", pageNumber: 0).count == 0 {
+        if PhotosDataManager.sharedManager.allPhotos(3, str: "favoriteItems", pageNumber: 0).count == 0 {
             return true
         }
         return false

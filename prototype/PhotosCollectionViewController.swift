@@ -56,7 +56,7 @@ class PhotosCollectionViewController: UICollectionViewController {
         
     }
     func whetherFavoriteIsEmpty() -> Bool{
-        if PhotosDataManager.sharedManager.allPhotos(baseUrl, pageNumber: pageNumber).count == 0 {
+        if PhotosDataManager.sharedManager.allPhotos(1, str: baseUrl, pageNumber: pageNumber).count == 0 {
             return true
         }
         return false
@@ -106,7 +106,7 @@ class PhotosCollectionViewController: UICollectionViewController {
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return PhotosDataManager.sharedManager.allPhotos(baseUrl, pageNumber: pageNumber).count
+        return PhotosDataManager.sharedManager.allPhotos(1, str: baseUrl, pageNumber: pageNumber).count
     }
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -118,7 +118,7 @@ class PhotosCollectionViewController: UICollectionViewController {
 
     func glacierScenicAtIndex(indexPath: NSIndexPath) -> GlacierScenic {
         
-        let photos = PhotosDataManager.sharedManager.allPhotos(baseUrl, pageNumber: pageNumber)
+        let photos = PhotosDataManager.sharedManager.allPhotos(1, str: baseUrl, pageNumber: pageNumber)
         return photos[indexPath.row]
     }
     
@@ -128,7 +128,7 @@ class PhotosCollectionViewController: UICollectionViewController {
         
         uvc.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
         
-        uvc.selectedItem = PhotosDataManager.sharedManager.allPhotos(baseUrl, pageNumber: pageNumber)[indexPath.row]
+        uvc.selectedItem = PhotosDataManager.sharedManager.allPhotos(1, str: baseUrl, pageNumber: pageNumber)[indexPath.row]
         uvc.baseUrl = baseUrl
         uvc.productTYPE = productTYPE
         uvc.productPATH = productPATH
@@ -178,11 +178,11 @@ class PhotosCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
-        if (indexPath.row == PhotosDataManager.sharedManager.allPhotos(baseUrl, pageNumber: pageNumber).count-1) {
+        if (indexPath.row == PhotosDataManager.sharedManager.allPhotos(1, str: baseUrl, pageNumber: pageNumber).count-1) {
             pageNumber+=1
             print("\t\(pageNumber)")
             
-            PhotosDataManager.sharedManager.allPhotos(baseUrl, pageNumber: pageNumber)
+            PhotosDataManager.sharedManager.allPhotos(1, str: baseUrl, pageNumber: pageNumber)
             
             dispatch_async(dispatch_get_main_queue()) {
                 

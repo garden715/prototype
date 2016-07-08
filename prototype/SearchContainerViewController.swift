@@ -63,7 +63,7 @@ class SearchContainerViewController: UICollectionViewController {
     
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return PhotosDataManager.sharedManager.allPhotos("favoriteItems", pageNumber: 0).count
+        return PhotosDataManager.sharedManager.allPhotos(2, str: "1000sisters.co.kr", pageNumber: 1).count
     }
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -75,7 +75,7 @@ class SearchContainerViewController: UICollectionViewController {
     
     func glacierScenicAtIndex(indexPath: NSIndexPath) -> GlacierScenic {
         
-        let photos = PhotosDataManager.sharedManager.allPhotos("favoriteItems", pageNumber: 0)
+        let photos = PhotosDataManager.sharedManager.allPhotos(2, str: "1000sisters.co.kr", pageNumber: 1)
         return photos[indexPath.row]
     }
     
@@ -85,7 +85,7 @@ class SearchContainerViewController: UICollectionViewController {
         
         uvc.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
         
-        let photo = PhotosDataManager.sharedManager.allPhotos("favoriteItems", pageNumber: 0)[indexPath.row]
+        let photo = PhotosDataManager.sharedManager.allPhotos(2, str: "1000sisters.co.kr", pageNumber: 1)[indexPath.row]
         print("세컨뷰:\(photo.baseUrl)")
         let pageInform = DatabaseManager.findbaseUrl(photo)
         
