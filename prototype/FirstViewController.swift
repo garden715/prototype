@@ -78,6 +78,10 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         PhotosDataManager.sharedManager.destroycache()
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        ShoppingMallsTableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return shoppinMalls.count
     }
