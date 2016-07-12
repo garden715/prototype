@@ -255,7 +255,6 @@
         <!--Site Search View Controller-->
         <scene sceneID="pyj-zJ-Stf">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="v9j-sJ-ns7" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="SearchSite" id="G1V-xJ-byb" customClass="SiteSearchViewController" customModule="prototype" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="oNV-g5-OiC"/>
@@ -279,6 +278,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v9j-sJ-ns7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1254" y="-1173"/>
         </scene>

@@ -24,6 +24,8 @@ class PageDetailViewController: UIViewController {
     var databasePath = NSString()
     var isStored :Int = 0
     
+    var toast = JLToast()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -108,11 +110,13 @@ class PageDetailViewController: UIViewController {
         
         
         let alert = DatabaseManager.saveData(baseUrl, type: productTYPE, path: productPATH, product: selectedItem)
-
+        
+        JLToastCenter.defaultCenter().cancelAllToasts()
         if alert == 1 {
             JLToast.makeText("추가완료", duration: JLToastDelay.ShortDelay).show()
+            
         } else if alert == 2 {
-            JLToast.makeText("삭제완료", delay: 1, duration: JLToastDelay.ShortDelay).show()
+            JLToast.makeText("삭제완료", duration: JLToastDelay.ShortDelay).show()
         }
         setNavigationItem()
     }
