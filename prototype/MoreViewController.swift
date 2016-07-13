@@ -65,4 +65,13 @@ class MoreViewController: UIViewController, UITableViewDelegate, UITableViewData
             
         }
     }
+    
+    func mailComposeController(controller: MFMailComposeViewController,
+                               didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+        // Check the result or perform other tasks.
+        
+        // Dismiss the mail compose view controller.
+        controller.dismissViewControllerAnimated(true, completion: nil)
+    }
+
 }
