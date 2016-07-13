@@ -9,14 +9,6 @@
 import UIKit
 import Haneke
 
-class Site : NSObject {
-    var url : String = ""
-    var name : String = ""
-    var imgurl :String = "https://www.dropbox.com/s/5guvmulrpzyefbu/9466_shop1_145706.gif?dl=1"
-    var productTYPE : String = ""
-    var productPATH : String = ""
-    
-}
 
 class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
@@ -25,14 +17,12 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     // MARK : Properties
     var shoppinMalls = [Site]()
     
-    
     var sitelistCallUrl:String = "http://52.38.132.199:3000/title"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         loadsiteList(sitelistCallUrl)
-        
     }
     
     func loadsiteList(loadurl:String){
@@ -58,6 +48,15 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
                     }
                     if let productPATH = jsonData["productPATH"] as? String {
                         site.productPATH = productPATH
+                    }
+                    if let type1 = jsonData["type1"] as? String {
+                        site.type1 = type1
+                    }
+                    if let type2 = jsonData["type2"] as? String {
+                        site.type2 = type2
+                    }
+                    if let type3 = jsonData["type3"] as? String {
+                        site.type3 = type3
                     }
                     self.shoppinMalls.append(site)
                 }
@@ -124,6 +123,8 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     
     @IBAction func siteSearchButtonClicked(sender: AnyObject) {
         let uvc = self.storyboard!.instantiateViewControllerWithIdentifier("SearchSite") as! SiteSearchViewController
+        
+        uvc.sites = self.shoppinMalls
         
         uvc.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
         self.presentViewController(uvc, animated: true, completion: {})
