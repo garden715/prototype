@@ -269,7 +269,11 @@
                                 <color key="barTintColor" red="1" green="0.20000000000000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <navigationItem title="스타일폭스" id="nqF-38-99F">
-                                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="stop" id="fcp-x4-bR3"/>
+                                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="stop" id="fcp-x4-bR3">
+                                            <connections>
+                                                <action selector="dismiss:" destination="G1V-xJ-byb" id="a1q-NJ-Fn8"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>

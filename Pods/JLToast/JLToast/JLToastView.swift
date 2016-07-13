@@ -145,16 +145,16 @@ public extension JLToastView {
         static var defaultValues: [String: [UIUserInterfaceIdiom: AnyObject]] = [
             // backgroundView.color
             JLToastViewBackgroundColorAttributeName: [
-                .Unspecified: UIColor(white: 0, alpha: 0.7)
+                .Unspecified: UIColor(red: 1, green: 0.3, blue: 0, alpha: 0.8)
             ],
 
             // backgroundView.layer.cornerRadius
             JLToastViewCornerRadiusAttributeName: [
-                .Unspecified: 5
+                .Unspecified: 8
             ],
 
             JLToastViewTextInsetsAttributeName: [
-                .Unspecified: NSValue(UIEdgeInsets: UIEdgeInsets(top: 6, left: 10, bottom: 6, right: 10))
+                .Unspecified: NSValue(UIEdgeInsets: UIEdgeInsets(top: 8, left: 11, bottom: 8, right: 11))
             ],
 
             // textLabel.textColor
@@ -164,9 +164,9 @@ public extension JLToastView {
 
             // textLabel.font
             JLToastViewFontAttributeName: [
-                .Unspecified: UIFont.systemFontOfSize(12),
-                .Phone: UIFont.systemFontOfSize(12),
-                .Pad: UIFont.systemFontOfSize(16),
+                .Unspecified: UIFont.systemFontOfSize(16),
+                .Phone: UIFont.systemFontOfSize(16),
+                .Pad: UIFont.systemFontOfSize(18),
             ],
 
             JLToastViewPortraitOffsetYAttributeName: [

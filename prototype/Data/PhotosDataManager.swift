@@ -13,7 +13,6 @@ import FMDB
 
 class PhotosDataManager {
     
-    //static let sharedManager = PhotosDataManager()
     static var sharedManager = PhotosDataManager()
     private var photos = [GlacierScenic]()
     private var favoriteItems = [GlacierScenic]()
