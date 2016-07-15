@@ -93,9 +93,7 @@ class MoreViewController: UIViewController, UITableViewDelegate, UITableViewData
             composeVC.modalPresentationStyle = UIModalPresentationStyle.FormSheet
             
         }
-        
-        
-        
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         if (section == (tableView.numberOfSections-1)) {

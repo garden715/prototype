@@ -74,21 +74,6 @@ class SiteSearchViewController: UIViewController, UITableViewDelegate, UITableVi
         return 60.0
     }
     
-    func configureSearchController() {
-        // Initialize and perform a minimum configuration to the search controller.
-        searchController = UISearchController(searchResultsController: nil)
-        searchController.searchResultsUpdater = self
-        searchController.dimsBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = ""
-        searchController.searchBar.delegate = self
-        searchController.searchBar.sizeToFit()
-        searchController.searchBar.translucent = false
-        
-        // Place the search bar view to the tableview headerview.
-        tblSearchResults.tableHeaderView = searchController.searchBar
-    }
-    
-    
     func configureCustomSearchController() {
         customSearchController = CustomSearchController(searchResultsController: self,
                                                         searchBarFrame: CGRectMake(0.0, UIApplication.sharedApplication().statusBarFrame.size.height, tblSearchResults.frame.size.width, 45.0),
@@ -96,9 +81,9 @@ class SiteSearchViewController: UIViewController, UITableViewDelegate, UITableVi
                                                         searchBarTextColor: UIColor.blackColor(),
                                                         searchBarTintColor: UIColor(colorLiteralRed: 1, green: 51/255.0, blue: 0, alpha: 1))
         
+        
         customSearchController.customSearchBar.placeholder = "쇼핑몰 이름 검색"
         view.addSubview(customSearchController.customSearchBar)
-        //tblSearchResults.tableHeaderView = customSearchController.customSearchBar
         
         customSearchController.customDelegate = self
     }

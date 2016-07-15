@@ -63,7 +63,7 @@ class CustomSearchController: UISearchController, UISearchBarDelegate {
         customSearchBar.translucent = false
         
         customSearchBar.barTintColor = bgColor
-        customSearchBar.tintColor = textColor
+        customSearchBar.tintColor = UIColor.whiteColor()
         customSearchBar.showsBookmarkButton = false
         customSearchBar.showsCancelButton = true
         
