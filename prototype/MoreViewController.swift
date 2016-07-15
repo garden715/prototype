@@ -49,8 +49,28 @@ class MoreViewController: UIViewController, UITableViewDelegate, UITableViewData
         return cell
     }
     
+    
+
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if ((indexPath.row == 0)){
+        //공지사항
+        if ((indexPath.row == 0)&&(indexPath.section==0)){
+            let url = NSURL(string: "http://blog.naver.com/PostList.nhn?blogId=stylefoxx&from=postList&categoryNo=1")
+            
+            UIApplication.sharedApplication().openURL(url!)
+        }
+        
+        //이용가이드 
+        
+        
+        if ((indexPath.row == 1)&&(indexPath.section==0)){
+            let url = NSURL(string: "http://blog.naver.com/PostList.nhn?blogId=stylefoxx&from=postList&categoryNo=6")
+            
+            UIApplication.sharedApplication().openURL(url!)
+        }
+
+        
+        if ((indexPath.row == 0)&&(indexPath.section==1)){
+            
             let composeVC = MFMailComposeViewController()
             composeVC.mailComposeDelegate = self
             
@@ -64,8 +84,10 @@ class MoreViewController: UIViewController, UITableViewDelegate, UITableViewData
             composeVC.modalPresentationStyle = UIModalPresentationStyle.FormSheet
             
         }
+        
+        
+        
     }
-    
     func mailComposeController(controller: MFMailComposeViewController,
                                didFinishWithResult result: MFMailComposeResult, error: NSError?) {
         // Check the result or perform other tasks.
