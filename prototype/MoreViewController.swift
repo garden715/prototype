@@ -10,14 +10,16 @@ import UIKit
 import MessageUI
 
 class MoreViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,MFMailComposeViewControllerDelegate {
-    @IBOutlet weak var imageView: UIImageView!
+//    @IBOutlet weak var imageView: UIImageView!
 
     @IBOutlet weak var tableView: UITableView!
     var sections: [Section] = SectionsData().getSectionsFromData()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        imageView.image = UIImage.init(named: "fox")
+        
+       
+//        imageView.image = UIImage.init(named: "fox")
         // Do any additional setup after loading the view.
     }
 
@@ -45,6 +47,16 @@ class MoreViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         // Configure the cell...
         cell.textLabel?.text = sections[indexPath.section].items[indexPath.row]
+        
+        if((indexPath.row==0)&&(indexPath.section==2)){
+        
+            cell.accessoryType = .None
+            
+            cell.selectionStyle = .None
+        }
+        else{
+        cell.accessoryType = .DisclosureIndicator
+        }
         
         return cell
     }
@@ -88,6 +100,33 @@ class MoreViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         
     }
+    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if (section == (tableView.numberOfSections-1)) {
+            return 50.0;
+        } else {
+            return 0.0;
+        }
+    }
+    
+    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        if (section == (tableView.numberOfSections-1)) {
+            
+            let ment = UILabel()
+            ment.text = "본 회사는 쇼핑몰과 관계가 없습니다."
+            ment.font = UIFont.systemFontOfSize(10,weight: UIFontWeightLight)
+            ment.textAlignment = NSTextAlignment.Center
+            ment.textColor = UIColor.darkGrayColor()
+            //ment.translatesAutoresizingMaskIntoConstraints = false
+            ment.numberOfLines = 2
+            
+            view.addSubview(ment)
+            view.backgroundColor = UIColor.blackColor()
+            return ment
+        } else {
+            return nil
+        }
+    }
+    
     func mailComposeController(controller: MFMailComposeViewController,
                                didFinishWithResult result: MFMailComposeResult, error: NSError?) {
         // Check the result or perform other tasks.
