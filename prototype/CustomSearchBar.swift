@@ -26,14 +26,14 @@ class CustomSearchBar: UISearchBar {
             let searchField: UITextField = (subviews[0] ).subviews[index] as! UITextField
             
             // Set its frame.
-            searchField.frame = CGRectMake(5.0, 5.0, frame.size.width - 10.0, frame.size.height - 10.0)
+            searchField.frame = CGRectMake(5.0, 5.0, frame.size.width - 8.0, frame.size.height - 8.0)
             
             // Set the font and text color of the search field.
             searchField.font = preferredFont
             searchField.textColor = preferredTextColor
             
             // Set the background color of the search field.
-            searchField.backgroundColor = barTintColor
+            searchField.backgroundColor = UIColor.whiteColor()
         }
         
         let startPoint = CGPointMake(0.0, frame.size.height)
@@ -45,8 +45,9 @@ class CustomSearchBar: UISearchBar {
         let shapeLayer = CAShapeLayer()
         shapeLayer.path = path.CGPath
         shapeLayer.strokeColor = preferredTextColor.CGColor
-        shapeLayer.lineWidth = 2.5
-        
+        shapeLayer.lineWidth = 0.5
+        shapeLayer.backgroundColor = UIColor(colorLiteralRed: 255, green: 51/255.0, blue: 0, alpha: 1).CGColor
+                
         layer.addSublayer(shapeLayer)
         
         super.drawRect(rect)
@@ -76,9 +77,9 @@ class CustomSearchBar: UISearchBar {
         // println(subviews[0].subviews)
         
         var index: Int!
-        let searchBarView = subviews[0] 
+        let searchBarView = subviews[0]
         
-        for var i=0; i<searchBarView.subviews.count; ++i {
+        for i in 0 ..< searchBarView.subviews.count {
             if searchBarView.subviews[i].isKindOfClass(UITextField) {
                 index = i
                 break

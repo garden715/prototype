@@ -23,8 +23,8 @@ class SiteSearchViewController: UIViewController, UITableViewDelegate, UITableVi
         tblSearchResults.delegate = self
         tblSearchResults.dataSource = self
         loadListOfCountries()
-        print(sites.count)
         configureCustomSearchController()
+        customSearchController.customSearchBar.becomeFirstResponder()
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,7 +33,7 @@ class SiteSearchViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
 
-    @IBAction func dismiss(sender: AnyObject) {
+    func dismiss() {
         self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -60,11 +60,9 @@ class SiteSearchViewController: UIViewController, UITableViewDelegate, UITableVi
         
         if shouldShowSearchResults {
             cell.textLabel?.text = filteredSites[indexPath.row].name
-            print(filteredSites[indexPath.row].name)
         }
         else {
             cell.textLabel?.text = sites[indexPath.row].name
-            print(sites[indexPath.row].name)
         }
         
         return cell
@@ -81,9 +79,10 @@ class SiteSearchViewController: UIViewController, UITableViewDelegate, UITableVi
         searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search here..."
+        searchController.searchBar.placeholder = ""
         searchController.searchBar.delegate = self
         searchController.searchBar.sizeToFit()
+        searchController.searchBar.translucent = false
         
         // Place the search bar view to the tableview headerview.
         tblSearchResults.tableHeaderView = searchController.searchBar
@@ -91,10 +90,15 @@ class SiteSearchViewController: UIViewController, UITableViewDelegate, UITableVi
     
     
     func configureCustomSearchController() {
-        customSearchController = CustomSearchController(searchResultsController: self, searchBarFrame: CGRectMake(0.0, 0.0, tblSearchResults.frame.size.width, 50.0), searchBarFont: UIFont(name: "Futura", size: 16.0)!, searchBarTextColor: UIColor(red: 1, green: 0.3, blue: 0, alpha: 1), searchBarTintColor: UIColor(red: 1, green: 0.3, blue: 0, alpha: 1))
+        customSearchController = CustomSearchController(searchResultsController: self,
+                                                        searchBarFrame: CGRectMake(0.0, UIApplication.sharedApplication().statusBarFrame.size.height, tblSearchResults.frame.size.width, 45.0),
+                                                        searchBarFont: UIFont.systemFontOfSize(16),
+                                                        searchBarTextColor: UIColor.blackColor(),
+                                                        searchBarTintColor: UIColor(colorLiteralRed: 1, green: 51/255.0, blue: 0, alpha: 1))
         
-        customSearchController.customSearchBar.placeholder = "Search in this awesome bar..."
-        tblSearchResults.tableHeaderView = customSearchController.customSearchBar
+        customSearchController.customSearchBar.placeholder = "쇼핑몰 이름 검색"
+        view.addSubview(customSearchController.customSearchBar)
+        //tblSearchResults.tableHeaderView = customSearchController.customSearchBar
         
         customSearchController.customDelegate = self
     }
@@ -111,6 +115,7 @@ class SiteSearchViewController: UIViewController, UITableViewDelegate, UITableVi
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         shouldShowSearchResults = false
         tblSearchResults.reloadData()
+        dismiss()
     }
     
     
@@ -136,8 +141,8 @@ class SiteSearchViewController: UIViewController, UITableViewDelegate, UITableVi
             let countryText: NSString = country.name
             let base: NSString = country.url
             
-            var nameFound = (countryText.rangeOfString(searchString, options: NSStringCompareOptions.CaseInsensitiveSearch).location)
-            var urlFound = (base.rangeOfString(searchString, options: NSStringCompareOptions.CaseInsensitiveSearch).location)
+            let nameFound = (countryText.rangeOfString(searchString, options: NSStringCompareOptions.CaseInsensitiveSearch).location)
+            let urlFound = (base.rangeOfString(searchString, options: NSStringCompareOptions.CaseInsensitiveSearch).location)
             
             return (nameFound  != NSNotFound) || (urlFound != NSNotFound)
         })
@@ -166,6 +171,7 @@ class SiteSearchViewController: UIViewController, UITableViewDelegate, UITableVi
     func didTapOnCancelButton() {
         shouldShowSearchResults = false
         tblSearchResults.reloadData()
+        dismiss()
     }
     
     
@@ -175,13 +181,14 @@ class SiteSearchViewController: UIViewController, UITableViewDelegate, UITableVi
             let countryText: NSString = country.name
             let base: NSString = country.url
             
-            var nameFound = (countryText.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch).location)
-            var urlFound = (base.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch).location)
+            let nameFound = (countryText.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch).location)
+            let urlFound = (base.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch).location)
             
-            return (nameFound  != NSNotFound) || (urlFound != NSNotFound)
+            return (nameFound != NSNotFound) || (urlFound != NSNotFound)
         })
         
         // Reload the tableview.
         tblSearchResults.reloadData()
     }
+
 }

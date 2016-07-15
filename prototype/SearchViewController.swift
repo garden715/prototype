@@ -27,7 +27,6 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
 
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         
-        print(searchBar.text)
         searchBar.endEditing(true)
     }
     

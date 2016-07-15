@@ -10,14 +10,14 @@ import UIKit
 import MessageUI
 
 class MoreViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,MFMailComposeViewControllerDelegate {
-    @IBOutlet weak var imageView: UIImageView!
+    //@IBOutlet weak var imageView: UIImageView!
 
     @IBOutlet weak var tableView: UITableView!
     var sections: [Section] = SectionsData().getSectionsFromData()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        imageView.image = UIImage.init(named: "fox")
+       // imageView.image = UIImage.init(named: "fox")
         // Do any additional setup after loading the view.
     }
 
