@@ -96,7 +96,17 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         cell.num.text = "\(indexPath.row+1)"
         let url = NSURL(string:shoppingMall.imgurl)
         cell.photo.hnk_setImageFromURL(url!)
-        cell.tags.text = shoppingMall.url
+        
+        var typeLabel = "\(shoppingMall.type1)"
+        
+        if shoppingMall.type2 != "" {
+            typeLabel += ",\(shoppingMall.type2)"
+            if shoppingMall.type3 != "" {
+                typeLabel += ",\(shoppingMall.type3)"
+            }
+        }
+        
+        cell.tags.text = typeLabel
         cell.rounded()
         return cell
     }
