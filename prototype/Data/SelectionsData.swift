@@ -10,10 +10,13 @@ import Foundation
 
 class SectionsData {
     
-    let support = Section(title: "지원", objects: ["문제신고", "이용가이드"])
-    let information = Section(title: "정보", objects: ["공지사항", "앱정보","안뇽"])
+    let support = Section(title: "지원", objects: ["공지사항", "이용가이드"])
     
+    let report = Section(title: "문의", objects: ["문의/건의사항"])
     
+    let information = Section(title: "정보", objects: ["앱정보"])
+    
+
     func getSectionsFromData() -> [Section] {
         
         // you could replace the contents of this function with an HTTP GET, a database fetch request,
@@ -23,6 +26,7 @@ class SectionsData {
         var sectionsArray = [Section]()
         
         sectionsArray.append(support)
+        sectionsArray.append(report)
         sectionsArray.append(information)
 
         
