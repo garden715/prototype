@@ -25,7 +25,6 @@ class CustomSearchController: UISearchController, UISearchBarDelegate {
     
     var customDelegate: CustomSearchControllerDelegate!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -61,12 +60,11 @@ class CustomSearchController: UISearchController, UISearchBarDelegate {
     func configureSearchBar(frame: CGRect, font: UIFont, textColor: UIColor, bgColor: UIColor) {
         customSearchBar = CustomSearchBar(frame: frame, font: font , textColor: textColor)
         customSearchBar.translucent = false
-        
         customSearchBar.barTintColor = bgColor
         customSearchBar.tintColor = UIColor.whiteColor()
         customSearchBar.showsBookmarkButton = false
         customSearchBar.showsCancelButton = true
-        
+        customSearchBar.layer.borderWidth = 0
         customSearchBar.delegate = self
     }
     

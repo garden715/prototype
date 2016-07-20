@@ -29,6 +29,25 @@ class DatabaseManager {
         return 0
     }
     
+    static func removeAll() {
+        let contactDB = FMDatabase(path: databasePath as String)
+        if contactDB.open() {
+            let deleteSQL = "DELETE FROM FAVORITE"
+            
+            let deleteResults = contactDB.executeUpdate(deleteSQL, withArgumentsInArray: nil)
+            
+            if !deleteResults {
+                print("[4] Error : \(contactDB.lastErrorMessage())")
+                
+            } else {
+                print("[4] Success")
+            }
+            
+        }else {
+            print("[5] Error : \(contactDB.lastErrorMessage())")
+        }
+    }
+
     static func saveData(url: String, type : String, path: String, product: GlacierScenic) -> Int{
         var returnData = 0
         /*

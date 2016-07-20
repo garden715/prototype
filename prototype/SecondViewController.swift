@@ -24,15 +24,11 @@ class SecondViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.collectionView?.contentInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-
+        
         addImageAndTextView()
         registerCollectionViewCells()
-    }
-    
-    override func reloadInputViews() {
-        reloadInputViews()
     }
     
     // 찜상품 삭제 후 두번째 탭을 보았을 때 collection view 데이터를 reload
@@ -151,6 +147,34 @@ class SecondViewController: UICollectionViewController {
         view.addConstraint(heightConstraint2)
         
     }
+    
+    @IBAction func removeAll(sender: AnyObject) {
+        if PhotosDataManager.sharedManager.allPhotos(3, str: "favoriteItems", pageNumber: 0).count == 0 {
+            let controller = UIAlertController(title: "알림", message: "찜한 상품이 없습니다.", preferredStyle: .Alert)
+            let confirmAction = UIAlertAction(title: "확인", style: .Cancel, handler: {(_) in})
+            controller.addAction(confirmAction)
+            self.presentViewController(controller, animated: true, completion: {(_) in})
+        }
+            
+        else {
+            let alert = UIAlertController(title: "전체삭제", message: "찜상품을 모두 삭제하시겠습니까?", preferredStyle: UIAlertControllerStyle.ActionSheet)
+            
+            let cancelAction = UIAlertAction(title: "취소", style: UIAlertActionStyle.Cancel, handler: {(_) in } )
+            let deleteAction = UIAlertAction(title: "삭제", style: UIAlertActionStyle.Destructive, handler: {(_) in
+                DatabaseManager.removeAll()
+                self.collectionView?.reloadData()
+                self.emptyText.hidden = false
+                self.emptyImage.hidden = false
+                }
+            )
+            
+            alert.addAction(cancelAction)
+            alert.addAction(deleteAction)
+            
+            self.presentViewController(alert, animated: true, completion: {(_) in })
+        }
+    }
+    
     
 }
 //MARK: - CollectionView Flow Layout

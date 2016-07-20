@@ -44,10 +44,11 @@ class CustomSearchBar: UISearchBar {
         
         let shapeLayer = CAShapeLayer()
         shapeLayer.path = path.CGPath
-        shapeLayer.strokeColor = preferredTextColor.CGColor
-        shapeLayer.lineWidth = 0.5
-        shapeLayer.backgroundColor = UIColor(colorLiteralRed: 255, green: 51/255.0, blue: 0, alpha: 1).CGColor
-                
+        shapeLayer.strokeColor = UIColor.yellowColor().CGColor
+        shapeLayer.lineWidth = 0
+        shapeLayer.backgroundColor = UIColor.yellowColor().CGColor//UIColor(colorLiteralRed: 255, green: 51/255.0, blue: 0, alpha: 1).CGColor
+        
+        layer.backgroundColor = UIColor.yellowColor().CGColor
         layer.addSublayer(shapeLayer)
         
         super.drawRect(rect)
@@ -62,7 +63,7 @@ class CustomSearchBar: UISearchBar {
         preferredFont = font
         preferredTextColor = textColor
         
-        searchBarStyle = UISearchBarStyle.Prominent
+        searchBarStyle = UISearchBarStyle.Default
         translucent = false
     }
     

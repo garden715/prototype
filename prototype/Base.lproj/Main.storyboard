@@ -272,7 +272,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZJY-vp-wjk" id="SBd-ey-XwB">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -319,7 +319,13 @@
                         </connections>
                     </collectionView>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <navigationItem key="navigationItem" title="스타일폭스" id="9cO-s8-WiW"/>
+                    <navigationItem key="navigationItem" title="스타일폭스" id="9cO-s8-WiW">
+                        <barButtonItem key="rightBarButtonItem" image="trashcan" id="yyg-pT-HJA">
+                            <connections>
+                                <action selector="removeAll:" destination="e18-Ow-XJv" id="zZq-ro-J94"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8bc-yr-I3Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -386,7 +392,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="55" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="0yD-zG-rBH">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="sectionCell" id="SDj-fx-EvZ">
                                         <rect key="frame" x="0.0" y="49.5" width="375" height="55"/>
@@ -563,6 +569,7 @@
         <image name="heart" width="22" height="22"/>
         <image name="more" width="24" height="24"/>
         <image name="search" width="24" height="24"/>
+        <image name="trashcan" width="24" height="24"/>
     </resources>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>
