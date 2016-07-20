@@ -20,9 +20,12 @@ class DatabaseManager {
             
             let results = contactDB.executeQuery(querySQL, withArgumentsInArray: nil)
             
+            // 없는 겨우
             if results.next() == false {
                 return 1
-            } else {
+            }
+            // 있는 경우
+            else {
                 return 2
             }
         }

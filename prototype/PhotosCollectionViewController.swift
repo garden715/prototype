@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import JLToast
 
 private let PhotoCollectionViewCellIdentifier = "PhotoCell"
 
-class PhotosCollectionViewController: UICollectionViewController {
+class PhotosCollectionViewController: UICollectionViewController, UIGestureRecognizerDelegate {
 
     //MARK: - View Controller Lifecycle
     var baseUrl = "http://09women.com"
@@ -25,32 +26,9 @@ class PhotosCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        let myFirstButton = UIButton()
-        let myFirstButton_width:CGFloat  = 50
-        let myFirstButton_height:CGFloat  = 50
         
-        let margin:CGFloat = 15
-        let navbarheight:CGFloat  = 64
-        self.automaticallyAdjustsScrollViewInsets = false
-        
-        self.collectionView?.contentInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-        
-        myFirstButton.setTitle("홈", forState: UIControlState.Normal)
-        myFirstButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
-        myFirstButton.backgroundColor = UIColor.init(red: 1, green: 0.3, blue: 0, alpha: 0.8)
-        myFirstButton.layer.shadowColor = UIColor.grayColor().CGColor
-        myFirstButton.layer.shadowOffset = CGSizeMake(2, 3.0);
-        myFirstButton.layer.shadowOpacity = 0.5;
-        myFirstButton.layer.shadowRadius = 1.0;
-        
-        myFirstButton.frame = CGRectMake(view.bounds.size.width-myFirstButton_width-margin, view.bounds.size.height-myFirstButton_height-navbarheight-margin-(self.tabBarController?.tabBar.frame.height)!, myFirstButton_width,myFirstButton_height )
-        myFirstButton.addTarget(self, action: #selector(self.pressed(_:)), forControlEvents: .TouchUpInside)
-        
-        //half of the width
-        myFirstButton.layer.cornerRadius = myFirstButton_width/2
-        
-        view.addSubview(myFirstButton)
-        
+        addLongPressGesture()
+        addGoHomepageButton()
         addImageAndTextView()
         registerCollectionViewCells()
         
@@ -115,7 +93,7 @@ class PhotosCollectionViewController: UICollectionViewController {
         cell.layer.cornerRadius = 10
         return cell
     }
-
+    
     func glacierScenicAtIndex(indexPath: NSIndexPath) -> GlacierScenic {
         
         let photos = PhotosDataManager.sharedManager.allPhotos(1, str: baseUrl, pageNumber: pageNumber)
@@ -136,6 +114,67 @@ class PhotosCollectionViewController: UICollectionViewController {
 
     }
     
+    func addLongPressGesture(){
+        let lpgr = UILongPressGestureRecognizer(target: self, action: #selector(PhotosCollectionViewController.handleLongPress(_:)))
+        lpgr.minimumPressDuration = 0.5
+        lpgr.delaysTouchesBegan = true
+        lpgr.delegate = self
+        self.collectionView?.addGestureRecognizer(lpgr)
+    }
+    
+    func handleLongPress(gestureReconizer: UILongPressGestureRecognizer) {
+        if gestureReconizer.state == .Began {
+            let p = gestureReconizer.locationInView(self.collectionView)
+            let indexPath = self.collectionView?.indexPathForItemAtPoint(p)
+            
+            if let index = indexPath {
+                favoriteButton(index)
+            } else {
+                print("Could not find index path")
+            }
+        }
+    }
+    
+    func favoriteButton(index: NSIndexPath) {
+        JLToastCenter.defaultCenter().cancelAllToasts()
+        if DatabaseManager.isStored(baseUrl, product: PhotosDataManager.sharedManager.allPhotos(1, str: baseUrl, pageNumber: pageNumber)[index.row]) == 1 { // 없는 경우
+            DatabaseManager.saveData(baseUrl, type: productTYPE, path: productPATH, product: PhotosDataManager.sharedManager.allPhotos(1, str: baseUrl, pageNumber: pageNumber)[index.row])
+            JLToast.makeText("찜상품에 추가했습니다.", duration: JLToastDelay.ShortDelay).show()
+            
+        } else { // 있는 경우
+            JLToast.makeText("이미 찜하셨습니다.", duration: JLToastDelay.ShortDelay).show()
+        }
+        
+    }
+    
+    func addGoHomepageButton() {
+        let myFirstButton = UIButton()
+        let myFirstButton_width:CGFloat  = 50
+        let myFirstButton_height:CGFloat  = 50
+        
+        let margin:CGFloat = 15
+        let navbarheight:CGFloat  = 64
+        self.automaticallyAdjustsScrollViewInsets = false
+        
+        self.collectionView?.contentInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        
+        myFirstButton.setTitle("홈", forState: UIControlState.Normal)
+        myFirstButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        myFirstButton.backgroundColor = UIColor.init(red: 1, green: 0.3, blue: 0, alpha: 0.8)
+        myFirstButton.layer.shadowColor = UIColor.grayColor().CGColor
+        myFirstButton.layer.shadowOffset = CGSizeMake(2, 3.0);
+        myFirstButton.layer.shadowOpacity = 0.5;
+        myFirstButton.layer.shadowRadius = 1.0;
+        
+        myFirstButton.frame = CGRectMake(view.bounds.size.width-myFirstButton_width-margin, view.bounds.size.height-myFirstButton_height-navbarheight-margin-(self.tabBarController?.tabBar.frame.height)!, myFirstButton_width,myFirstButton_height )
+        myFirstButton.addTarget(self, action: #selector(self.pressed(_:)), forControlEvents: .TouchUpInside)
+        
+        //half of the width
+        myFirstButton.layer.cornerRadius = myFirstButton_width/2
+        
+        view.addSubview(myFirstButton)
+
+    }
     
     func addImageAndTextView(){
         emptyImage.image = UIImage(named: "emptyBox")
@@ -189,13 +228,12 @@ class PhotosCollectionViewController: UICollectionViewController {
                 collectionView.reloadData()
             }
         }
-        //print(indexPath.row)
     }
     
 }
 
 ////MARK: - CollectionView Flow Layout
-//
+
 extension PhotosCollectionViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
@@ -203,12 +241,5 @@ extension PhotosCollectionViewController: UICollectionViewDelegateFlowLayout {
         let itemWidth = (collectionView.frame.size.width / 3) - (spacing * 2)
         let itemHeight = (collectionView.frame.size.width / 2.2)
         return CGSize(width: itemWidth, height: itemHeight)
-        
     }
-//    CollectionView - minimumInteritemSpacingForSectionAtIndexSwift
-    
-    
- 
-    
-    
 }
