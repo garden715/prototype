@@ -16,6 +16,7 @@ class SiteSearchViewController: UIViewController, UITableViewDelegate, UITableVi
     var shouldShowSearchResults = false
     var searchController: UISearchController!
     var customSearchController: CustomSearchController!
+    var pageNumber = 1
     
     
     override func viewDidLoad() {
@@ -175,5 +176,23 @@ class SiteSearchViewController: UIViewController, UITableViewDelegate, UITableVi
         // Reload the tableview.
         tblSearchResults.reloadData()
     }
-
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if(segue.identifier=="siteView2")
+        {
+            let cell = sender as! UITableViewCell
+            
+            let path = self.tblSearchResults.indexPathForCell(cell)
+            
+            let param = self.filteredSites[path!.row]
+            
+            (segue.destinationViewController as? PhotosCollectionViewController)?.baseUrl = param.url
+            
+            (segue.destinationViewController as? PhotosCollectionViewController)?.productPATH = param.productPATH
+            (segue.destinationViewController as? PhotosCollectionViewController)?.productTYPE = param.productTYPE
+            (segue.destinationViewController as? PhotosCollectionViewController)?.title = param.name
+            (segue.destinationViewController as? PhotosCollectionViewController)?.name = param.name
+        }
+    }
 }

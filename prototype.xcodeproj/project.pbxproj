@@ -28,7 +28,6 @@
 		EB06761A1D3666D30096073C /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0676181D3666D30096073C /* CustomSearchBar.swift */; };
 		EB06761B1D3666D30096073C /* CustomSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0676191D3666D30096073C /* CustomSearchController.swift */; };
 		EB0A83531D2F745D00969AFD /* JLToast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB0A83521D2F745D00969AFD /* JLToast.framework */; };
-		EB0A83551D2F787100969AFD /* SiteSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0A83541D2F787100969AFD /* SiteSearchViewController.swift */; };
 		EB2745AA1D19920D00D7B14B /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2745A91D19920D00D7B14B /* DatabaseManager.swift */; };
 		EB322EC31D2A7C8B0006349D /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB322EC21D2A7C8B0006349D /* MoreViewController.swift */; };
 		EB322EC51D2A82970006349D /* Selection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB322EC41D2A82970006349D /* Selection.swift */; };
@@ -46,7 +45,8 @@
 		EB818E711D1D613800E3F0C8 /* HomePageInform.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB818E701D1D613800E3F0C8 /* HomePageInform.swift */; };
 		EB945E501D2418AB00163168 /* Haneke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB945E4F1D2418AB00163168 /* Haneke.framework */; };
 		EBDB46991D2D21E800C24DF3 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDB46981D2D21E800C24DF3 /* SearchViewController.swift */; };
-		EBDB469B1D2D3BCA00C24DF3 /* SearchContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDB469A1D2D3BCA00C24DF3 /* SearchContainerViewController.swift */; };
+		EBE3C5261D460A06000354E7 /* SearchContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE3C5241D460A06000354E7 /* SearchContainerViewController.swift */; };
+		EBE3C5271D460A06000354E7 /* SiteSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE3C5251D460A06000354E7 /* SiteSearchViewController.swift */; };
 		EBF840C51CF5833200C1DA78 /* PageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF840C41CF5833200C1DA78 /* PageDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -278,7 +278,6 @@
 		EB0676181D3666D30096073C /* CustomSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
 		EB0676191D3666D30096073C /* CustomSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSearchController.swift; sourceTree = "<group>"; };
 		EB0A83521D2F745D00969AFD /* JLToast.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JLToast.framework; path = "../../../Library/Developer/Xcode/DerivedData/prototype-djdcvazdpdoxfefahaugftzfwkfp/Build/Products/Debug-iphonesimulator/JLToast/JLToast.framework"; sourceTree = "<group>"; };
-		EB0A83541D2F787100969AFD /* SiteSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiteSearchViewController.swift; sourceTree = "<group>"; };
 		EB2745A91D19920D00D7B14B /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		EB322EC21D2A7C8B0006349D /* MoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		EB322EC41D2A82970006349D /* Selection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Selection.swift; sourceTree = "<group>"; };
@@ -300,7 +299,8 @@
 		EB818E701D1D613800E3F0C8 /* HomePageInform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageInform.swift; sourceTree = "<group>"; };
 		EB945E4F1D2418AB00163168 /* Haneke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Haneke.framework; path = "../../../Library/Developer/Xcode/DerivedData/prototype-djdcvazdpdoxfefahaugftzfwkfp/Build/Products/Debug-iphoneos/HanekeSwift/Haneke.framework"; sourceTree = "<group>"; };
 		EBDB46981D2D21E800C24DF3 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		EBDB469A1D2D3BCA00C24DF3 /* SearchContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchContainerViewController.swift; sourceTree = "<group>"; };
+		EBE3C5241D460A06000354E7 /* SearchContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchContainerViewController.swift; sourceTree = "<group>"; };
+		EBE3C5251D460A06000354E7 /* SiteSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiteSearchViewController.swift; sourceTree = "<group>"; };
 		EBF840C41CF5833200C1DA78 /* PageDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageDetailViewController.swift; sourceTree = "<group>"; };
 		EBFF91B31D111E23005E1E2A /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = "../../../Downloads/SQLite.swift-master/SQLite.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -392,9 +392,9 @@
 				EBF840C41CF5833200C1DA78 /* PageDetailViewController.swift */,
 				EB818E6C1D1D553700E3F0C8 /* ShoppingMallHomeViewController.swift */,
 				EB322EC21D2A7C8B0006349D /* MoreViewController.swift */,
+				EBE3C5251D460A06000354E7 /* SiteSearchViewController.swift */,
+				EBE3C5241D460A06000354E7 /* SearchContainerViewController.swift */,
 				EBDB46981D2D21E800C24DF3 /* SearchViewController.swift */,
-				EBDB469A1D2D3BCA00C24DF3 /* SearchContainerViewController.swift */,
-				EB0A83541D2F787100969AFD /* SiteSearchViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -986,13 +986,13 @@
 				EB2745AA1D19920D00D7B14B /* DatabaseManager.swift in Sources */,
 				A71E57E01CF31A8F00D7FF0D /* CollectionParallaxHeader.swift in Sources */,
 				EB06761B1D3666D30096073C /* CustomSearchController.swift in Sources */,
+				EBE3C5261D460A06000354E7 /* SearchContainerViewController.swift in Sources */,
 				A784D5701CEF49810045C401 /* cSiteView.swift in Sources */,
 				EB322EC51D2A82970006349D /* Selection.swift in Sources */,
 				EB322EC31D2A7C8B0006349D /* MoreViewController.swift in Sources */,
 				A71E57E11CF31A8F00D7FF0D /* CollectionViewCell.swift in Sources */,
-				EB0A83551D2F787100969AFD /* SiteSearchViewController.swift in Sources */,
-				EBDB469B1D2D3BCA00C24DF3 /* SearchContainerViewController.swift in Sources */,
 				A7A2D0351CEF092E0055B7C0 /* AppDelegate.swift in Sources */,
+				EBE3C5271D460A06000354E7 /* SiteSearchViewController.swift in Sources */,
 				EBDB46991D2D21E800C24DF3 /* SearchViewController.swift in Sources */,
 				A7A2D0371CEF092E0055B7C0 /* FirstViewController.swift in Sources */,
 				EB06761A1D3666D30096073C /* CustomSearchBar.swift in Sources */,

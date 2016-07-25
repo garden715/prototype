@@ -63,7 +63,7 @@ class PhotosDataManager {
             
             pageNumberForSearch = pageNumber;
             
-            guard let data = NSData(contentsOfURL: NSURL(string:"http://52.38.132.199:3000/search/\(str)")!) else { return searchItem }
+            guard let data = NSData(contentsOfURL: NSURL(string:"http://52.38.132.199:3000/find/\(str)\(pageNumber)")!) else { return searchItem }
             
             do {
                 let object = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments)
@@ -81,6 +81,7 @@ class PhotosDataManager {
             }catch {
                 print("에러 ")
             }
+            print(searchItem.count)
             return searchItem
         }
     }

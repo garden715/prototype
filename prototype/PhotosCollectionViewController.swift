@@ -28,7 +28,7 @@ class PhotosCollectionViewController: UICollectionViewController, UIGestureRecog
         super.viewDidLoad()
         
         addLongPressGesture()
-        addGoHomepageButton()
+        //addGoHomepageButton()
         addImageAndTextView()
         registerCollectionViewCells()
         

@@ -10,8 +10,8 @@ import UIKit
 
 class SearchViewController: UIViewController, UISearchBarDelegate {
     
-    var searchController: UISearchController!
     
+    @IBOutlet weak var myContainer: UIView!
     @IBOutlet weak var searchBar: UISearchBar!
 
     override func viewDidLoad() {
@@ -26,7 +26,13 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
     }
 
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        print(searchBar.text!)
         
+        let uvc = self.storyboard!.instantiateViewControllerWithIdentifier("myContainer") as! SearchContainerViewController
+        
+        uvc.searchText = searchBar.text as String!
+        uvc.reloadInputViews()
+        uvc.collectionView?.reloadData()
         searchBar.endEditing(true)
     }
     
@@ -37,5 +43,5 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         searchBar.endEditing(true)
     }
-
+   
 }

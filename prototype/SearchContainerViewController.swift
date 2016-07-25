@@ -19,6 +19,9 @@ class SearchContainerViewController: UICollectionViewController {
     var productList = [Product]()
     let emptyImage = UIImageView()
     let emptyText = UILabel()
+    var pageNumber = 1
+    
+    var searchText = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,12 +35,6 @@ class SearchContainerViewController: UICollectionViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
-    override func reloadInputViews() {
-        reloadInputViews()
-    }
-
     
     override func prefersStatusBarHidden() -> Bool {
         return false
@@ -63,7 +60,7 @@ class SearchContainerViewController: UICollectionViewController {
     
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return PhotosDataManager.sharedManager.allPhotos(2, str: "1000sisters.co.kr", pageNumber: 1).count
+        return PhotosDataManager.sharedManager.allPhotos(2, str: searchText, pageNumber: 1).count
     }
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -75,7 +72,7 @@ class SearchContainerViewController: UICollectionViewController {
     
     func glacierScenicAtIndex(indexPath: NSIndexPath) -> GlacierScenic {
         
-        let photos = PhotosDataManager.sharedManager.allPhotos(2, str: "1000sisters.co.kr", pageNumber: 1)
+        let photos = PhotosDataManager.sharedManager.allPhotos(2, str: searchText, pageNumber: 1)
         return photos[indexPath.row]
     }
     
@@ -85,8 +82,8 @@ class SearchContainerViewController: UICollectionViewController {
         
         uvc.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
         
-        let photo = PhotosDataManager.sharedManager.allPhotos(2, str: "1000sisters.co.kr", pageNumber: 1)[indexPath.row]
-        print("세컨뷰:\(photo.baseUrl)")
+        let photo = PhotosDataManager.sharedManager.allPhotos(2, str: searchText, pageNumber: 1)[indexPath.row]
+        print("검색뷰:\(photo.baseUrl)")
         let pageInform = DatabaseManager.findbaseUrl(photo)
         
         uvc.baseUrl = pageInform.baseUrl
