@@ -35,6 +35,7 @@ class PhotosCollectionViewController: UIViewController,UICollectionViewDataSourc
         
     }
     @IBAction func dismiss(sender: AnyObject) {
+        PhotosDataManager.sharedManager.destroycache()
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     func whetherFavoriteIsEmpty() -> Bool{

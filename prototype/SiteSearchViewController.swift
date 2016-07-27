@@ -177,22 +177,43 @@ class SiteSearchViewController: UIViewController, UITableViewDelegate, UITableVi
         tblSearchResults.reloadData()
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tblSearchResults.deselectRowAtIndexPath(indexPath, animated: true)
+        let shoppingMall = filteredSites[indexPath.row]
         
-        if(segue.identifier=="siteView2")
-        {
-            let cell = sender as! UITableViewCell
-            
-            let path = self.tblSearchResults.indexPathForCell(cell)
-            
-            let param = self.filteredSites[path!.row]
-            
-            (segue.destinationViewController as? PhotosCollectionViewController)?.baseUrl = param.url
-            
-            (segue.destinationViewController as? PhotosCollectionViewController)?.productPATH = param.productPATH
-            (segue.destinationViewController as? PhotosCollectionViewController)?.productTYPE = param.productTYPE
-            (segue.destinationViewController as? PhotosCollectionViewController)?.title = param.name
-            (segue.destinationViewController as? PhotosCollectionViewController)?.name = param.name
-        }
+        let uvc = self.storyboard!.instantiateViewControllerWithIdentifier("PhotoscollectionVC") as! PhotosCollectionViewController
+        
+        uvc.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
+        
+        print(shoppingMall.url)
+        
+        
+        uvc.baseUrl = shoppingMall.url
+        uvc.productPATH = shoppingMall.productPATH
+        uvc.productTYPE = shoppingMall.productTYPE
+        uvc.name = shoppingMall.name
+        uvc.title = shoppingMall.name
+        self.presentViewController(uvc, animated: true, completion: {})
+        
     }
+
+    
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        
+//        if(segue.identifier=="siteView2")
+//        {
+//            let cell = sender as! UITableViewCell
+//            
+//            let path = self.tblSearchResults.indexPathForCell(cell)
+//            
+//            let param = self.filteredSites[path!.row]
+//            
+//            (segue.destinationViewController as? PhotosCollectionViewController)?.baseUrl = param.url
+//            
+//            (segue.destinationViewController as? PhotosCollectionViewController)?.productPATH = param.productPATH
+//            (segue.destinationViewController as? PhotosCollectionViewController)?.productTYPE = param.productTYPE
+//            (segue.destinationViewController as? PhotosCollectionViewController)?.title = param.name
+//            (segue.destinationViewController as? PhotosCollectionViewController)?.name = param.name
+//        }
+//    }
 }
