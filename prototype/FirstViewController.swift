@@ -79,6 +79,20 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         ShoppingMallsTableView.deselectRowAtIndexPath(indexPath, animated: true)
+        let shoppingMall = shoppinMalls[indexPath.row]
+
+        let uvc = self.storyboard!.instantiateViewControllerWithIdentifier("PhotoscollectionVC") as! PhotosCollectionViewController
+        
+        uvc.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
+        
+        
+        uvc.baseUrl = shoppingMall.url
+        uvc.productPATH = shoppingMall.productPATH
+        uvc.productTYPE = shoppingMall.productTYPE
+        uvc.name = shoppingMall.name
+        uvc.title = shoppingMall.name
+        self.presentViewController(uvc, animated: true, completion: {})
+        
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

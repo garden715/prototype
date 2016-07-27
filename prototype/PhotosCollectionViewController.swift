@@ -11,8 +11,9 @@ import JLToast
 
 private let PhotoCollectionViewCellIdentifier = "PhotoCell"
 
-class PhotosCollectionViewController: UICollectionViewController, UIGestureRecognizerDelegate {
+class PhotosCollectionViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate, UIGestureRecognizerDelegate {
 
+    @IBOutlet weak var collectionView: UICollectionView!
     //MARK: - View Controller Lifecycle
     var baseUrl = "http://09women.com"
     var name = ""
@@ -32,6 +33,9 @@ class PhotosCollectionViewController: UICollectionViewController, UIGestureRecog
         addImageAndTextView()
         registerCollectionViewCells()
         
+    }
+    @IBAction func dismiss(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     func whetherFavoriteIsEmpty() -> Bool{
         if PhotosDataManager.sharedManager.allPhotos(1, str: baseUrl, pageNumber: pageNumber).count == 0 {
@@ -77,17 +81,17 @@ class PhotosCollectionViewController: UICollectionViewController, UIGestureRecog
     
     // MARK: - UICollectionViewDataSource
     
-    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
     
     
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         return PhotosDataManager.sharedManager.allPhotos(1, str: baseUrl, pageNumber: pageNumber).count
     }
     
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(PhotoCollectionViewCellIdentifier, forIndexPath: indexPath) as! PhotoCollectionViewCell
         cell.configure(glacierScenicAtIndex(indexPath))
         cell.layer.cornerRadius = 10
@@ -100,7 +104,7 @@ class PhotosCollectionViewController: UICollectionViewController, UIGestureRecog
         return photos[indexPath.row]
     }
     
-    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
         let uvc = self.storyboard!.instantiateViewControllerWithIdentifier("PageDetail") as! PageDetailViewController
         
@@ -216,7 +220,7 @@ class PhotosCollectionViewController: UICollectionViewController, UIGestureRecog
         
     }
     
-    override func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
         if (indexPath.row == PhotosDataManager.sharedManager.allPhotos(1, str: baseUrl, pageNumber: pageNumber).count-1) {
             pageNumber+=1
             print("\t\(pageNumber)")
