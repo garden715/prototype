@@ -110,20 +110,30 @@ class SearchContainerViewController: UIViewController,UICollectionViewDataSource
         }
     }
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        if(textField.isEqual(self.searchBar)){ //titleField에서 리턴키를 눌렀다면
+            self.searchBar.becomeFirstResponder()//컨텐츠필드로 포커스 이동
+        }
+        return true
+    }
+    
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        searchBar.endEditing(true)
         PhotosDataManager.sharedManager.destroycache()
         searchText = searchBar.text!.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
-        print(searchText)
         
         PhotosDataManager.sharedManager.allPhotos(2, str: searchText, pageNumber: 1)
         collectionView.reloadData()
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        searchBar.resignFirstResponder()
         searchBar.endEditing(true)
     }
     
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
         searchBar.endEditing(true)
     }
 }
