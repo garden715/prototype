@@ -83,7 +83,8 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
 
         let uvc = self.storyboard!.instantiateViewControllerWithIdentifier("PhotoscollectionVC") as! PhotosCollectionViewController
         
-        uvc.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
+        uvc.modalTransitionStyle = .CoverVertical
+        
         
         
         uvc.baseUrl = shoppingMall.url

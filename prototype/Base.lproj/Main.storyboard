@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--스타일폭스-->
@@ -136,22 +137,31 @@
                         <subviews>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PrT-Io-wDK">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <color key="barTintColor" red="1" green="0.20000000000000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="1" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <textAttributes key="titleTextAttributes">
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem title="Title" id="ylt-Je-AYe">
+                                    <navigationItem id="ylt-Je-AYe">
+                                        <nil key="title"/>
                                         <barButtonItem key="leftBarButtonItem" style="plain" systemItem="stop" id="9aR-Kk-iAH">
                                             <connections>
                                                 <action selector="dismiss:" destination="aLA-mk-5zl" id="eXH-Mq-orM"/>
                                             </connections>
                                         </barButtonItem>
+                                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="w4t-tk-SJg">
+                                            <rect key="frame" x="125.5" y="11" width="124" height="22"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <size key="titleShadowOffset" width="2.2250738585072014e-308" height="0.0"/>
+                                            <state key="normal" title="title"/>
+                                        </button>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Co0-sj-rFd">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" red="0.92549019607843142" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="6Rd-tL-8Qh">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -175,11 +185,13 @@
                                 </connections>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.20000000000000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="collectionView" destination="Co0-sj-rFd" id="v6R-8F-wUS"/>
+                        <outlet property="navBarButton" destination="w4t-tk-SJg" id="BHx-lw-z6q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jYe-WJ-r2W" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -485,14 +497,10 @@
                         <viewControllerLayoutGuide type="top" id="7B7-GL-5Fl"/>
                         <viewControllerLayoutGuide type="bottom" id="b52-YS-Dtb"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="W3R-60-Vxj">
+                    <view key="view" autoresizesSubviews="NO" contentMode="scaleToFill" id="W3R-60-Vxj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yjz-rs-GS9">
-                                <rect key="frame" x="-4" y="64" width="383" height="603"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
-                            </webView>
                             <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aoo-RB-Lvn">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <color key="tintColor" red="1" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -506,21 +514,38 @@
                                                 <action selector="dismiss:" destination="sUp-7B-kGJ" id="KXu-jE-cJ8"/>
                                             </connections>
                                         </barButtonItem>
+                                        <rightBarButtonItems>
+                                            <barButtonItem image="heart" style="plain" id="SfG-hq-0fb"/>
+                                            <barButtonItem title="Item" id="i4E-ke-9uL"/>
+                                        </rightBarButtonItems>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <webView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yjz-rs-GS9">
+                                <rect key="frame" x="-4" y="64" width="379" height="559"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kze-EQ-hV0">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem title="Item" id="hKM-w7-HuF"/>
+                                    <barButtonItem title="Item" id="36e-a5-H6Z"/>
+                                </items>
+                                <color key="barTintColor" red="1" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="yjz-rs-GS9" firstAttribute="leading" secondItem="W3R-60-Vxj" secondAttribute="leadingMargin" constant="-20" id="3oV-5P-z8S"/>
-                            <constraint firstItem="aoo-RB-Lvn" firstAttribute="centerX" secondItem="yjz-rs-GS9" secondAttribute="centerX" id="8wl-qK-fo5"/>
+                            <constraint firstItem="yjz-rs-GS9" firstAttribute="leading" secondItem="W3R-60-Vxj" secondAttribute="leadingMargin" constant="-24" id="15c-4A-TOz"/>
+                            <constraint firstItem="yjz-rs-GS9" firstAttribute="centerX" secondItem="aoo-RB-Lvn" secondAttribute="centerX" constant="-2" id="DDV-fk-v5s"/>
+                            <constraint firstItem="yjz-rs-GS9" firstAttribute="top" secondItem="aoo-RB-Lvn" secondAttribute="bottom" id="FKk-ME-MNg"/>
+                            <constraint firstItem="yjz-rs-GS9" firstAttribute="bottom" secondItem="b52-YS-Dtb" secondAttribute="top" constant="-44" id="Ijw-cP-DYJ"/>
                             <constraint firstItem="aoo-RB-Lvn" firstAttribute="width" secondItem="W3R-60-Vxj" secondAttribute="width" id="Nct-bC-Wtg"/>
                             <constraint firstItem="aoo-RB-Lvn" firstAttribute="centerX" secondItem="W3R-60-Vxj" secondAttribute="centerX" id="Pep-A7-igZ"/>
-                            <constraint firstItem="aoo-RB-Lvn" firstAttribute="bottom" secondItem="yjz-rs-GS9" secondAttribute="top" id="Udr-dM-S1A"/>
                             <constraint firstItem="aoo-RB-Lvn" firstAttribute="top" secondItem="7B7-GL-5Fl" secondAttribute="bottom" id="uEl-fn-Bwg"/>
-                            <constraint firstItem="yjz-rs-GS9" firstAttribute="bottom" secondItem="b52-YS-Dtb" secondAttribute="top" id="zq9-TS-qFc"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="mallWebView" destination="yjz-rs-GS9" id="HMF-aa-41K"/>
@@ -529,7 +554,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="65B-71-Thh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2651.5" y="-442.5"/>
+            <point key="canvasLocation" x="2647.5" y="-442.5"/>
         </scene>
         <!--더보기-->
         <scene sceneID="TQA-JZ-CkH">

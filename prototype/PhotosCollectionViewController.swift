@@ -13,6 +13,8 @@ private let PhotoCollectionViewCellIdentifier = "PhotoCell"
 
 class PhotosCollectionViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate, UIGestureRecognizerDelegate {
 
+    @IBOutlet weak var navBarButton: UIButton!
+    
     @IBOutlet weak var collectionView: UICollectionView!
     //MARK: - View Controller Lifecycle
     var baseUrl = "http://09women.com"
@@ -28,11 +30,13 @@ class PhotosCollectionViewController: UIViewController,UICollectionViewDataSourc
         
         super.viewDidLoad()
         
+        
         addLongPressGesture()
         //addGoHomepageButton()
         addImageAndTextView()
         registerCollectionViewCells()
-        
+        navBarButton.setTitle(name, forState: .Normal)
+        navBarButton.addTarget(self, action: #selector(self.pressed(_:)), forControlEvents: .TouchUpInside)
     }
     @IBAction func dismiss(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
