@@ -50,7 +50,6 @@ class PhotosDataManager {
                     let product_id = photoInfo["site_product_id"] as! Int
                     let glacierScenic = GlacierScenic(name: name, price: String(price), photoURLString: urlString, product_id: product_id, baseUrl: baseurl)
                     photos.append(glacierScenic)
-                    
                 }
             }catch {
                 print("에러 ")
@@ -63,7 +62,7 @@ class PhotosDataManager {
             
             pageNumberForSearch = pageNumber;
             
-            guard let data = NSData(contentsOfURL: NSURL(string:"http://52.38.132.199:3000/find/\(str)\(pageNumber)")!) else { return searchItem }
+            guard let data = NSData(contentsOfURL: NSURL(string:"http://52.38.132.199:3000/find/\(str)/\(pageNumber)")!) else { return searchItem }
             
             do {
                 let object = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments)
@@ -76,7 +75,6 @@ class PhotosDataManager {
                     let product_id = photoInfo["site_product_id"] as! Int
                     let glacierScenic = GlacierScenic(name: name, price: String(price), photoURLString: urlString, product_id: product_id, baseUrl: baseurl)
                     searchItem.append(glacierScenic)
-                    
                 }
             }catch {
                 print("에러 ")
@@ -114,6 +112,7 @@ class PhotosDataManager {
     
     func destroycache(){
         photos = [GlacierScenic]()
+        searchItem = [GlacierScenic]()
         pageNum = 0;
     }
     

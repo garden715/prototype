@@ -39,6 +39,7 @@ class PhotosCollectionViewController: UIViewController,UICollectionViewDataSourc
         navBarButton.addTarget(self, action: #selector(self.pressed(_:)), forControlEvents: .TouchUpInside)
     }
     @IBAction func dismiss(sender: AnyObject) {
+        PhotosDataManager.sharedManager.destroycache()
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     func whetherFavoriteIsEmpty() -> Bool{

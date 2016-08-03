@@ -32,19 +32,18 @@
 		EB322EC31D2A7C8B0006349D /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB322EC21D2A7C8B0006349D /* MoreViewController.swift */; };
 		EB322EC51D2A82970006349D /* Selection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB322EC41D2A82970006349D /* Selection.swift */; };
 		EB322EC71D2A82BE0006349D /* SelectionsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB322EC61D2A82BE0006349D /* SelectionsData.swift */; };
+		EB35D6221D48CC3D00281002 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB35D6211D48CC3D00281002 /* Alamofire.framework */; };
 		EB37FECA1D1AB67200B95CAB /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB37FEC91D1AB67200B95CAB /* Product.swift */; };
 		EB3EA27F1CF33EA100C55203 /* PhotosCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3EA27E1CF33EA100C55203 /* PhotosCollectionViewController.swift */; };
 		EB3EA2841CF33EAA00C55203 /* GlacierScenic.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3EA2811CF33EAA00C55203 /* GlacierScenic.swift */; };
 		EB3EA2861CF33EAA00C55203 /* PhotosDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3EA2831CF33EAA00C55203 /* PhotosDataManager.swift */; };
 		EB3EA28A1CF33EB500C55203 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3EA2881CF33EB500C55203 /* PhotoCollectionViewCell.swift */; };
 		EB3EA28B1CF33EB500C55203 /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB3EA2891CF33EB500C55203 /* PhotoCollectionViewCell.xib */; };
-		EB3F901F1D198578008A7430 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB3F901B1D198578008A7430 /* Alamofire.framework */; };
 		EB3F90201D198578008A7430 /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB3F901C1D198578008A7430 /* AlamofireImage.framework */; };
 		EB3F90211D198578008A7430 /* FMDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB3F901D1D198578008A7430 /* FMDB.framework */; };
 		EB818E6D1D1D553700E3F0C8 /* ShoppingMallHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB818E6C1D1D553700E3F0C8 /* ShoppingMallHomeViewController.swift */; };
 		EB818E711D1D613800E3F0C8 /* HomePageInform.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB818E701D1D613800E3F0C8 /* HomePageInform.swift */; };
 		EB945E501D2418AB00163168 /* Haneke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB945E4F1D2418AB00163168 /* Haneke.framework */; };
-		EBDB46991D2D21E800C24DF3 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDB46981D2D21E800C24DF3 /* SearchViewController.swift */; };
 		EBE3C5261D460A06000354E7 /* SearchContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE3C5241D460A06000354E7 /* SearchContainerViewController.swift */; };
 		EBE3C5271D460A06000354E7 /* SiteSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE3C5251D460A06000354E7 /* SiteSearchViewController.swift */; };
 		EBF840C51CF5833200C1DA78 /* PageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF840C41CF5833200C1DA78 /* PageDetailViewController.swift */; };
@@ -282,6 +281,7 @@
 		EB322EC21D2A7C8B0006349D /* MoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		EB322EC41D2A82970006349D /* Selection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Selection.swift; sourceTree = "<group>"; };
 		EB322EC61D2A82BE0006349D /* SelectionsData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionsData.swift; sourceTree = "<group>"; };
+		EB35D6211D48CC3D00281002 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../Library/Developer/Xcode/DerivedData/prototype-djdcvazdpdoxfefahaugftzfwkfp/Build/Products/Debug-iphonesimulator/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
 		EB37FEC91D1AB67200B95CAB /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		EB3EA25F1CF33E1000C55203 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Pods/../build/Debug-iphoneos/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
 		EB3EA2641CF33E2600C55203 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = "../Alamofire-master/Alamofire.xcodeproj"; sourceTree = "<group>"; };
@@ -298,7 +298,6 @@
 		EB818E6C1D1D553700E3F0C8 /* ShoppingMallHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingMallHomeViewController.swift; sourceTree = "<group>"; };
 		EB818E701D1D613800E3F0C8 /* HomePageInform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageInform.swift; sourceTree = "<group>"; };
 		EB945E4F1D2418AB00163168 /* Haneke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Haneke.framework; path = "../../../Library/Developer/Xcode/DerivedData/prototype-djdcvazdpdoxfefahaugftzfwkfp/Build/Products/Debug-iphoneos/HanekeSwift/Haneke.framework"; sourceTree = "<group>"; };
-		EBDB46981D2D21E800C24DF3 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		EBE3C5241D460A06000354E7 /* SearchContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchContainerViewController.swift; sourceTree = "<group>"; };
 		EBE3C5251D460A06000354E7 /* SiteSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiteSearchViewController.swift; sourceTree = "<group>"; };
 		EBF840C41CF5833200C1DA78 /* PageDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageDetailViewController.swift; sourceTree = "<group>"; };
@@ -310,9 +309,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB35D6221D48CC3D00281002 /* Alamofire.framework in Frameworks */,
 				EB0A83531D2F745D00969AFD /* JLToast.framework in Frameworks */,
 				EB945E501D2418AB00163168 /* Haneke.framework in Frameworks */,
-				EB3F901F1D198578008A7430 /* Alamofire.framework in Frameworks */,
 				EB3F90201D198578008A7430 /* AlamofireImage.framework in Frameworks */,
 				EB3F90211D198578008A7430 /* FMDB.framework in Frameworks */,
 				4888E0C0BD1AC10576E14F09 /* Pods_prototype.framework in Frameworks */,
@@ -341,6 +340,7 @@
 		2DC687954009F90DEF7864F8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EB35D6211D48CC3D00281002 /* Alamofire.framework */,
 				EB0A83521D2F745D00969AFD /* JLToast.framework */,
 				EB945E4F1D2418AB00163168 /* Haneke.framework */,
 				EB3F901B1D198578008A7430 /* Alamofire.framework */,
@@ -394,7 +394,6 @@
 				EB322EC21D2A7C8B0006349D /* MoreViewController.swift */,
 				EBE3C5251D460A06000354E7 /* SiteSearchViewController.swift */,
 				EBE3C5241D460A06000354E7 /* SearchContainerViewController.swift */,
-				EBDB46981D2D21E800C24DF3 /* SearchViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -993,7 +992,6 @@
 				A71E57E11CF31A8F00D7FF0D /* CollectionViewCell.swift in Sources */,
 				A7A2D0351CEF092E0055B7C0 /* AppDelegate.swift in Sources */,
 				EBE3C5271D460A06000354E7 /* SiteSearchViewController.swift in Sources */,
-				EBDB46991D2D21E800C24DF3 /* SearchViewController.swift in Sources */,
 				A7A2D0371CEF092E0055B7C0 /* FirstViewController.swift in Sources */,
 				EB06761A1D3666D30096073C /* CustomSearchBar.swift in Sources */,
 				EB322EC71D2A82BE0006349D /* SelectionsData.swift in Sources */,

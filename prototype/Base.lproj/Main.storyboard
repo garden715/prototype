@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -27,7 +27,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="77"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5bV-VQ-Gkh" id="zvm-ec-UeY">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="76.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="77"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Hq-Dx-3jI">
@@ -213,7 +213,7 @@
                     <connections>
                         <segue destination="36h-qY-We2" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="8Ar-d4-08D" kind="relationship" relationship="viewControllers" id="uKx-la-nw3"/>
-                        <segue destination="GWd-1o-z4t" kind="relationship" relationship="viewControllers" id="aQn-Nj-9px"/>
+                        <segue destination="IjL-g0-dO2" kind="relationship" relationship="viewControllers" id="IJe-rA-xUy"/>
                         <segue destination="NRb-o9-3KA" kind="relationship" relationship="viewControllers" id="zfD-dc-FC1"/>
                     </connections>
                 </tabBarController>
@@ -319,7 +319,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZJY-vp-wjk" id="SBd-ey-XwB">
-                                            <rect key="frame" x="0.0" y="0.0" width="308" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="308" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -379,54 +379,6 @@
             <point key="canvasLocation" x="1231.5" y="419.5"/>
         </scene>
         <!--스타일폭스-->
-        <scene sceneID="hQt-XY-sLe">
-            <objects>
-                <viewController id="5Z2-sc-ORm" customClass="SearchViewController" customModule="prototype" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Dt9-dG-XQ6"/>
-                        <viewControllerLayoutGuide type="bottom" id="jW4-du-287"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="pyP-OV-AqR">
-                        <rect key="frame" x="0.0" y="64" width="375" height="554"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TQC-Sh-LMG">
-                                <rect key="frame" x="-4" y="44" width="383" height="510"/>
-                                <connections>
-                                    <segue destination="3hc-qi-Xb4" kind="embed" identifier="searchSegue" id="749-5c-vc7"/>
-                                </connections>
-                            </containerView>
-                            <searchBar multipleTouchEnabled="YES" contentMode="redraw" text="" placeholder="상품 이름 검색" showsCancelButton="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jEo-am-uhH">
-                                <rect key="frame" x="-4" y="0.0" width="383" height="44"/>
-                                <color key="barTintColor" red="1" green="0.20000000000000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
-                                <scopeButtonTitles>
-                                    <string></string>
-                                </scopeButtonTitles>
-                            </searchBar>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="jEo-am-uhH" firstAttribute="leading" secondItem="pyP-OV-AqR" secondAttribute="leadingMargin" constant="-20" id="AgR-Zb-wdW"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="TQC-Sh-LMG" secondAttribute="trailing" constant="-20" id="DpB-nf-z5f"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="jEo-am-uhH" secondAttribute="trailing" constant="-20" id="MbK-dv-AMo"/>
-                            <constraint firstItem="jEo-am-uhH" firstAttribute="top" secondItem="Dt9-dG-XQ6" secondAttribute="bottom" id="Tz8-Pm-h3j"/>
-                            <constraint firstItem="TQC-Sh-LMG" firstAttribute="top" secondItem="jEo-am-uhH" secondAttribute="bottom" id="h9I-FQ-DJE"/>
-                            <constraint firstItem="jW4-du-287" firstAttribute="top" secondItem="TQC-Sh-LMG" secondAttribute="bottom" id="iff-NG-p9w"/>
-                            <constraint firstItem="TQC-Sh-LMG" firstAttribute="leading" secondItem="pyP-OV-AqR" secondAttribute="leadingMargin" constant="-20" id="pjR-65-NI6"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="스타일폭스" id="o1u-6q-Zgl"/>
-                    <connections>
-                        <outlet property="myContainer" destination="TQC-Sh-LMG" id="gEm-cb-rqD"/>
-                        <outlet property="searchBar" destination="jEo-am-uhH" id="98c-dI-7D3"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="T78-iY-gDP" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1289.5" y="1992.5"/>
-        </scene>
-        <!--스타일폭스-->
         <scene sceneID="mBl-F7-v9m">
             <objects>
                 <viewController id="wx6-G3-pVh" customClass="MoreViewController" customModule="prototype" customModuleProvider="target" sceneMemberID="viewController">
@@ -443,10 +395,10 @@
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="sectionCell" id="SDj-fx-EvZ">
-                                        <rect key="frame" x="0.0" y="49.5" width="375" height="55"/>
+                                        <rect key="frame" x="0.0" y="50" width="375" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SDj-fx-EvZ" id="vi3-3f-BzU">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="54.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -577,52 +529,62 @@
             <point key="canvasLocation" x="696.5" y="1202.5"/>
         </scene>
         <!--검색-->
-        <scene sceneID="Zik-xU-Lcj">
+        <scene sceneID="VgJ-G5-Gyh">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GWd-1o-z4t" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="검색" image="search" id="lZH-br-s1J"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="8s4-W0-2ns">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="1" green="0.20000000000000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="5Z2-sc-ORm" kind="relationship" relationship="rootViewController" id="S0m-nz-WoW"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yRf-Bh-GIJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="696.5" y="1992.5"/>
-        </scene>
-        <!--스타일폭스-->
-        <scene sceneID="pUf-US-gy9">
-            <objects>
-                <collectionViewController storyboardIdentifier="myContainer" modalPresentationStyle="currentContext" id="3hc-qi-Xb4" customClass="SearchContainerViewController" customModule="prototype" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="GN4-7B-Clp">
-                        <rect key="frame" x="0.0" y="0.0" width="383" height="510"/>
+                <viewController storyboardIdentifier="searchCollectionVC" id="IjL-g0-dO2" customClass="SearchContainerViewController" customModule="prototype" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0U0-l0-Wed"/>
+                        <viewControllerLayoutGuide type="bottom" id="16L-tL-sk6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jtt-zy-G4k">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.93000000000000005" alpha="1" colorSpace="calibratedWhite"/>
-                        <gestureRecognizers/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bew-m0-yFh">
-                            <size key="itemSize" width="50" height="50"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                        <cells/>
-                        <connections>
-                            <outlet property="dataSource" destination="3hc-qi-Xb4" id="YYT-u5-kpg"/>
-                            <outlet property="delegate" destination="3hc-qi-Xb4" id="tk0-f9-9q2"/>
-                        </connections>
-                    </collectionView>
-                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <navigationItem key="navigationItem" title="스타일폭스" id="ohS-7W-Bgc"/>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7IU-Qs-h5q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="qov-Qd-pV7">
+                                <rect key="frame" x="0.0" y="72" width="375" height="595"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3tw-VP-PGF">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="TYa-hJ-WPR">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="IjL-g0-dO2" id="vch-ux-wSg"/>
+                                    <outlet property="delegate" destination="IjL-g0-dO2" id="0Ke-Sg-McR"/>
+                                </connections>
+                            </collectionView>
+                            <searchBar contentMode="redraw" fixedFrame="YES" placeholder="상품명 입력" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VxP-nH-Ksc">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <color key="barTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="IjL-g0-dO2" id="H2W-93-bdE"/>
+                                </connections>
+                            </searchBar>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.20000000000000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="검색" image="search" id="Wcq-Sn-L9e"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="collectionView" destination="qov-Qd-pV7" id="3mb-ct-g2Q"/>
+                        <outlet property="searchBar" destination="VxP-nH-Ksc" id="w7p-XQ-HK8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y4i-k8-IyZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1848.5" y="1993"/>
+            <point key="canvasLocation" x="696.5" y="2072.5"/>
         </scene>
     </scenes>
     <resources>

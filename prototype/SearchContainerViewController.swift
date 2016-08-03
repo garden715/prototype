@@ -11,8 +11,10 @@ import FMDB
 
 private let PhotoCollectionViewCellIdentifier = "PhotoCell"
 
-class SearchContainerViewController: UICollectionViewController {
-    
+class SearchContainerViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate, UIGestureRecognizerDelegate, UISearchBarDelegate{
+
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var searchBar: UISearchBar!
     var baseUrl = ""
     var productTYPE = ""
     var productPATH = ""
@@ -21,16 +23,15 @@ class SearchContainerViewController: UICollectionViewController {
     let emptyText = UILabel()
     var pageNumber = 1
     
-    var searchText = ""
-
+    var searchText = "09"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.collectionView?.contentInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         
+        self.collectionView?.contentInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         registerCollectionViewCells()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -54,16 +55,16 @@ class SearchContainerViewController: UICollectionViewController {
     
     // MARK: - UICollectionViewDataSource
     
-    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
     
     
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return PhotosDataManager.sharedManager.allPhotos(2, str: searchText, pageNumber: 1).count
     }
     
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(PhotoCollectionViewCellIdentifier, forIndexPath: indexPath) as! PhotoCollectionViewCell
         cell.configure(glacierScenicAtIndex(indexPath))
         cell.layer.cornerRadius = 10
@@ -76,7 +77,7 @@ class SearchContainerViewController: UICollectionViewController {
         return photos[indexPath.row]
     }
     
-    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
         let uvc = self.storyboard!.instantiateViewControllerWithIdentifier("PageDetail") as! PageDetailViewController
         
@@ -94,7 +95,37 @@ class SearchContainerViewController: UICollectionViewController {
         
         self.presentViewController(uvc, animated: true, completion: {})
     }
-   
+    
+    func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+        if (indexPath.row == PhotosDataManager.sharedManager.allPhotos(2, str: searchText, pageNumber: pageNumber).count-1) {
+            pageNumber+=1
+            print("\t\(pageNumber)")
+            
+            PhotosDataManager.sharedManager.allPhotos(2, str: baseUrl, pageNumber: pageNumber)
+            
+            dispatch_async(dispatch_get_main_queue()) {
+                
+                collectionView.reloadData()
+            }
+        }
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        PhotosDataManager.sharedManager.destroycache()
+        searchText = searchBar.text!.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
+        print(searchText)
+        
+        PhotosDataManager.sharedManager.allPhotos(2, str: searchText, pageNumber: 1)
+        collectionView.reloadData()
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        searchBar.endEditing(true)
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchBar.endEditing(true)
+    }
 }
 
 

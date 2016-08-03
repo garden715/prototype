@@ -19,4 +19,3 @@ end
 target 'prototypeUITests' do
 
 end
-
