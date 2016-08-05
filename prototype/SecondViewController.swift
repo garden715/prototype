@@ -11,6 +11,15 @@ import FMDB
 
 private let PhotoCollectionViewCellIdentifier = "PhotoCell"
 
+
+enum flag {
+    case Default
+    case Modify
+}
+
+
+
+
 class SecondViewController: UICollectionViewController {
     
     //MARK: - View Controller Lifecycle
@@ -20,18 +29,39 @@ class SecondViewController: UICollectionViewController {
     var productList = [Product]()
     let emptyImage = UIImageView()
     let emptyText = UILabel()
+    var currenctFlag = flag.Default
     
+    
+    @IBOutlet weak var leftButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        collectionView?.allowsMultipleSelection = true
         self.collectionView?.contentInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+       
+        leftButton.setTitle("편집하기", forState: .Normal)
         
         addImageAndTextView()
         registerCollectionViewCells()
     }
     
-    // 찜상품 삭제 후 두번째 탭을 보았을 때 collection view 데이터를 reload
+    @IBAction func change(sender: AnyObject) {
+        print("?!dhdld")
+        if (currenctFlag == flag.Default){
+            currenctFlag = flag.Modify
+            leftButton.setTitle("편집완료하기", forState: .Normal)
+            
+        }
+        else{
+            currenctFlag = flag.Default
+            leftButton.setTitle("편집하기", forState: .Normal)
+            
+                print(collectionView?.indexPathsForSelectedItems())
+            
+        }
+
+    }
+        // 찜상품 삭제 후 두번째 탭을 보았을 때 collection view 데이터를 reload
     override func viewWillAppear(animated: Bool) {
         self.collectionView?.reloadData()
         if whetherFavoriteIsEmpty() {
@@ -74,6 +104,7 @@ class SecondViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(PhotoCollectionViewCellIdentifier, forIndexPath: indexPath) as! PhotoCollectionViewCell
         cell.configure(glacierScenicAtIndex(indexPath))
         cell.layer.cornerRadius = 10
+        
         return cell
     }
     
@@ -84,7 +115,7 @@ class SecondViewController: UICollectionViewController {
     }
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        
+        if(currenctFlag == flag.Default){
         let uvc = self.storyboard!.instantiateViewControllerWithIdentifier("PageDetail") as! PageDetailViewController
         
         uvc.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
@@ -100,7 +131,27 @@ class SecondViewController: UICollectionViewController {
         uvc.selectedItem = photo
         
         self.presentViewController(uvc, animated: true, completion: {})
+        }
+        else {
+        var cell = collectionView.cellForItemAtIndexPath(indexPath) as! PhotoCollectionViewCell
+        var tempimage = cell.imageView.image
+        
+                cell.imageView.alpha = 0.5
+         
+        }
     }
+
+    
+    
+    override func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
+        var cell = collectionView.cellForItemAtIndexPath(indexPath) as! PhotoCollectionViewCell
+        
+        
+        cell.imageView.alpha = 1
+        
+
+    }
+    
     
     func whetherFavoriteIsEmpty() -> Bool{
         if PhotosDataManager.sharedManager.allPhotos(3, str: "favoriteItems", pageNumber: 0).count == 0 {
