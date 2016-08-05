@@ -84,8 +84,6 @@ class PhotosDataManager {
         }
     }
     
-    
-    
     func dataPath() -> String {
         return NSBundle.mainBundle().pathForResource("GlacierScenics", ofType: "plist")!
     }

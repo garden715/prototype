@@ -114,6 +114,27 @@ class DatabaseManager {
         return returnData
     }
     
+    static func removeSeletedItems(product: GlacierScenic) {
+        let contactDB = FMDatabase(path: databasePath as String)
+        if contactDB.open() {
+            
+            let deleteSQL = "DELETE FROM FAVORITE WHERE BASEURL = '\(product.baseUrl)' and ID = \(product.product_id)"
+            
+            let deleteResults = contactDB.executeUpdate(deleteSQL, withArgumentsInArray: nil)
+            
+            if !deleteResults {
+                print("[4] Error : \(contactDB.lastErrorMessage())")
+                
+            } else {
+                // DB 저장 완료
+                print("[4] Success")
+            }
+            
+            
+        } else {
+            print("[5] Error : \(contactDB.lastErrorMessage())")
+        }
+    }
     
     static func findContact() -> [GlacierScenic]  {
         var favoriteItems = [GlacierScenic]()

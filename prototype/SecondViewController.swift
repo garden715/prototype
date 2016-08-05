@@ -38,7 +38,7 @@ class SecondViewController: UICollectionViewController {
         super.viewDidLoad()
         collectionView?.allowsMultipleSelection = true
         self.collectionView?.contentInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-       
+        
         leftButton.setTitle("편집하기", forState: .Normal)
         
         addImageAndTextView()
@@ -46,22 +46,28 @@ class SecondViewController: UICollectionViewController {
     }
     
     @IBAction func change(sender: AnyObject) {
-        print("?!dhdld")
         if (currenctFlag == flag.Default){
             currenctFlag = flag.Modify
             leftButton.setTitle("편집완료하기", forState: .Normal)
-            
         }
         else{
             currenctFlag = flag.Default
             leftButton.setTitle("편집하기", forState: .Normal)
-            
-                print(collectionView?.indexPathsForSelectedItems())
-            
+    
+            for item in (collectionView?.indexPathsForSelectedItems())! {
+                var cell = collectionView?.cellForItemAtIndexPath(item) as! PhotoCollectionViewCell
+                cell.imageView.alpha = 1
+                DatabaseManager.removeSeletedItems(cell.glacierScenic)
+            }
+            collectionView?.reloadData()
+            if DatabaseManager.findContact().count == 0 {
+                emptyText.hidden = false
+                emptyImage.hidden = false
+            }
         }
-
+        
     }
-        // 찜상품 삭제 후 두번째 탭을 보았을 때 collection view 데이터를 reload
+    // 찜상품 삭제 후 두번째 탭을 보았을 때 collection view 데이터를 reload
     override func viewWillAppear(animated: Bool) {
         self.collectionView?.reloadData()
         if whetherFavoriteIsEmpty() {
@@ -116,40 +122,33 @@ class SecondViewController: UICollectionViewController {
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         if(currenctFlag == flag.Default){
-        let uvc = self.storyboard!.instantiateViewControllerWithIdentifier("PageDetail") as! PageDetailViewController
-        
-        uvc.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
-        
-        let photo = PhotosDataManager.sharedManager.allPhotos(3, str: "favoriteItems", pageNumber: 0)[indexPath.row]
-        print("세컨뷰:\(photo.baseUrl)")
-        let pageInform = DatabaseManager.findbaseUrl(photo)
-        
-        uvc.baseUrl = pageInform.baseUrl
-        uvc.productTYPE = pageInform.proType
-        uvc.productPATH = pageInform.proPath
-        
-        uvc.selectedItem = photo
-        
-        self.presentViewController(uvc, animated: true, completion: {})
+            let uvc = self.storyboard!.instantiateViewControllerWithIdentifier("PageDetail") as! PageDetailViewController
+            
+            uvc.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
+            
+            let photo = PhotosDataManager.sharedManager.allPhotos(3, str: "favoriteItems", pageNumber: 0)[indexPath.row]
+            print("세컨뷰:\(photo.baseUrl)")
+            let pageInform = DatabaseManager.findbaseUrl(photo)
+            
+            uvc.baseUrl = pageInform.baseUrl
+            uvc.productTYPE = pageInform.proType
+            uvc.productPATH = pageInform.proPath
+            
+            uvc.selectedItem = photo
+            
+            self.presentViewController(uvc, animated: true, completion: {})
         }
         else {
-        var cell = collectionView.cellForItemAtIndexPath(indexPath) as! PhotoCollectionViewCell
-        var tempimage = cell.imageView.image
-        
-                cell.imageView.alpha = 0.5
-         
+            var cell = collectionView.cellForItemAtIndexPath(indexPath) as! PhotoCollectionViewCell
+            cell.imageView.alpha = 0.5
         }
     }
-
+    
     
     
     override func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
         var cell = collectionView.cellForItemAtIndexPath(indexPath) as! PhotoCollectionViewCell
-        
-        
         cell.imageView.alpha = 1
-        
-
     }
     
     
