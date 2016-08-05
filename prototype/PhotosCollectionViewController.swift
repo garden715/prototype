@@ -12,7 +12,7 @@ import JLToast
 private let PhotoCollectionViewCellIdentifier = "PhotoCell"
 
 class PhotosCollectionViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate, UIGestureRecognizerDelegate {
-
+    
     @IBOutlet weak var navBarButton: UIButton!
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -25,6 +25,7 @@ class PhotosCollectionViewController: UIViewController,UICollectionViewDataSourc
     let emptyImage = UIImageView()
     let emptyText = UILabel()
     var pageNumber = 1
+    var currentItemsCount = 0
     
     override func viewDidLoad() {
         
@@ -81,22 +82,23 @@ class PhotosCollectionViewController: UIViewController,UICollectionViewDataSourc
     //MARK: - Collection View Setup
     
     func registerCollectionViewCells() {
+        
         collectionView?.registerNib(UINib(nibName: "PhotoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: PhotoCollectionViewCellIdentifier)
     }
     
     // MARK: - UICollectionViewDataSource
     
-     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
     
     
-     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         return PhotosDataManager.sharedManager.allPhotos(1, str: baseUrl, pageNumber: pageNumber).count
     }
     
-     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(PhotoCollectionViewCellIdentifier, forIndexPath: indexPath) as! PhotoCollectionViewCell
         cell.configure(glacierScenicAtIndex(indexPath))
         cell.layer.cornerRadius = 10
@@ -109,7 +111,7 @@ class PhotosCollectionViewController: UIViewController,UICollectionViewDataSourc
         return photos[indexPath.row]
     }
     
-     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
         let uvc = self.storyboard!.instantiateViewControllerWithIdentifier("PageDetail") as! PageDetailViewController
         
@@ -120,7 +122,7 @@ class PhotosCollectionViewController: UIViewController,UICollectionViewDataSourc
         uvc.productTYPE = productTYPE
         uvc.productPATH = productPATH
         self.presentViewController(uvc, animated: true, completion: {})
-
+        
     }
     
     func addLongPressGesture(){
@@ -182,7 +184,7 @@ class PhotosCollectionViewController: UIViewController,UICollectionViewDataSourc
         myFirstButton.layer.cornerRadius = myFirstButton_width/2
         
         view.addSubview(myFirstButton)
-
+        
     }
     
     func addImageAndTextView(){
@@ -193,8 +195,8 @@ class PhotosCollectionViewController: UIViewController,UICollectionViewDataSourc
         emptyText.textAlignment = NSTextAlignment.Center
         emptyText.textColor = UIColor.darkGrayColor()
         emptyText.translatesAutoresizingMaskIntoConstraints = false
-        emptyText.numberOfLines = 2 
-
+        emptyText.numberOfLines = 2
+        
         
         view.addSubview(emptyImage)
         view.addSubview(emptyText)
@@ -226,15 +228,15 @@ class PhotosCollectionViewController: UIViewController,UICollectionViewDataSourc
     }
     
     func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
-        if (indexPath.row == PhotosDataManager.sharedManager.allPhotos(1, str: baseUrl, pageNumber: pageNumber).count-1) {
+        if (indexPath.row == PhotosDataManager.sharedManager.allPhotos(1, str: baseUrl, pageNumber: pageNumber).count-1) &&  (currentItemsCount != PhotosDataManager.sharedManager.allPhotos(1, str: baseUrl, pageNumber: pageNumber).count) {
+            currentItemsCount = PhotosDataManager.sharedManager.allPhotos(1, str: baseUrl, pageNumber: pageNumber).count
             pageNumber+=1
             print("\t\(pageNumber)")
             
-            PhotosDataManager.sharedManager.allPhotos(1, str: baseUrl, pageNumber: pageNumber)
+            
             
             dispatch_async(dispatch_get_main_queue()) {
-                
-                collectionView.reloadData()
+            collectionView.reloadData()
             }
         }
     }
