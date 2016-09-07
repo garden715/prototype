@@ -17,7 +17,7 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     // MARK : Properties
     var shoppinMalls = [Site]()
     
-    var sitelistCallUrl:String = "http://52.38.132.199:3000/title"
+    var sitelistCallUrl:String = "http://52.36.117.149:3000/title"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,8 +84,6 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         let uvc = self.storyboard!.instantiateViewControllerWithIdentifier("PhotoscollectionVC") as! PhotosCollectionViewController
         
         uvc.modalTransitionStyle = .CoverVertical
-        
-        
         
         uvc.baseUrl = shoppingMall.url
         uvc.productPATH = shoppingMall.productPATH

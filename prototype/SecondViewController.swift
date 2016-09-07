@@ -31,15 +31,17 @@ class SecondViewController: UICollectionViewController {
     let emptyText = UILabel()
     var currenctFlag = flag.Default
     
-    
     @IBOutlet weak var leftButton: UIButton!
+    var rightButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView?.allowsMultipleSelection = true
         self.collectionView?.contentInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         
-        leftButton.setTitle("편집하기", forState: .Normal)
+        rightButton = UIBarButtonItem.init(title: "삭제", style: .Plain, target: self, action: #selector(removeAll))
+        leftButton.setTitle("편집", forState: .Normal)
+        
         
         addImageAndTextView()
         registerCollectionViewCells()
@@ -48,22 +50,14 @@ class SecondViewController: UICollectionViewController {
     @IBAction func change(sender: AnyObject) {
         if (currenctFlag == flag.Default){
             currenctFlag = flag.Modify
-            leftButton.setTitle("편집완료하기", forState: .Normal)
+            leftButton.setTitle("완료", forState: .Normal)
+            self.navigationItem.rightBarButtonItem = rightButton
+            
         }
         else{
             currenctFlag = flag.Default
-            leftButton.setTitle("편집하기", forState: .Normal)
-    
-            for item in (collectionView?.indexPathsForSelectedItems())! {
-                var cell = collectionView?.cellForItemAtIndexPath(item) as! PhotoCollectionViewCell
-                cell.imageView.alpha = 1
-                DatabaseManager.removeSeletedItems(cell.glacierScenic)
-            }
-            collectionView?.reloadData()
-            if DatabaseManager.findContact().count == 0 {
-                emptyText.hidden = false
-                emptyImage.hidden = false
-            }
+            self.navigationItem.rightBarButtonItem = nil
+            leftButton.setTitle("편집", forState: .Normal)
         }
         
     }
@@ -110,6 +104,9 @@ class SecondViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(PhotoCollectionViewCellIdentifier, forIndexPath: indexPath) as! PhotoCollectionViewCell
         cell.configure(glacierScenicAtIndex(indexPath))
         cell.layer.cornerRadius = 10
+        let backgroundSelectionView = UIView()
+        backgroundSelectionView.backgroundColor = UIColor.redColor().colorWithAlphaComponent(0.1)
+        cell.selectedBackgroundView = backgroundSelectionView
         
         return cell
     }
@@ -198,30 +195,40 @@ class SecondViewController: UICollectionViewController {
         
     }
     
-    @IBAction func removeAll(sender: AnyObject) {
-        if PhotosDataManager.sharedManager.allPhotos(3, str: "favoriteItems", pageNumber: 0).count == 0 {
-            let controller = UIAlertController(title: "알림", message: "찜한 상품이 없습니다.", preferredStyle: .Alert)
-            let confirmAction = UIAlertAction(title: "확인", style: .Cancel, handler: {(_) in})
-            controller.addAction(confirmAction)
-            self.presentViewController(controller, animated: true, completion: {(_) in})
+    func removeAll(sender: AnyObject) {
+        //        if PhotosDataManager.sharedManager.allPhotos(3, str: "favoriteItems", pageNumber: 0).count == 0 {
+        //            let controller = UIAlertController(title: "알림", message: "찜한 상품이 없습니다.", preferredStyle: .Alert)
+        //            let confirmAction = UIAlertAction(title: "확인", style: .Cancel, handler: {(_) in})
+        //            controller.addAction(confirmAction)
+        //            self.presentViewController(controller, animated: true, completion: {(_) in})
+        //        }
+        //
+        //        else {
+        //            let alert = UIAlertController(title: "전체삭제", message: "찜상품을 모두 삭제하시겠습니까?", preferredStyle: UIAlertControllerStyle.ActionSheet)
+        //
+        //            let cancelAction = UIAlertAction(title: "취소", style: UIAlertActionStyle.Cancel, handler: {(_) in } )
+        //            let deleteAction = UIAlertAction(title: "삭제", style: UIAlertActionStyle.Destructive, handler: {(_) in
+        //                DatabaseManager.removeAll()
+        //                self.collectionView?.reloadData()
+        //                self.emptyText.hidden = false
+        //                self.emptyImage.hidden = false
+        //                }
+        //            )
+        //
+        //            alert.addAction(cancelAction)
+        //            alert.addAction(deleteAction)
+        //
+        //            self.presentViewController(alert, animated: true, completion: {(_) in })
+        //        }
+        for item in (collectionView?.indexPathsForSelectedItems())! {
+            var cell = collectionView?.cellForItemAtIndexPath(item) as! PhotoCollectionViewCell
+            cell.imageView.alpha = 1
+            DatabaseManager.removeSeletedItems(cell.glacierScenic)
         }
-            
-        else {
-            let alert = UIAlertController(title: "전체삭제", message: "찜상품을 모두 삭제하시겠습니까?", preferredStyle: UIAlertControllerStyle.ActionSheet)
-            
-            let cancelAction = UIAlertAction(title: "취소", style: UIAlertActionStyle.Cancel, handler: {(_) in } )
-            let deleteAction = UIAlertAction(title: "삭제", style: UIAlertActionStyle.Destructive, handler: {(_) in
-                DatabaseManager.removeAll()
-                self.collectionView?.reloadData()
-                self.emptyText.hidden = false
-                self.emptyImage.hidden = false
-                }
-            )
-            
-            alert.addAction(cancelAction)
-            alert.addAction(deleteAction)
-            
-            self.presentViewController(alert, animated: true, completion: {(_) in })
+        collectionView?.reloadData()
+        if DatabaseManager.findContact().count == 0 {
+            emptyText.hidden = false
+            emptyImage.hidden = false
         }
     }
     

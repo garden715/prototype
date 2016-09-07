@@ -23,7 +23,7 @@ class cSiteView: UICollectionViewController {
         
         
         print("serialization start")
-        let url = "http://52.38.132.199:3000/imgurl/\(siteurl)" //리뷰를 불러오는 명령
+        let url = "http://52.36.117.149:3000/imgurl/\(siteurl)" //리뷰를 불러오는 명령
         let nsurl = NSURL(string: url)
         let data = NSData(contentsOfURL: nsurl!)
         
