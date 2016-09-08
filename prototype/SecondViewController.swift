@@ -39,7 +39,7 @@ class SecondViewController: UICollectionViewController {
         collectionView?.allowsMultipleSelection = true
         self.collectionView?.contentInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         
-        completeButton = UIBarButtonItem.init(title: "삭제", style: .Plain, target: self, action: #selector(removeAll))
+        completeButton = UIBarButtonItem.init(title: "삭제", style: .Plain, target: self, action: #selector(alertDeletion))
         editButton.setTitle("편집", forState: .Normal)
         
         
@@ -156,7 +156,7 @@ class SecondViewController: UICollectionViewController {
         return false
     }
     
-    func addImageAndTextView(){
+    func addImageAndTextView() {
         emptyImage.image = UIImage(named: "emptyBox")
         emptyImage.translatesAutoresizingMaskIntoConstraints = false
         emptyText.text = "찜상품이 없습니다.\n하트 버튼을 눌러 추가해 주세요."
@@ -195,7 +195,24 @@ class SecondViewController: UICollectionViewController {
         
     }
     
-    func removeAll(sender: AnyObject) {
+    func alertDeletion() {
+        if ((collectionView?.indexPathsForSelectedItems()?.count) != 0) {
+            let alert = UIAlertController(title: "전체삭제", message: "찜상품을 모두 삭제하시겠습니까?", preferredStyle: UIAlertControllerStyle.ActionSheet)
+            
+            let cancelAction = UIAlertAction(title: "취소", style: UIAlertActionStyle.Cancel, handler: {(_) in } )
+            let deleteAction = UIAlertAction(title: "삭제", style: UIAlertActionStyle.Destructive, handler: {(_) in
+                self.removeAll()
+                }
+            )
+            
+            alert.addAction(cancelAction)
+            alert.addAction(deleteAction)
+            
+            self.presentViewController(alert, animated: true, completion: {(_) in })
+        }
+    }
+    
+    func removeAll() {
         //        if PhotosDataManager.sharedManager.allPhotos(3, str: "favoriteItems", pageNumber: 0).count == 0 {
         //            let controller = UIAlertController(title: "알림", message: "찜한 상품이 없습니다.", preferredStyle: .Alert)
         //            let confirmAction = UIAlertAction(title: "확인", style: .Cancel, handler: {(_) in})
@@ -221,6 +238,7 @@ class SecondViewController: UICollectionViewController {
         //            self.presentViewController(alert, animated: true, completion: {(_) in })
         //        }
         for item in (collectionView?.indexPathsForSelectedItems())! {
+            
             var cell = collectionView?.cellForItemAtIndexPath(item) as! PhotoCollectionViewCell
             cell.imageView.alpha = 1
             DatabaseManager.removeSeletedItems(cell.glacierScenic)
