@@ -31,16 +31,16 @@ class SecondViewController: UICollectionViewController {
     let emptyText = UILabel()
     var currenctFlag = flag.Default
     
-    @IBOutlet weak var leftButton: UIButton!
-    var rightButton: UIBarButtonItem!
+    @IBOutlet weak var editButton: UIButton!
+    var completeButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView?.allowsMultipleSelection = true
         self.collectionView?.contentInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         
-        rightButton = UIBarButtonItem.init(title: "삭제", style: .Plain, target: self, action: #selector(removeAll))
-        leftButton.setTitle("편집", forState: .Normal)
+        completeButton = UIBarButtonItem.init(title: "삭제", style: .Plain, target: self, action: #selector(removeAll))
+        editButton.setTitle("편집", forState: .Normal)
         
         
         addImageAndTextView()
@@ -50,14 +50,14 @@ class SecondViewController: UICollectionViewController {
     @IBAction func change(sender: AnyObject) {
         if (currenctFlag == flag.Default){
             currenctFlag = flag.Modify
-            leftButton.setTitle("완료", forState: .Normal)
-            self.navigationItem.rightBarButtonItem = rightButton
+            editButton.setTitle("완료", forState: .Normal)
+            self.navigationItem.leftBarButtonItem = completeButton
             
         }
         else{
             currenctFlag = flag.Default
-            self.navigationItem.rightBarButtonItem = nil
-            leftButton.setTitle("편집", forState: .Normal)
+            self.navigationItem.leftBarButtonItem = nil
+            editButton.setTitle("편집", forState: .Normal)
         }
         
     }
